@@ -1,0 +1,9 @@
+$themeLogoColor: #00c6fe;
+$themeDarkGrayColor: #808080;
+$themeLightGrayColor: #e5e5e5;
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
