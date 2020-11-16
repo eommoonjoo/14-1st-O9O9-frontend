@@ -70,28 +70,28 @@ class NavSide extends Component {
         </div>
         <div className={`categorySide ${isCategoryToggled ? 'toggled': ''}`}>
           <div className="categoryItem">
-            <span>해외직구</span>
+            <Link><span>해외직구</span></Link>
           </div>
           <div className="categoryItem">
-            <span>맛있는지구</span>
+            <Link><span>맛있는지구</span></Link>
           </div>
           <div className="categoryItem">
-            <span>식품</span>
+            <Link><span>식품</span></Link>
           </div>
           <div className="categoryItem">
-            <span>뷰티</span>
+            <Link><span>뷰티</span></Link>
           </div>
           <div className="categoryItem">
-            <span>백화점 몰</span>
+            <Link><span>백화점 몰</span></Link>
           </div>
           <div className="categoryItem">
-            <span>홈스타일링</span>
+            <Link><span>홈스타일링</span></Link>
           </div>
           <div className="categoryItem">
-            <span>주방 생필품</span>
+            <Link><span>주방 생필품</span></Link>
           </div>
           <div className="categoryItem">
-            <span>가구 리빙 반려</span>
+            <Link><span>가구 리빙 반려</span></Link>
           </div>
         </div>
       </aside>

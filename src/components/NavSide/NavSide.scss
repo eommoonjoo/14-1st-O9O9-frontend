@@ -111,14 +111,18 @@
     .categoryItem {
       padding: 8px 0;
 
-      span {
-        font-weight: normal;
-        font-size: 0.9em;
-        color: #222222;
+      a {
+        text-decoration: none;
 
-        &:hover {
-          cursor: pointer;
-          border-bottom: 1px solid #222222;
+        span {
+          font-weight: normal;
+          font-size: 0.9em;
+          color: #222222;
+
+          &:hover {
+            cursor: pointer;
+            border-bottom: 1px solid #222222;
+          }
         }
       }
     }
