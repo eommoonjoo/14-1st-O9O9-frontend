@@ -11,6 +11,7 @@
 
   .categories {
     position: relative;
+    height: 100vh;
     padding-top: 174px;
     padding-bottom: 160px;
     background-color: white;
@@ -35,6 +36,8 @@
       .categoryItem {
         display: flex;
         align-items: center;
+        font-size: 0.9em;
+
         span {
           padding-bottom: 1px;
 
@@ -72,6 +75,7 @@
           display: block;
           padding-bottom: 2px;
           text-decoration: none;
+          font-size: 0.9em;
           color: black;
         }
 
@@ -116,7 +120,7 @@
 
         span {
           font-weight: normal;
-          font-size: 0.9em;
+          font-size: 0.8em;
           color: #222222;
 
           &:hover {

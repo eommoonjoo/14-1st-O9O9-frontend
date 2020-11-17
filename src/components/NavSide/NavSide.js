@@ -2,16 +2,20 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import './NavSide.scss'
 
+const MAINCATEGORIES = ['핫딜', '랭킹', '더-나은', '직구연말결산', '맛지구','집콕!장보기','백화점','뷰티샵','홈앤펫','명품관','뭐하지?']; // 고정 카테고리
+
 class NavSide extends Component {
   constructor(){
     super();
     this.state={
       isCategoryToggled: false,
+      categories: [],
     }
   }
 
   componentDidMount(){
-    //나중에 백엔드에서 카테고리 리스트들 받아와서 CategorySide에 넘김
+    //나중에 백엔드에서 카테고리 리스트들 받아올것임
+    this.setState({categories: ['해외직구', '맛있는지구', '식품', '뷰티', '백화점 몰', '홈스타일링', '주방 생필품', '가구 리빙 반려', '가전', '컴퓨터 디지털', '패션의류', '신발 가방 주얼리', '건강 자동차공구', '출산 유아동', '레저 아웃도어']});
   }
 
   toggleCategory = () => {
@@ -19,7 +23,7 @@ class NavSide extends Component {
   }
 
   render() {
-    const {isCategoryToggled} = this.state;
+    const {isCategoryToggled, categories} = this.state;
     return (
       <aside className="NavSide">
         <div className="categories">
@@ -33,66 +37,18 @@ class NavSide extends Component {
             </div>
           </div>
           <div className="categoryBottom">
-            <div className="categoryItem">
-              <Link><span>핫딜</span></Link>
-            </div>
-            <div className="categoryItem">
-              <Link><span>랭킹</span></Link>
-            </div>
-            <div className="categoryItem">
-              <Link><span>더-나은</span></Link>
-            </div>
-            <div className="categoryItem">
-              <Link><span>직구연말결산</span></Link>
-            </div>
-            <div className="categoryItem">
-              <Link><span>맛지구</span></Link>
-            </div>
-            <div className="categoryItem">
-              <Link><span>집콕!장보기</span></Link>
-            </div>
-            <div className="categoryItem">
-              <Link><span>백화점</span></Link>
-            </div>
-            <div className="categoryItem">
-              <Link><span>뷰티샵</span></Link>
-            </div>
-            <div className="categoryItem">
-              <Link><span>홈앤펫</span></Link>
-            </div>
-            <div className="categoryItem">
-              <Link><span>명품관</span></Link>
-            </div>
-            <div className="categoryItem">
-              <Link><span>뭐하지?</span></Link>
-            </div>
+            {MAINCATEGORIES.map((item) => (
+              <div className="categoryItem">
+                <Link><span>{item}</span></Link>
+              </div>
+            ))}
           </div>
         </div>
         <div className={`categorySide ${isCategoryToggled ? 'toggled': ''}`}>
-          <div className="categoryItem">
-            <Link><span>해외직구</span></Link>
-          </div>
-          <div className="categoryItem">
-            <Link><span>맛있는지구</span></Link>
-          </div>
-          <div className="categoryItem">
-            <Link><span>식품</span></Link>
-          </div>
-          <div className="categoryItem">
-            <Link><span>뷰티</span></Link>
-          </div>
-          <div className="categoryItem">
-            <Link><span>백화점 몰</span></Link>
-          </div>
-          <div className="categoryItem">
-            <Link><span>홈스타일링</span></Link>
-          </div>
-          <div className="categoryItem">
-            <Link><span>주방 생필품</span></Link>
-          </div>
-          <div className="categoryItem">
-            <Link><span>가구 리빙 반려</span></Link>
-          </div>
+          {categories.map((item) => 
+            (<div className="categoryItem">
+              <Link><span>{item}</span></Link>
+            </div>))}
         </div>
       </aside>
     );
