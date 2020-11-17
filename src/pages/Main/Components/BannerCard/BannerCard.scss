@@ -1,0 +1,36 @@
+@import "../../../../styles/common.scss";
+
+.BannerCard {
+  // width: 360px;
+
+  .imageContainer {
+    height: 225px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      transform: scale(1);
+      transition: transform 400ms ease-in-out;
+      &:hover {
+        transform: scale(1.1);
+        transition: transform 400ms ease-in-out;
+      }
+    }
+  }
+  .bannerText {
+    padding: 20px 0;
+
+    .bannerTitle {
+      font-size: 18px;
+      p {
+        padding-bottom: 10px;
+      }
+    }
+    .bannerContext {
+      font-size: 13px;
+      color: $themeDarkGrayColor;
+      p {
+        padding-bottom: 8px;
+      }
+    }
+  }
+}
