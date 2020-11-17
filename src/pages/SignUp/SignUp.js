@@ -4,52 +4,99 @@ import './SignUp.scss';
 class SignUp extends Component {
     render() {
         return (
-            <div>
-                 <div className="loginContainer">
-            <div class="logo">
-                <img class='logoImage' src='./images/logo.png' />
-            </div>  
-            <div className="messageBox">
-                <img className="gmarketLogo" src="https://pics.gmarket.co.kr/pc/single/kr/common/image__logo.png" alt="gmarketLogo" />
-                <span class='gmarketMessage'>아이디로 이용이 가능합니다.</span>
-            </div>
-            <form>
-                <div className = 'inputBox'>
-                    <input className="inputId" placeholder="아이디" />
-                    <input className="inputPw" placeholder="비밀번호" />
-                </div>
-                <div class='saveId'>
-                    <input type="checkbox" id="cb1" />
-                    <label for="cb1" />
-                    <div className="rememberId">아이디 기억하기</div>
-                </div>
-                <div className='loginWrap'> 
-                    <button className="loginButton">로그인</button>
-                    <button className="kakaoLoginButton">
-                        <img className='kakaoImg' src='./images/kakao.png' />
-                        카카오 로그인
-                    </button>
-                </div>
-                <div className = "linkGroup">
-                    <span className="signUp">회원가입</span>
-                    <span className="gap">|</span>
-                    <span className="findId">아이디 찾기</span>
-                    <span className="gap">|</span>
-                    <span className="findPw">비밀번호 찾기</span>
-                </div>
-                <div className="nonMember">
-                    <div className="nonMemberOrder">비회원 주문 조회</div>
-                    <input type='text' className='orderName' placeholder="주문자 이름" />
-                    <input type='text' className='phoneNumber' placeholder="휴대폰 번호" />
-                    <input type='text' className='orderPw' placeholder="주문 비밀번호" />
-                    <div className="orderMessageBox">
-                    주문 시 입력한 주문자 명과 휴대폰 번호, 주문 비밀번호를 정확히 입력해주세요.
+            <>
+                <div className='joinContent'>
+                    <div className='logo'>
+                        <img className='o9Logo' src='./images/logo_transparent.png'/>
                     </div>
-                    <button className="nonMemberOrderHistory">비회원 주문내역 조회</button>
+                    <div className='joinText'>잠깐 G마켓 회원이신가요?</div>
+                    <div className='joinTextBox'>
+                        <span className='joinText'>G9는 </span>
+                        <img className = 'gmarketImage' src='./images/gmarket.png' />
+                        <span className='joinText'>아이디로 이용이 가능합니다. </span>
+                        <span className='login'>로그인하기 ></span>
+                    </div>
+                
+                    <form className='idAndPw'>
+                        {/* <div className='joinInfo'>
+                            <input className='id' placeholder='아이디' />
+                            <input className='pw' placeholder='비밀번호'></input>
+                            <input className='pwAgain' placeholder='비밀번호 확인'></input>
+                        </div> */}
+                        <div className='idSection'>
+                            <input className='idInput' placeholder='아이디'/>
+                            <button className='checkDuplication'>중복확인</button>
+                        </div>
+                        <div className='pwSection'>
+                            <input className='pwInput' placeholder='비밀번호'/>
+                        </div>
+                        <div className='pwAgainSection'>
+                            <input className='pwInput' placeholder='비밀번호 확인'/>
+                        </div>
+                        <div className='userInfo'>
+                            <input className='nameInput' placeholder='이름'></input>
+                            <input className='phoneNumberInput' placeholder='휴대폰 번호'></input>
+                            <input className='emailInput' placeholder='이메일'></input>
+                            <div className='infoText'> ※ 만 14세 이상 고객만 가입이 가능합니다.</div>
+                        </div>
+                    </form>
+                    
+                    <div className='checkBox'>
+                        <div className='agreement'>
+                            <input type="checkbox" id="cb1" />
+                            <label for="cb1" />
+                            <div className='agreementAll'>전체동의</div>
+                        </div>
+                        <div className='agreementList'>
+                            <div className='checkAll'>
+                                <input type="checkbox" id="cb1" />
+                                <label for="cb1" />
+                                <div className='agreementAll'>필수항목 전체동의</div>
+                            </div>
+                            <div className='check'>
+                                <input type="checkbox" id="cb1" />
+                                <label for="cb1" />
+                                <div className='agreementAll'>G9 구매회원 약관</div>
+                            </div>
+                            <div className='check'>
+                                <input type="checkbox" id="cb1" />
+                                <label for="cb1" />
+                                <div className='agreementAll'>G마켓 구매회원 약관</div>
+                            </div>
+                            <div className='check'>
+                                <input type="checkbox" id="cb1" />
+                                <label for="cb1" />
+                                <div className='agreementAll'>개인정보 수집 및 이용</div>
+                            </div>
+                            <div className='line'></div>
+                        </div>
+                        <div className='optionalAgreementList'>
+                            <div className='checkAll'>
+                                <input type="checkbox" id="cb1" />
+                                <label for="cb1" />
+                                <div className='agreementAll'>선택항목 전체동의</div>
+                            </div>
+                            <div className='check'>
+                                <input type="checkbox" id="cb1" />
+                                <label for="cb1" />
+                                <div className='agreementAll'>개인정보의 제3자 제공</div>
+                            </div>
+                            <div className='check'>
+                                <input type="checkbox" id="cb1" />
+                                <label for="cb1" />
+                                <div className='agreementAll'>개인정보 수집 및 이용</div>
+                            </div>
+                            <div className='check'>
+                                <input type="checkbox" id="cb1" />
+                                <label for="cb1" />
+                                <div className='agreementAll'>쇼핑 이메일 수신</div>
+                            </div>
+                            <div className='marketingInfo'>상품구매 관련 내용은 수신동의 여부와 관계없이 발송됩니다.</div>
+                        </div>
+                        <button className='signUpButton'>동의하고 회원가입</button>
+                    </div>
                 </div>
-            </form>
-
-            </div>
+            </>
         );
     }
 }

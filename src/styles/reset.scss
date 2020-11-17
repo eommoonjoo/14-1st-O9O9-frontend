@@ -116,7 +116,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -127,4 +127,7 @@ html,
 body,
 #root {
   height: 100%;
+}
+input {
+  border-style: none;
 }
