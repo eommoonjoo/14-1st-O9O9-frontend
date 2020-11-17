@@ -1,0 +1,123 @@
+@import '../../styles/common.scss';
+
+.Footer {
+  height: 513px;
+  width: 100%;
+  padding-left: 142px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border: 1px solid lightgrey;
+  .footerContainer {
+    padding: 30px 60px 30px 40px;
+    // border: 1px solid darkblue;
+    display: flex;
+    justify-content: space-between;
+    .FooterMenu {
+      // border: 1px solid darkcyan;
+      li {
+        margin: 27px 0px;
+        font-size: 14px;
+        a {
+          text-decoration: none;
+          list-style: none;
+          color: black;
+          &:active {
+            text-decoration: none;
+            color: inherit;
+          }
+        }
+      }
+    }
+    .FooterInfo {
+      height: 300px;
+      width: auto;
+      // border: 1px solid wheat;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      .helpCenterTop {
+        margin: 13px 0px;
+        p:nth-child(1) {
+          font-size: 18x;
+          padding: 5px;
+        }
+        p:nth-child(2) {
+          font-size: 36px;
+          // font-weight: 700;
+          padding: 5px;
+        }
+      }
+      .helpCenterBottom {
+        display: grid;
+        grid-template-columns: 90px auto;
+        padding: 10px;
+        .grid {
+          // border: 1px solid rgba(0, 0, 0, 0.8);
+          padding: 5px 0px;
+          font-size: 13px;
+          text-align: left;
+          color: $themeDarkGrayColor;
+          letter-spacing: 0.5px;
+        }
+      }
+
+      small {
+        padding: 10px 5px;
+        font-size: 13px;
+      }
+    }
+    .companyInfo {
+      height: 300px;
+      width: auto;
+      // border: 1px solid rebeccapurple;
+      margin-right: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .subject {
+        font-size: 14px;
+        // font-weight: 500;
+        margin: 13px 0px;
+      }
+      .subject:nth-child(1) {
+        padding-top: 0;
+      }
+      .companyInfoContent {
+        // border: 1px solid gold;
+        p {
+          font-size: 12px;
+          margin-top: 3px;
+          padding: 4px 0px;
+          color: $themeDarkGrayColor;
+          letter-spacing: 0.5px;
+        }
+      }
+      .contactInfo {
+        display: grid;
+        grid-template-columns: 30px auto;
+        padding: 10px 0px;
+        .grid {
+          padding: 3px 0px;
+          font-size: 13px;
+          text-align: left;
+          color: $themeDarkGrayColor;
+        }
+      }
+    }
+  }
+  .copyRight {
+    // border: 1px solid blue;
+    padding: 0px 35px;
+    p {
+      font-size: 13px;
+      line-height: 20px;
+      color: #b2b2b2;
+      padding: 6px 0px;
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+}
