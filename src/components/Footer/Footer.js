@@ -14,27 +14,27 @@ class Footer extends Component {
           <div className='FooterMenu'>
             <ul>
               <li>
-                <Link>공지사항</Link>
+                <Link to="">공지사항</Link>
               </li>
               <li>
-                <Link>G9 판매안내</Link>
+                <Link to="">G9 판매안내</Link>
               </li>
               <li>
-                <Link>이용약관</Link>
+                <Link to="">이용약관</Link>
               </li>
               <li>
-                <Link>전자금융거래약관</Link>
+                <Link to="">전자금융거래약관</Link>
               </li>
               <li>
-                <Link>
+                <Link to="">
                   <b>개인정보처리방침</b>
                 </Link>
               </li>
               <li>
-                <Link>청소년보호정책</Link>
+                <Link to="">청소년보호정책</Link>
               </li>
               <li>
-                <Link>G마켓</Link>
+                <Link to="">G마켓</Link>
               </li>
             </ul>
           </div>

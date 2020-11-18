@@ -7,19 +7,19 @@ class BannerCard extends Component {
     return (
       <div className="BannerCard">
         <div className="imageContainer">
-          <img src={bannerItem.imageUrl} alt="banner card image" />
+          <img src={bannerItem.imageUrl} alt="banner card" />
         </div>
         <div className="bannerText">
           <div className="bannerTitle">
-            {bannerItem.title.map((title) => (
-              <p>{title}</p>
+            {bannerItem.title.map((title, idx) => (
+              <p key={idx}>{title}</p>
             ))}
             {/* <p>집까지 배송되는 신선함!</p>
             <p>신선지구 3주년 감사제</p> */}
           </div>
           <div className="bannerContext">
-            {bannerItem.content.map((content) => (
-              <p>{content}</p>
+            {bannerItem.content.map((content, idx) => (
+              <p key={idx}>{content}</p>
             ))}
           </div>
         </div>

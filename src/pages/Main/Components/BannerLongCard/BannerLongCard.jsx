@@ -4,25 +4,28 @@ import "./BannerLongCard.scss";
 class BannerLongCard extends PureComponent {
   render() {
     const { bannerItem } = this.props;
-    console.log(bannerItem.title);
     return (
       <div className="BannerLongCard">
         <div className="imageContainer">
-          <img src={bannerItem.imageUrl} alt="banner image" />
+          <img src={bannerItem.imageUrl} alt="banner" />
         </div>
         <div className="bannerContentContainer">
           <div className="contentText">
-            {bannerItem.title.map((title) => (
-              <p className="contentTitle">{title}</p>
+            {bannerItem.title.map((title, idx) => (
+              <p key={idx} className="contentTitle">
+                {title}
+              </p>
             ))}
-            {bannerItem.context.map((content) => (
-              <p className="contentContext">{content}</p>
+            {bannerItem.context.map((content, idx) => (
+              <p key={idx} className="contentContext">
+                {content}
+              </p>
             ))}
           </div>
-          {bannerItem.items.map((item) => (
-            <div className="itemContainer">
+          {bannerItem.items.map((item, idx) => (
+            <div key={idx} className="itemContainer">
               <div className="itemImageContainer">
-                <img src={item.imageUrl} alt="item image" />
+                <img src={item.imageUrl} alt="item" />
               </div>
               <div className="itemDetailContainer">
                 <p className="itemPrice">{item.price}</p>

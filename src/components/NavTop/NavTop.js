@@ -61,37 +61,37 @@ class NavTop extends Component {
               <div className='myPageMenu'>
                 <ul>
                   <li>
-                    <Link rel='stylesheet' href='#'>
+                    <Link rel='stylesheet' to='#'>
                       <span>로그인</span>
                     </Link>
                   </li>
                   <li>
-                    <Link rel='stylesheet' href='#'>
+                    <Link rel='stylesheet' to='#'>
                       <span>회원가입</span>
                     </Link>
                   </li>
                   <li>
-                    <Link rel='stylesheet' href='#'>
+                    <Link rel='stylesheet' to='#'>
                       <span>주문배송조회</span>
                     </Link>
                   </li>
                   <li>
-                    <Link rel='stylesheet' href='#'>
+                    <Link rel='stylesheet' to='#'>
                       <span>찜한상품</span>
                     </Link>
                   </li>
                   <li>
-                    <Link rel='stylesheet' href='#'>
+                    <Link rel='stylesheet' to='#'>
                       <span>찜한브랜드</span>
                     </Link>
                   </li>
                   <li>
-                    <Link rel='stylesheet' href='#'>
+                    <Link rel='stylesheet' to='#'>
                       <span>최근본상품</span>
                     </Link>
                   </li>
                   <li>
-                    <Link rel='stylesheet' href='#'>
+                    <Link rel='stylesheet' to='#'>
                       <span>나의정보</span>
                     </Link>
                   </li>

@@ -51,9 +51,11 @@
     // @media screen and (max-width: 1600px) {
     //   grid-template-columns: 1fr 1fr 1fr;
     // }
-
-    @media screen and (max-width: 1280px) {
+  }
+  @media screen and (max-width: 1280px) {
+    .bottomBannerList {
       grid-template-columns: 353px 353px 353px;
     }
+    overflow: hidden;
   }
 }

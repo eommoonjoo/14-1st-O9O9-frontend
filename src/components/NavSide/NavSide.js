@@ -37,17 +37,17 @@ class NavSide extends Component {
             </div>
           </div>
           <div className="categoryBottom">
-            {MAINCATEGORIES.map((item) => (
-              <div className="categoryItem">
-                <Link><span>{item}</span></Link>
+            {MAINCATEGORIES.map((item, idx) => (
+              <div key={idx} className="categoryItem">
+                <Link to=""><span>{item}</span></Link>
               </div>
             ))}
           </div>
         </div>
         <div className={`categorySide ${isCategoryToggled ? 'toggled': ''}`}>
-          {categories.map((item) => 
-            (<div className="categoryItem">
-              <Link><span>{item}</span></Link>
+          {categories.map((item, idx) => 
+            (<div key={idx} className="categoryItem">
+              <Link to=""><span>{item}</span></Link>
             </div>))}
         </div>
       </aside>

@@ -195,3 +195,27 @@ export const BANNER_LONG = [
     linkText: "내 인생 PC를 만날 시간",
   },
 ];
+
+export const CAROUSEL_DATA = [
+  {
+    id: 1,
+    imageUrl: 'https://i.ibb.co/0jBVd3g/carousel-Img1.jpg',
+    title: ['오늘도','고민없이 참 잘 샀다!'],
+    context: ['배송비 무료·반품비 1만원 지원', 'O9에서 깔끔한 혜택받고 쇼핑합니다!'],
+    isDark: false,
+  },
+  {
+    id: 2,
+    imageUrl: 'https://i.ibb.co/whCVrBG/carousel-Img2-1.jpg',
+    title: ['O9카드 11월 이벤트','신규 혜택을 확인하세요!'],
+    context: ['O9또는 O마켓 첫결제 시 총 1만원 할인', '삼성페이, 대중교통 이용 시 총 3만원 캐시백!'],
+    isDark: true,
+  },
+  {
+    id: 3,
+    imageUrl: 'https://i.ibb.co/1fLZHWP/carousel-Img3-1.jpg',
+    title: ['가을 바람처럼 찾아온','11월의 혜택'],
+    context: ['O9클럽 회원이라면', '더 큰 혜택을 드려요!'],
+    isDark: false,
+  },
+]

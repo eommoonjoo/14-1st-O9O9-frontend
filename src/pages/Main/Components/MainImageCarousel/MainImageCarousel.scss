@@ -1,0 +1,61 @@
+@import "../../../../styles/common.scss";
+
+.carouselContainer {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+
+  .imageContainer {
+    img {
+      height: 100%;
+    }
+  }
+
+  .textContainer {
+    position: absolute;
+    top: 110px;
+    left: 70px;
+
+    &.whiteText {
+      color: white;
+    }
+
+    .largeText {
+      padding-bottom: 8px;
+      font-size: 40px;
+      line-height: 50px;
+      font-weight: 300;
+    }
+
+    .smallText {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  .controlButton {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border: 1px solid $themeLightGrayColor;
+
+    &.prevButton {
+      left: 30px;
+      bottom: 20px;
+    }
+
+    &.nextButton {
+      left: 64px;
+      bottom: 20px;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
