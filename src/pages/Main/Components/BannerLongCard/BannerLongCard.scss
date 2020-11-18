@@ -6,6 +6,10 @@
   position: relative;
   height: 700px;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   .imageContainer {
     height: 280px;
     overflow: hidden;

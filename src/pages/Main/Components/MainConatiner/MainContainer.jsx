@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import MainImageCarousel from "../MainImageCarousel/MainImageCarousel";
 import BannerCard from "../BannerCard/BannerCard";
 import BannerLongCard from "../BannerLongCard/BannerLongCard";
 import { BANNER_TOP, BANNER_LONG } from "../../mainData.js";
-import MainImageCarousel from "../MainImageCarousel/MainImageCarousel";
 import "./MainContainer.scss";
 
 class MainContainer extends Component {

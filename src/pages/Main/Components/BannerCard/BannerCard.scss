@@ -1,7 +1,9 @@
 @import "../../../../styles/common.scss";
 
 .BannerCard {
-  // width: 360px;
+  &:hover {
+    cursor: pointer;
+  }
 
   .imageContainer {
     height: 225px;
