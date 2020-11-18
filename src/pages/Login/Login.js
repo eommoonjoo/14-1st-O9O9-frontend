@@ -2,7 +2,46 @@ import React, { Component } from 'react';
 import './Login.scss';
 // import '../../styles/reset.scss';
 
+const API='http://'
+// API주소 받아오기
+
 class Login extends Component {
+    constructor() {
+        super();
+        this.state = {
+            name: '',
+            pw: '',
+            number: '',
+            email: ''
+        };
+    }
+
+    checkValidation = (e) => {
+        const { name, pw, number, email } = this.state;
+
+        fetch(API, {
+            method: "POST",
+            body: JSON.stringify(
+                {
+                    name: name,
+                    password: pw,
+                    number: number,
+                    email: email
+                }
+            )
+        })
+        .then((res) => res.json())
+        .then((result) => {
+            if (result.message === "SUCCESS") {
+                this.props.history.push('/')
+            }
+            else {
+                alert('아이디 확인');
+            }
+        })
+    }
+
+
     render() {
         return (
         <div className="loginContainer">
