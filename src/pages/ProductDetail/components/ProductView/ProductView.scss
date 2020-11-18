@@ -1,0 +1,96 @@
+@import '../../../../styles/common.scss';
+
+.ProductView {
+  height: 600px;
+  width: 970px;
+  // border: 1px solid #93abd3;
+  margin-left: 143px;
+
+  .productViewContainer {
+    width: 920px;
+    background-color: white;
+    height: inherit;
+    margin: 25px 20px;
+    // border: 1px solid forestgreen;
+    img {
+      height: 40px;
+      width: 100%;
+    }
+    .productGroup {
+      display: flex;
+      .productImage {
+        // border: 1px solid wheat;
+        img {
+          height: 560px;
+          width: 560px;
+        }
+      }
+      .productInfo {
+        height: 560px;
+        width: 330px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid paleturquoise;
+        .productIntro {
+          border: 1px solid rebeccapurple;
+
+          .pickButton {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 40px;
+
+            .likes {
+              height: 30px;
+              line-height: 30px;
+              margin-bottom: 5px;
+              text-align: center;
+              width: 65px;
+              background-color: transparent;
+              border: 1px solid #424242;
+              border-radius: 40px;
+            }
+          }
+          p {
+            font-size: 15px;
+            font-weight: normal;
+            padding: 10px 0;
+            border-top: 1px solid #e5e5e5;
+            margin-bottom: 5px;
+          }
+          h3 {
+            font-size: 15px;
+            font-weight: 700;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e5e5e5;
+          }
+          .couponSide {
+            padding-top: 10px;
+            img {
+              height: 20px;
+              width: 45px;
+            }
+          }
+        }
+        .ProductdueDate {
+          border: 1px solid brown;
+          p {
+            font-size: 18px;
+            font-weight: normal;
+            span {
+              font-weight: 700;
+            }
+          }
+        }
+      }
+    }
+  }
+  // .productInfo {
+  //   display: flex;
+  //   .product {
+
+  //   }
+  //   .
+  // }
+}

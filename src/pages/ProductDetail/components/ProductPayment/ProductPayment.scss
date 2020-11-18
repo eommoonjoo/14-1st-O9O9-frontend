@@ -1,0 +1,175 @@
+@import '../../../../styles/common.scss';
+
+.ProductPayment {
+  height: 100vh;
+  width: 298px;
+  position: sticky;
+  top: 141px;
+  right: 20px;
+  margin: 0 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid $themeLightGrayColor;
+
+  .productPaymentContainer {
+    width: 290px;
+    height: inherit;
+    // border: 1px solid forestgreen;
+    padding: 10px 12px;
+    .priceMain {
+      height: 53px;
+      border-bottom: 1px solid #e5e5e5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 0px;
+      span:nth-child(1) {
+        color: #ff3c50;
+        font-size: 24px;
+        font-weight: 700;
+      }
+      span:nth-child(2) {
+        color: white;
+        width: 110px;
+        height: 30px;
+        font-size: 13px;
+        font-weight: 600;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 5px;
+        margin-right: 65px;
+        background-color: #bd996f;
+      }
+    }
+    .freeDelivery {
+      height: 33px;
+      padding: 20px 0px;
+      border-bottom: 1px solid #e5e5e5;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      span {
+        color: #424544;
+        font-size: 13px;
+      }
+      p {
+        font-size: 13px;
+        font-weight: 600;
+        color: $themeLogoColor;
+      }
+    }
+    .payBenefit {
+      height: 60px;
+
+      .firstLine {
+        height: 30px;
+        padding: 10px 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        color: #424544;
+        font-weight: 600;
+        // border-bottom: 1px solid #e5e5e5;
+        small {
+          font-size: 12px;
+          color: $themeDarkGrayColor;
+        }
+      }
+      .secondLine {
+        height: 30px;
+        padding: 10px 0px;
+        font-size: 13px;
+        color: #424544;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e5e5e5;
+      }
+    }
+    .countText {
+      padding: 10px 0;
+      font-size: 12px;
+      font-weight: 600;
+      color: #424544;
+    }
+    .orderQuantity {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5e5e5;
+      padding-bottom: 10px;
+      p {
+        height: 30px;
+        line-height: 30px;
+        color: black;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .handleCount {
+        display: flex;
+        align-items: center;
+        height: 30px;
+        // border: 1px solid springgreen;
+        input {
+          width: 30px;
+        }
+        .countButton {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+      .priceByQuantity {
+        height: 30px;
+        // border: 1px solid wheat;
+        p {
+          text-align: right;
+        }
+      }
+    }
+    .oderPrice {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+      margin-bottom: 10px;
+      // border: 1px solid royalblue;
+      p:nth-child(1) {
+        color: #424544;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      p:nth-child(2) {
+        color: #ff3c50;
+        font-size: 14px;
+        font-weight: 700;
+      }
+    }
+    .orderButtonSide {
+      height: 30px;
+      padding-bottom: 10px;
+      button {
+        width: 130px;
+        height: 54px;
+        background-color: transparent;
+        border-style: none;
+        font-weight: 600;
+        font-size: 16px;
+      }
+      button:nth-child(1) {
+        background-color: white;
+        color: #ff3c50;
+        border: 1px solid #ff3c50;
+        margin-right: 4px;
+      }
+      button:nth-child(2) {
+        background-color: #ff3c50;
+        color: white;
+      }
+    }
+  }
+}
