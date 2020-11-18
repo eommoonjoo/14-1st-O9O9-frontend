@@ -28,6 +28,7 @@ class MainImageCarousel extends Component {
       autoplay: true,
       autoplaySpeed: 3000,
     };
+    console.log(CAROUSEL_DATA);
     return (
       <section className="carouselContainer">
         <Slider ref={this.slider} {...settings}>
