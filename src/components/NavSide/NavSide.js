@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import {Link} from 'react-router-dom';
+import {MAINCATEGORIES} from '../navData';
 import './NavSide.scss'
-
-const MAINCATEGORIES = ['핫딜', '랭킹', '더-나은', '직구연말결산', '맛지구','집콕!장보기','백화점','뷰티샵','홈앤펫','명품관','뭐하지?']; // 고정 카테고리
 
 class NavSide extends Component {
   constructor(){
@@ -15,7 +15,13 @@ class NavSide extends Component {
 
   componentDidMount(){
     //나중에 백엔드에서 카테고리 리스트들 받아올것임
-    this.setState({categories: ['해외직구', '맛있는지구', '식품', '뷰티', '백화점 몰', '홈스타일링', '주방 생필품', '가구 리빙 반려', '가전', '컴퓨터 디지털', '패션의류', '신발 가방 주얼리', '건강 자동차공구', '출산 유아동', '레저 아웃도어']});
+    this.getCategories();
+  }
+
+  getCategories = async () => {
+    let categories = await axios.get('http://localhost:3000/data/categorydata.json');
+    categories = categories.data.categories;
+    this.setState({categories});
   }
 
   toggleCategory = () => {
@@ -38,16 +44,16 @@ class NavSide extends Component {
           </div>
           <div className="categoryBottom">
             {MAINCATEGORIES.map((item) => (
-              <div className="categoryItem">
-                <Link><span>{item}</span></Link>
+              <div key={item.id} className="categoryItem">
+                <Link to=""><span>{item.name}</span></Link>
               </div>
             ))}
           </div>
         </div>
         <div className={`categorySide ${isCategoryToggled ? 'toggled': ''}`}>
-          {categories.map((item) => 
-            (<div className="categoryItem">
-              <Link><span>{item}</span></Link>
+          { categories && categories.map((item) => 
+            (<div key={item.id} className="categoryItem">
+              <Link to=""><span>{item.name}</span></Link>
             </div>))}
         </div>
       </aside>
