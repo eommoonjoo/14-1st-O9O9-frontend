@@ -1,7 +1,7 @@
 @import '../../../../styles/common.scss';
 
 .ProductView {
-  height: 600px;
+  height: 603px;
   width: 970px;
   // border: 1px solid #93abd3;
   margin-left: 143px;
@@ -10,7 +10,7 @@
     width: 920px;
     background-color: white;
     height: inherit;
-    margin: 25px 20px;
+    margin: 20px 20px;
     // border: 1px solid forestgreen;
     img {
       height: 40px;
@@ -27,14 +27,18 @@
       }
       .productInfo {
         height: 560px;
-        width: 330px;
+        // width: 330px;
+        width: 100%;
         padding: 20px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        border: 1px solid paleturquoise;
+        align-items: center;
+        // border: 1px solid paleturquoise;
         .productIntro {
-          border: 1px solid rebeccapurple;
+          width: inherit;
+          // border: 1px solid rebeccapurple;
+          padding: 0 20px;
 
           .pickButton {
             display: flex;
@@ -55,7 +59,7 @@
           p {
             font-size: 15px;
             font-weight: normal;
-            padding: 10px 0;
+            padding: 20px 0;
             border-top: 1px solid #e5e5e5;
             margin-bottom: 5px;
           }
@@ -74,9 +78,11 @@
           }
         }
         .ProductdueDate {
-          border: 1px solid brown;
+          // border: 1px solid brown;
+          width: inherit;
+          margin-left: 30px;
           p {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: normal;
             span {
               font-weight: 700;

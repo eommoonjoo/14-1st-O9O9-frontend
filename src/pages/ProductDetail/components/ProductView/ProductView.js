@@ -42,11 +42,11 @@ class ProductView extends Component {
               <div className='ProductdueDate'>
                 <p>
                   <FiClock />
-                  &nbsp; 남은시간 <span>12</span>일 06:48:50
+                  &nbsp; 남은시간 <span>12</span>일 <span>06:48:50</span>
                 </p>
                 <p>
                   <FiShoppingCart />
-                  &nbsp; 231개 구매 (99,768개 구매 가능)
+                  &nbsp; <span>231</span>개 구매 (99,768개 구매 가능)
                 </p>
               </div>
             </div>
