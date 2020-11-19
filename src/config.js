@@ -1,0 +1,1 @@
+export const CATEGORIES_API = "http://10.58.7.251:8000/";

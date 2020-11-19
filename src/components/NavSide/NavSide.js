@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import {MAINCATEGORIES} from '../navData';
+import {CATEGORIES_API} from '../../config';
 import './NavSide.scss'
 
 class NavSide extends Component {
@@ -19,9 +20,12 @@ class NavSide extends Component {
   }
 
   getCategories = async () => {
-    let categories = await axios.get('http://localhost:3000/data/categorydata.json');
-    categories = categories.data.categories;
-    this.setState({categories});
+    // const categories = await axios.get('http://localhost:3000/data/categorydata.json');
+    // this.setState({categories : categories.data.categories});
+
+    const categories = await axios.get(CATEGORIES_API);
+    this.setState({categories : categories.data.post});
+
   }
 
   toggleCategory = () => {
@@ -30,11 +34,14 @@ class NavSide extends Component {
 
   render() {
     const {isCategoryToggled, categories} = this.state;
+    const {currentCategoryId} = this.props;
     return (
       <aside className="NavSide">
         <div className="categories">
           <div className="logoContainer">
-            <img src="./images/logo.png" alt="O9O9 logo"/>
+            <Link to="/">
+              <img src="./images/logo.png" alt="O9O9 logo"/>
+            </Link>
           </div>
           <div className="categoryTop">
             <div className={`categoryItem ${isCategoryToggled ? "selected" : ""}`} onClick={this.toggleCategory}>
@@ -53,7 +60,11 @@ class NavSide extends Component {
         <div className={`categorySide ${isCategoryToggled ? 'toggled': ''}`}>
           { categories && categories.map((item) => 
             (<div key={item.id} className="categoryItem">
-              <Link to=""><span>{item.name}</span></Link>
+              <Link to={`/list?category=${item.id}`}>
+                <span className={parseInt(currentCategoryId) === item.id ? "selected" : ""}>
+                  {item.name}
+                </span>
+              </Link>
             </div>))}
         </div>
       </aside>

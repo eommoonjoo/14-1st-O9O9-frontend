@@ -1,0 +1,51 @@
+@import "../../../../styles/common.scss";
+
+.ProductStand {
+  overflow-x: auto;
+
+  .standMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+
+    .menuRight {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      width: 500px;
+
+      .gridBigButton {
+        margin: 0 10px;
+      }
+
+      .optionSelector {
+        width: 150px;
+        font-size: 14px;
+      }
+
+      .inputSearch {
+        width: 200px;
+        height: 34px;
+        margin-left: 10px;
+        padding-left: 10px;
+        border: 1px solid #cccccc;
+        border-radius: 3px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .searchIcon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+    }
+  }
+
+  .productsContainer {
+  }
+}
