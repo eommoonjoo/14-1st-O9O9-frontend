@@ -4,13 +4,24 @@ import { FiShoppingCart } from 'react-icons/fi';
 import { RiHeart3Line } from 'react-icons/ri';
 import { FiUser } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import '../../styles/reset.scss';
 import './NavTop.scss';
 
 class NavTop extends Component {
   constructor() {
     super();
-    this.state = { activateMyPage: true };
+    this.state = { activateMyPage: true, myPageMenu: [] };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/categorydata.json', {
+      method: 'GET',
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          myPageMenu: res.myPageMenu,
+        });
+      });
   }
 
   toggleMyPageMenu = () => {
@@ -21,8 +32,10 @@ class NavTop extends Component {
     this.setState({ activateMyPage: false });
   };
 
-  // }
   render() {
+    const { myPageMenu } = this.state;
+    const { activateMyPage } = this.state;
+
     return (
       <nav className='NavTop'>
         <div className='navTopContainer'>
@@ -53,48 +66,21 @@ class NavTop extends Component {
               </li>
             </ul>
           </div>
-          {!this.state.activateMyPage ? (
+          {!activateMyPage ? (
             <div
               className='wrapMyPage'
               onMouseLeave={this.toggleMyPageMenu}
               onMouseEnter={this.outMypage}>
               <div className='myPageMenu'>
                 <ul>
-                  <li>
-                    <Link rel='stylesheet' href='#'>
-                      <span>로그인</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link rel='stylesheet' href='#'>
-                      <span>회원가입</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link rel='stylesheet' href='#'>
-                      <span>주문배송조회</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link rel='stylesheet' href='#'>
-                      <span>찜한상품</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link rel='stylesheet' href='#'>
-                      <span>찜한브랜드</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link rel='stylesheet' href='#'>
-                      <span>최근본상품</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link rel='stylesheet' href='#'>
-                      <span>나의정보</span>
-                    </Link>
-                  </li>
+                  {myPageMenu &&
+                    myPageMenu.map((el, idx) => (
+                      <li key={idx}>
+                        <Link rel='stylesheet' href='#'>
+                          <span>{el.name}</span>
+                        </Link>
+                      </li>
+                    ))}
                 </ul>
               </div>
             </div>

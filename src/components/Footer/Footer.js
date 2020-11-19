@@ -12,9 +12,7 @@ class Footer extends Component {
     fetch('http://localhost:3000/data/categorydata.json', {
       method: 'GET',
     })
-      // 서버에서 받은 데이터를 json파일로 변환하고
       .then((res) => res.json())
-      // 객체형태의 데이터를 위 state에 미리 만들어둔 빈 comment배열로 들어간다.
       .then((res) => {
         this.setState({
           footerMenu: res.footerMenu,
@@ -30,7 +28,7 @@ class Footer extends Component {
             <ul>
               {footerMenu &&
                 footerMenu.map((el, idx) => (
-                  <li>
+                  <li key={idx}>
                     <Link>{el.name}</Link>
                   </li>
                 ))}
