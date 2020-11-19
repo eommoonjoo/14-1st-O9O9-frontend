@@ -3,6 +3,7 @@ import './Cart.scss';
 import { VscTrash } from 'react-icons/vsc';
 import { AiOutlineClose } from 'react-icons/ai';
 import CartList from './components/CartList';
+import NoneCartList from './components/NoneCartList';
 
 class Cart extends Component {
     render() {
@@ -21,21 +22,7 @@ class Cart extends Component {
                     <span className='nextMark'>{'>'}</span>
                     <span className='success'>03 주문완료</span>
                </div>
-               {/* <aside>
-                   <div className='leftSide'>
-                        <img className='noneImg' src='./images/exclamation_mark.png' alt='noneImage' />
-                        <div className='noneProduct'>장바구니에 담겨 있는 상품이 없습니다.</div>
-                        <div className='buttonList'>
-                            <button className='goShopping'>쇼핑하러가기</button>
-                            <button className='goSelectList'>찜한상품보기</button>
-                        </div>
-                   </div>
-                   <div className='rightSide'>
-                        <div className='text'>배송비, 반품비 걱정없는 G9</div>
-                        <div className='goDetail'>자세히 보기 {'>'}</div>
-                   </div>
-               </aside> */}
-
+               {/* <NoneCartList /> */}
 
                <aside>
                    <div className='leftSide'>

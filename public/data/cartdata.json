@@ -1,0 +1,53 @@
+{
+  "cartItems": [
+    {
+      "id": 1,
+      "productName": "서귀포 조생 감귤",
+      "url": "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80",
+      "price": 10900,
+      "count": 1
+    },
+    {
+      "id": 2,
+      "productName": "서귀포 조생 감귤",
+      "url": "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80",
+      "price": 10900,
+      "count": 1
+    },
+    {
+      "id": 3,
+      "productName": "서귀포 조생 감귤",
+      "url": "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80",
+      "price": 10900,
+      "count": 1
+    },
+    {
+      "id": 4,
+      "productName": "서귀포 조생 감귤",
+      "url": "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80",
+      "price": 10900,
+      "count": 1
+    },
+    {
+      "id": 5,
+      "productName": "서귀포 조생 감귤",
+      "url": "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80",
+      "price": 10900,
+      "count": 1
+    },
+    {
+      "id": 6,
+      "productName": "서귀포 조생 감귤",
+      "url": "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80",
+      "price": 10900,
+      "count": 1
+    },
+    {
+      "id": 7,
+      "productName": "서귀포 조생 감귤",
+      "url": "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80",
+      "price": 10900,
+      "count": 1
+    }
+  ]
+}

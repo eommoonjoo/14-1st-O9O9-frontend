@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 
+
 class CartList extends Component {
     render() {
         return (
