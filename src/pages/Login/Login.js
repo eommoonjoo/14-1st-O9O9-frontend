@@ -6,39 +6,26 @@ const API='http://localhost:3000'
 // API주소 받아오기
 
 class Login extends Component {
-    constructor() {
-        super();
-        this.state = {
-            array: [],
-        }
-    }
+    // constructor() {
+    //     super();
+    //     this.state = {
+    //         ID: '',
+    //         password: '',
+    //     }
+    // }
 
-    componentDidMount =  () => {
-        fetch (API, {
-            method: 'POST',
-            body: JSON.stringify({
-                name: 'dd'
-            })
-        })
-        .then((res) => res.json())
-        .then((result) => {
-            this.setState({array: result})
-        })
+    // handleInputValueChange = (e) => {
+    //     const {id, password} = e.target;
+    //     this.setState({[name]:value});
+    // }
 
-        // if (result.Authorization -> 인증메서드) {
-        //     console.log("토큰ㅇㅇ")
-        //     localStorage.setItem("token", result.Authorization)
-        //     } else {
-        //     }
-    }
-
-    handleClick = () => {
-        if (this.state.array.message ==='SUCCESS') {
-        this.props.history.push('/')
-        } else {
-        alert(this.state.array.message)
-      }
-    }
+    // handleClick = () => {
+    //     if (this.state.array.message ==='SUCCESS') {
+    //     this.props.history.push('/')
+    //     } else {
+    //     alert(this.state.array.message)
+    //   }
+    // }
     
     render() {
         return (
