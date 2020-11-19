@@ -1,7 +1,56 @@
 import React, { Component } from 'react';
 import './SignUp.scss';
 
+const API = '';
+// API 주소
+
 class SignUp extends Component {
+    constructor() {
+        super();
+        this.state = {
+            id: '',
+            pw: '',
+            name: '',
+            phone:'',
+            email: '',
+        }
+    }
+
+    handleInputValueChange = (e) => {
+        const { id, pw, name, phone, email } = e.target;
+        this.setState({[id]: e.target.value});
+    }
+
+    checkValidation = (e) => {
+        e.preventDefault();
+        // console.log('연결확인');
+    
+        const {id, pw, name, phone, email} = this.state;
+    
+        fetch(API, {
+          method: "POST",
+          body: JSON.stringify({
+            id: id, 
+            password: pw,
+            name: name,
+            phone: phone,
+            email: email,
+          }),
+        })
+          .then((res) => res.json())
+          .then((result) => {
+        //   console.log(result)
+        //   console.log("백엔드에서 오는 응답메세지:", result);
+        if (result.message === "SUCCESS") {
+          // console.log('hello')
+          this.props.history.push("/")
+          //메인으로 넘어가는 로직 
+        } else {
+          alert(result.message);
+        }})
+        }
+    
+
     render() {
         return (
             <>
@@ -14,29 +63,24 @@ class SignUp extends Component {
                         <span className='joinText'>G9는 </span>
                         <img className = 'gmarketImage' src='./images/gmarket.png' />
                         <span className='joinText'>아이디로 이용이 가능합니다. </span>
-                        <span className='login'>로그인하기 ></span>
+                        <span className='login'>로그인하기 {'>'}</span>
                     </div>
                 
                     <form className='idAndPw'>
-                        {/* <div className='joinInfo'>
-                            <input className='id' placeholder='아이디' />
-                            <input className='pw' placeholder='비밀번호'></input>
-                            <input className='pwAgain' placeholder='비밀번호 확인'></input>
-                        </div> */}
                         <div className='idSection'>
-                            <input className='idInput' placeholder='아이디'/>
+                            <input className='idInput' placeholder='아이디' id="name" onChange={this.handleInputValueChange}/>
                             <button className='checkDuplication'>중복확인</button>
                         </div>
                         <div className='pwSection'>
-                            <input className='pwInput' placeholder='비밀번호'/>
+                            <input className='pwInput' placeholder='비밀번호' id="pw" onChange={this.handleInputValueChange}/>
                         </div>
                         <div className='pwAgainSection'>
                             <input className='pwInput' placeholder='비밀번호 확인'/>
                         </div>
                         <div className='userInfo'>
-                            <input className='nameInput' placeholder='이름'></input>
-                            <input className='phoneNumberInput' placeholder='휴대폰 번호'></input>
-                            <input className='emailInput' placeholder='이메일'></input>
+                            <input className='nameInput' placeholder='이름' id="name" onChange={this.handleInputValueChange} />
+                            <input className='phoneNumberInput' placeholder='휴대폰 번호' id="phone" onChange={this.handleInputValueChange} />
+                            <input className='emailInput' placeholder='이메일' id="email" onChange={this.handleInputValueChange} />
                             <div className='infoText'> ※ 만 14세 이상 고객만 가입이 가능합니다.</div>
                         </div>
                     </form>
@@ -93,12 +137,13 @@ class SignUp extends Component {
                             </div>
                             <div className='marketingInfo'>상품구매 관련 내용은 수신동의 여부와 관계없이 발송됩니다.</div>
                         </div>
-                        <button className='signUpButton'>동의하고 회원가입</button>
+                        <button className='signUpButton' onClick={this.checkValidation}>동의하고 회원가입</button>
                     </div>
                 </div>
             </>
         );
     }
 }
+
 
 export default SignUp;
