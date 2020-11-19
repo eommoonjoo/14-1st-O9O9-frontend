@@ -13,6 +13,7 @@ class SignUp extends Component {
             name: '',
             phone:'',
             email: '',
+            passwordcheck: ''
         }
     }
 
@@ -25,49 +26,47 @@ class SignUp extends Component {
         e.preventDefault();
         // console.log('연결확인');
     
-        const {id, pw, name, phone, email} = this.state;
+        const {id, pw, name, phone, email, passwordcheck} = this.state;
     
-        fetch(API, {
+        fetch('http://10.58.4.236:8000/user/signupview', {
           method: "POST",
           body: JSON.stringify({
-            id: id, 
+            ID: id, 
             password: pw,
             name: name,
-            phone: phone,
+            phone_number: phone,
             email: email,
+            passwordcheck: passwordcheck,
           }),
         })
           .then((res) => res.json())
           .then((result) => {
-        //   console.log(result)
-        //   console.log("백엔드에서 오는 응답메세지:", result);
-        if (result.message === "SUCCESS") {
-          // console.log('hello')
+
+        if (result.message === "success") {
           alert ('회원가입이 완료되었습니다!')
           this.props.history.push("/")
-          //메인으로 넘어가는 로직 
         } else {
           alert(result.message);
         }})
     }
     
     handleDuplication = () => {
-        fetch(API, {
+        fetch('http://10.58.4.236:8000/user/doublecheck', {
             method: "POST",
             body: JSON.stringify({
-              id: this.state.id,
+              ID: this.state.id,
             }),
-          })
-            .then((res) => res.json())
+          }).then((res) => res.json())
             .then((result) => {
-          if (result.message === "SUCCESS") {
+          if (result.message === "success") {
             alert ("사용가능한 아이디입니다.")
           } else {
-            alert('id는 어쩌궁');
+            alert(result.message);
           }})
     }
 
     render() {
+        // console.log(this.state)
         return (
             <>
                 <div className='joinContent'>
@@ -88,10 +87,10 @@ class SignUp extends Component {
                             <button className='checkDuplication' onClick={this.handleDuplication}>중복확인</button>
                         </div>
                         <div className='pwSection'>
-                            <input className='pwInput' placeholder='비밀번호' name="pw" onChange={this.handleInputValueChange}/>
+                            <input className='pwInput' type='password' placeholder='비밀번호' name="pw" onChange={this.handleInputValueChange}/>
                         </div>
                         <div className='pwAgainSection'>
-                            <input className='pwInput' placeholder='비밀번호 확인'/>
+                            <input className='pwInput' type='password' name="passwordcheck" onChange={this.handleInputValueChange} placeholder='비밀번호 확인'/>
                         </div>
                         <div className='userInfo'>
                             <input className='nameInput' placeholder='이름' name="name" onChange={this.handleInputValueChange} />
