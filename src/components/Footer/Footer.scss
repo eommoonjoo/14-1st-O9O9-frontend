@@ -4,17 +4,13 @@
   height: 513px;
   width: 100%;
   padding-left: 142px;
-  position: fixed;
-  bottom: 0;
-  right: 0;
   border: 1px solid lightgrey;
+  background-color: white;
   .footerContainer {
     padding: 30px 60px 30px 40px;
-    // border: 1px solid darkblue;
     display: flex;
     justify-content: space-between;
-    .FooterMenu {
-      // border: 1px solid darkcyan;
+    .footerMenu {
       li {
         margin: 27px 0px;
         font-size: 14px;
@@ -32,7 +28,6 @@
     .FooterInfo {
       height: 300px;
       width: auto;
-      // border: 1px solid wheat;
       display: flex;
       justify-content: space-between;
       flex-direction: column;
@@ -44,7 +39,6 @@
         }
         p:nth-child(2) {
           font-size: 36px;
-          // font-weight: 700;
           padding: 5px;
         }
       }
@@ -52,8 +46,7 @@
         display: grid;
         grid-template-columns: 90px auto;
         padding: 10px;
-        .grid {
-          // border: 1px solid rgba(0, 0, 0, 0.8);
+        div {
           padding: 5px 0px;
           font-size: 13px;
           text-align: left;
@@ -70,7 +63,6 @@
     .companyInfo {
       height: 300px;
       width: auto;
-      // border: 1px solid rebeccapurple;
       margin-right: 30px;
       display: flex;
       flex-direction: column;
@@ -78,27 +70,23 @@
 
       .subject {
         font-size: 14px;
-        // font-weight: 500;
         margin: 13px 0px;
       }
       .subject:nth-child(1) {
         padding-top: 0;
       }
       .companyInfoContent {
-        // border: 1px solid gold;
-        p {
-          font-size: 12px;
-          margin-top: 3px;
-          padding: 4px 0px;
-          color: $themeDarkGrayColor;
-          letter-spacing: 0.5px;
-        }
+        font-size: 12px;
+        margin-top: 3px;
+        padding: 4px 0px;
+        color: $themeDarkGrayColor;
+        letter-spacing: 0.5px;
       }
       .contactInfo {
         display: grid;
         grid-template-columns: 30px auto;
         padding: 10px 0px;
-        .grid {
+        div {
           padding: 3px 0px;
           font-size: 13px;
           text-align: left;
@@ -108,7 +96,6 @@
     }
   }
   .copyRight {
-    // border: 1px solid blue;
     padding: 0px 35px;
     p {
       font-size: 13px;
