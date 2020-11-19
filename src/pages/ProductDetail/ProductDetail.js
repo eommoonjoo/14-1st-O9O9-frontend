@@ -20,14 +20,12 @@ class ProductDetail extends Component {
       <>
         <NavSide />
         <div className='ProductDetail'>
-          <NavTop />
           <SelectCategory />
           <div className='productSide'>
             <ProductView />
             <ProductPayment />
           </div>
           <ProductInfoTab />
-          <Footer />
         </div>
       </>
     );
