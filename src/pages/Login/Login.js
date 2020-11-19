@@ -24,6 +24,12 @@ class Login extends Component {
         .then((result) => {
             this.setState({array: result})
         })
+
+        // if (result.Authorization -> 인증메서드) {
+        //     console.log("토큰ㅇㅇ")
+        //     localStorage.setItem("token", result.Authorization)
+        //     } else {
+        //     }
     }
 
     handleClick = () => {
