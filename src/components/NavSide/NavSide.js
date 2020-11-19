@@ -19,9 +19,8 @@ class NavSide extends Component {
   }
 
   getCategories = async () => {
-    let categories = await axios.get('http://localhost:3000/data/categorydata.json');
-    categories = categories.data.categories;
-    this.setState({categories});
+    const categoriesData = await axios.get('http://localhost:3000/data/categorydata.json');
+    this.setState({categories : categoriesData.data.categories});
   }
 
   toggleCategory = () => {
