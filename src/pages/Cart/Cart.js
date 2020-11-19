@@ -5,6 +5,8 @@ import { AiOutlineClose } from 'react-icons/ai';
 import CartList from './components/CartList';
 import NoneCartList from './components/NoneCartList';
 
+
+
 class Cart extends Component {
     render() {
         return (

@@ -39,7 +39,7 @@ class CartList extends Component {
                         <AiOutlineClose size="30" className='XIcon'/>
                     </div>
                     <div className='product'>
-                         <img className='productImage' src={el.url} alt="이미지"/>
+                        <img className='productImage' src={el.url} alt="이미지"/>
                         <div className='priceList'>
                             <div className='price'><span>{el.price}</span>
                             <span className='won'>원</span>
