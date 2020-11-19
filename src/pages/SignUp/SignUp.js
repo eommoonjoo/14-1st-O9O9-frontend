@@ -17,8 +17,8 @@ class SignUp extends Component {
     }
 
     handleInputValueChange = (e) => {
-        const { id, pw, name, phone, email } = e.target;
-        this.setState({[id]: e.target.value});
+        // const { id, pw, name, phone, email } = e.target;
+        this.setState({[e.target.name]: e.target.value});
     }
 
     checkValidation = (e) => {
@@ -49,8 +49,23 @@ class SignUp extends Component {
         } else {
           alert(result.message);
         }})
-        }
+    }
     
+    handleDuplication = () => {
+        fetch(API, {
+            method: "POST",
+            body: JSON.stringify({
+              id: this.state.id,
+            }),
+          })
+            .then((res) => res.json())
+            .then((result) => {
+          if (result.message === "SUCCESS") {
+            alert ("사용가능한 아이디입니다.")
+          } else {
+            alert('id는 어쩌궁');
+          }})
+    }
 
     render() {
         return (
@@ -67,24 +82,24 @@ class SignUp extends Component {
                         <span className='login'>로그인하기 {'>'}</span>
                     </div>
                 
-                    <form className='idAndPw'>
+                    <div className='idAndPw'>
                         <div className='idSection'>
-                            <input className='idInput' placeholder='아이디' id="name" onChange={this.handleInputValueChange}/>
-                            <button className='checkDuplication'>중복확인</button>
+                            <input className='idInput' placeholder='아이디' name="id" onChange={this.handleInputValueChange}/>
+                            <button className='checkDuplication' onClick={this.handleDuplication}>중복확인</button>
                         </div>
                         <div className='pwSection'>
-                            <input className='pwInput' placeholder='비밀번호' id="pw" onChange={this.handleInputValueChange}/>
+                            <input className='pwInput' placeholder='비밀번호' name="pw" onChange={this.handleInputValueChange}/>
                         </div>
                         <div className='pwAgainSection'>
                             <input className='pwInput' placeholder='비밀번호 확인'/>
                         </div>
                         <div className='userInfo'>
-                            <input className='nameInput' placeholder='이름' id="name" onChange={this.handleInputValueChange} />
-                            <input className='phoneNumberInput' placeholder='휴대폰 번호' id="phone" onChange={this.handleInputValueChange} />
-                            <input className='emailInput' placeholder='이메일' id="email" onChange={this.handleInputValueChange} />
+                            <input className='nameInput' placeholder='이름' name="name" onChange={this.handleInputValueChange} />
+                            <input className='phoneNumberInput' placeholder='휴대폰 번호' name="phone" onChange={this.handleInputValueChange} />
+                            <input className='emailInput' placeholder='이메일' name="email" onChange={this.handleInputValueChange} />
                             <div className='infoText'> ※ 만 14세 이상 고객만 가입이 가능합니다.</div>
                         </div>
-                    </form>
+                    </div>
                     
                     <div className='checkBox'>
                         <div className='agreement'>
