@@ -48,7 +48,7 @@ class CartList extends Component {
                         <table>
                             <tr>
                             <td className='minus'>-</td>
-                            <td>수량</td>
+                            <td>{el.count}</td>
                             <td className='plus'>+</td>
                             </tr>
                         </table>

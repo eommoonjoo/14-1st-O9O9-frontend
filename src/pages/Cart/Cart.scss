@@ -1,5 +1,5 @@
 .Cart {
-  height: 200%;
+  // height: 300%;
   background-color: #f5f5f5;
   .nav {
     position: sticky;
@@ -31,6 +31,7 @@
       font-size: 28px;
       margin-top: 33px;
       text-align: center;
+      z-index: 10;
     }
   }
   .orderStatus {
