@@ -43,6 +43,7 @@ class SignUp extends Component {
         //   console.log("백엔드에서 오는 응답메세지:", result);
         if (result.message === "SUCCESS") {
           // console.log('hello')
+          alert ('회원가입이 완료되었습니다!')
           this.props.history.push("/")
           //메인으로 넘어가는 로직 
         } else {
