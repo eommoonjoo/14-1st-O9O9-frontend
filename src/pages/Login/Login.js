@@ -2,36 +2,52 @@ import React, { Component } from 'react';
 import './Login.scss';
 // import '../../styles/reset.scss';
 
-const API='http://localhost:3000'
-// API주소 받아오기
 
 class Login extends Component {
-    // constructor() {
-    //     super();
-    //     this.state = {
-    //         ID: '',
-    //         password: '',
-    //     }
-    // }
+    constructor() {
+        super();
+        this.state = {
+            id: '',
+            pw: '',
+        }
+    }
 
-    // handleInputValueChange = (e) => {
-    //     const {id, password} = e.target;
-    //     this.setState({[name]:value});
-    // }
+    handleInputValueChange = (e) => {
+        // const { id, pw, name, phone, email } = e.target;
+        this.setState({[e.target.name]: e.target.value});
+    }
 
-    // handleClick = () => {
-    //     if (this.state.array.message ==='SUCCESS') {
-    //     this.props.history.push('/')
-    //     } else {
-    //     alert(this.state.array.message)
-    //   }
-    // }
+    checkValidation = (e) => {
+        e.preventDefault();
+        // console.log('연결확인');
+    
+        const {id, pw} = this.state;
+    
+        fetch('http://10.58.4.236:8000/user/signinview', {
+          method: "POST",
+          body: JSON.stringify({
+            ID: id, 
+            password: pw,
+          }),
+        }).then(res => res.json())
+          .then((result) => {
+            if (result.authorization) {
+                localStorage.setItem('token', result.authorization)
+                this.props.history.push('/');
+            } else {
+                alert (result.message);
+            }
+        }
+        )
+    }
     
     render() {
+        // console.log(this.state)
         return (
+        
         <div className="loginContainer">
             <div class="logo">
-                <img class='logoImage' src='./images/logo.png' />
+                <img class='logoImage' src='./images/logo.png' alt='이미지' />
             </div>  
             <div className="messageBox">
                 <img className="gmarketLogo" src="https://pics.gmarket.co.kr/pc/single/kr/common/image__logo.png" alt="gmarketLogo" />
@@ -39,8 +55,8 @@ class Login extends Component {
             </div>
             <form>
                 <div className = 'inputBox'>
-                    <input className="inputId" placeholder="아이디" />
-                    <input className="inputPw" placeholder="비밀번호" />
+                    <input className="inputId" placeholder="아이디" name='id' onChange={this.handleInputValueChange}/>
+                    <input className="inputPw" placeholder="비밀번호" name='pw' type='password' onChange={this.handleInputValueChange}/>
                 </div>
                 <div class='saveId'>
                     <input type="checkbox" id="cb1" />
@@ -48,9 +64,9 @@ class Login extends Component {
                     <div className="rememberId">아이디 기억하기</div>
                 </div>
                 <div className='loginWrap'> 
-                    <button className="loginButton">로그인</button>
+                    <button className="loginButton" onClick={this.checkValidation}>로그인</button>
                     <button className="kakaoLoginButton">
-                        <img className='kakaoImg' src='./images/kakao.png' />
+                        <img className='kakaoImg' src='./images/kakao.png' alt='이미지'/>
                         카카오 로그인
                     </button>
                 </div>
