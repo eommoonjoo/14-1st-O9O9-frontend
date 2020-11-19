@@ -5,6 +5,7 @@ import './QnA.scss';
 class QnA extends Component {
   constructor() {
     super();
+    // 차후에 배형태로 변경 예정
     this.state = { openComment: false };
   }
 
@@ -57,7 +58,7 @@ class QnA extends Component {
               <div className='qnaInput fitCenter'>ryuwisdom</div>
               <div className='qnaInput fitCenter'>2020.11.26</div>
             </div>
-            {!this.state.openComment ? (
+            {this.state.openComment ? (
               <div className='dropDownContent'>
                 <div className='question'>
                   <h3>Q&nbsp;</h3>
