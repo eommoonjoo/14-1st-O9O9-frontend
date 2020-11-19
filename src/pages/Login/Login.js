@@ -2,14 +2,38 @@ import React, { Component } from 'react';
 import './Login.scss';
 // import '../../styles/reset.scss';
 
-const API='http://'
+const API='http://localhost:3000'
 // API주소 받아오기
 
 class Login extends Component {
-    
-    
+    constructor() {
+        super();
+        this.state = {
+            array: [],
+        }
+    }
 
+    componentDidMount =  () => {
+        fetch (API, {
+            method: 'POST',
+            body: JSON.stringify({
+                name: 'dd'
+            })
+        })
+        .then((res) => res.json())
+        .then((result) => {
+            this.setState({array: result})
+        })
+    }
 
+    handleClick = () => {
+        if (this.state.array.message ==='SUCCESS') {
+        this.props.history.push('/')
+        } else {
+        alert(this.state.array.message)
+      }
+    }
+    
     render() {
         return (
         <div className="loginContainer">
