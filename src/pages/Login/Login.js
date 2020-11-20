@@ -21,7 +21,7 @@ class Login extends Component {
     
         const {id, pw} = this.state;
     
-        fetch('http://10.58.4.236:8000/user/signinview', {
+        fetch('http://10.58.4.236:8000/user/signin', {
           method: "POST",
           body: JSON.stringify({
             ID: id, 
