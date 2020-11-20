@@ -43,7 +43,7 @@ class Cart extends Component {
                    </div>
                    <div className='rightSide'>
                         <div className='payment'>
-                            <div className='orderInfo'>주문예정정보(상품 1개)</div>
+                            <div className='orderInfo'>주문예정정보</div>
                             <div className='totalPay'>
                                 <div className="pay">결제 예정금액</div>
                                 <div className='total'>
