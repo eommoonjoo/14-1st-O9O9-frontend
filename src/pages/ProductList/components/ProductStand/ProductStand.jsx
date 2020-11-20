@@ -21,11 +21,13 @@ class ProductStand extends Component {
 
   render() {
     const { smallGrid } = this.state;
+    const { products } = this.props;
+    // console.log(products);
     return (
       <section className="ProductStand">
         <div className="standMenu">
           <div className="menuLeft">
-            <p>전체 상품 21</p>
+            <p>전체 상품 {products.length}</p>
           </div>
           <div className="menuRight">
             <RiLayoutGridFill className="gridSmallButton" size="30" color={`${smallGrid ? "black" : "gray"}`} onClick={() => this.setState({ smallGrid: true })} />
@@ -36,20 +38,7 @@ class ProductStand extends Component {
           </div>
         </div>
         {/* <div className="productsContainer grid6"> */}
-        <div className={`productsContainer ${smallGrid ? "grid4" : "grid6"}`}>
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-        </div>
+        <div className={`productsContainer ${smallGrid ? "grid4" : "grid6"}`}>{products && products.map((item) => <ProductCard key={item.id} product={item} />)}</div>
       </section>
     );
   }

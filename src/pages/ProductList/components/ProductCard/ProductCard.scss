@@ -14,17 +14,20 @@
     }
   }
 
-  .productPrice {
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 1.3em;
-  }
+  .productInfo {
+    height: 80px;
+    .productPrice {
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 1.3em;
+    }
 
-  .productTitle {
-    margin-bottom: 5px;
-    font-size: 0.9em;
-    color: #222222;
-    line-height: 1.5em;
+    .productTitle {
+      margin-bottom: 5px;
+      font-size: 0.9em;
+      color: #222222;
+      line-height: 1.5em;
+    }
   }
 
   .coupon {

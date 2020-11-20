@@ -5,6 +5,8 @@ import "./ProductCard.scss";
 
 class ProductCard extends Component {
   render() {
+    const { product } = this.props;
+    console.log(product);
     return (
       <div className="ProductCard">
         {/* 디테일 페이지로 이동시킬것 */}
@@ -12,16 +14,23 @@ class ProductCard extends Component {
           <div className="imageContainer">
             <img src="https://source.unsplash.com/random/500x500" alt="product" />
           </div>
-          <p className="productPrice">26010</p>
-          <p className="productTitle">마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기</p>
+          <div className="productInfo">
+            <p className="productPrice">{product.price}</p>
+            <p className="productTitle">{product.title}</p>
+          </div>
           <button className="coupon">10%쿠폰</button>
           <div className="cardBottom">
             <FaRegHeart color={"darkgray"} />
-            <span className="wishCount">79 찜</span>
-            <span className="orderCount">1166 구매</span>
+            <span className="wishCount">{product.wish} 찜</span>
+            <span className="orderCount">{product.order} 구매</span>
           </div>
           <div className="storeContainer">
-            <p>마이크로소프트 스토어 {">"}</p>
+            {product.brand && (
+              <p>
+                {product.brand}
+                {">"}
+              </p>
+            )}
           </div>
         </Link>
       </div>

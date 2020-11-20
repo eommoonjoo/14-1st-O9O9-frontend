@@ -1,6 +1,8 @@
 @import "../../styles/common.scss";
 
 .ProductList {
+  margin-bottom: 100px;
+
   .categoryBanner {
     @include flexCenter;
     flex-direction: column;

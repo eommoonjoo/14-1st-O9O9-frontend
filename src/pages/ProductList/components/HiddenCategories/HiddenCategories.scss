@@ -4,12 +4,15 @@
   @include flexCenter;
   height: 50px;
   background-color: black;
-  color: white;
   font-size: 0.9em;
 
-  span {
-    padding: 6px;
-    & + span::before {
+  a {
+    text-decoration: none;
+    span {
+      padding: 6px;
+      color: white;
+    }
+    & + a::before {
       padding-right: 12px;
       content: "｜";
       color: $themeDarkGrayColor;

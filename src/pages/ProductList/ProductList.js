@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import NavSide from '../../components/NavSide/NavSide';
 import ListContainer from './components/ListContainer/ListContainer';
-import {CATEGORIES_API} from '../../config';
+import NavTop from '../../components/NavTop/NavTop';
+import Footer from '../../components/Footer/Footer';
+import {CATEGORY_MOCK_DATA_API, CATEGORIES_API} from '../../config';
 import './ProductList.scss';
 
 class ProductList extends Component {
@@ -18,7 +20,7 @@ class ProductList extends Component {
   }
 
   getCategories = async () => {
-    const categories = await axios.get('http://localhost:3000/data/categorydata.json');
+    const categories = await axios.get(CATEGORY_MOCK_DATA_API);
     this.setState({categories : categories.data.categories});
 
     // const categories = await axios.get(CATEGORIES_API);
@@ -34,14 +36,18 @@ class ProductList extends Component {
     const currentCategoryId = parseInt(this.props.location.search.split('=')[1]);
     const currentCategory = this.getCurrentCategory(currentCategoryId);
     return (
-      <div className="ProductList">
-        <NavSide currentCategoryId={currentCategoryId}/>
-        <div className="categoryBanner">
-          <p className="categoryTitle">{currentCategory && currentCategory.name}</p>
-          <p className="categoryContext">O9O9의 맛있는 큐레이션</p>
+      <>
+        <div className="ProductList">
+          <NavSide currentCategoryId={currentCategoryId}/>
+          <NavTop />
+          <div className="categoryBanner">
+            <p className="categoryTitle">{currentCategory && currentCategory.name}</p>
+            <p className="categoryContext">O9O9의 맛있는 큐레이션</p>
+          </div>
+          <ListContainer categoryId={currentCategoryId}/>
         </div>
-        <ListContainer categoryId={currentCategoryId}/>
-      </div>
+        <Footer />
+      </> 
     );
   }
 }
