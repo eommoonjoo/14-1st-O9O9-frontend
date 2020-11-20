@@ -25,7 +25,7 @@ class SignUp extends Component {
     
         const {id, pw, name, phone, email, passwordcheck} = this.state;
     
-        fetch('http://10.58.4.236:8000/user/signupview', {
+        fetch('http://10.58.4.236:8000/user/signup', {
           method: "POST",
           body: JSON.stringify({
             ID: id, 
