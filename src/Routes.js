@@ -10,7 +10,6 @@ import SignUp from './pages/SignUp/SignUp';
 import Cart from './pages/Cart/Cart';
 import Main from './pages/Main/Main';
 
-
 class Routes extends Component {
   render() {
     return (
