@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import './SignUp.scss';
 
-const API = '';
-// API 주소
-
 class SignUp extends Component {
     constructor() {
         super();
