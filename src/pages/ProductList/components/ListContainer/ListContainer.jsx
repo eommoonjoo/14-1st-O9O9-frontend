@@ -19,7 +19,6 @@ class ListContainer extends Component {
 
   getSubcategories = async () => {
     const subcategories = await axios.get("http://localhost:3000/data/subcategoryData.json");
-    // console.log(subcategories.data.subcategories);
     this.setState({ subcategories: subcategories.data.subcategories });
   };
 
