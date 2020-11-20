@@ -1,12 +1,12 @@
 @import "../../styles/common.scss";
 
-.loginContainer {
+.Login {
   width: 800px;
   //   height: 950px;
   margin: 0 auto;
   .logo {
     @include flexCenter;
-    .logoImage {
+    img {
       width: 280px;
       //   height: 150px;
       padding: 90px 0 30px 0;
@@ -79,7 +79,7 @@
       padding-bottom: 5px;
       color: #808080;
       font-size: 18px;
-      input[id="cb1"] {
+      input {
         display: inline-block;
         width: 24px;
         height: 24px;
@@ -141,23 +141,11 @@
       width: 400px;
       margin: 0 auto;
       text-align: center;
-      //   display: flex;
-      //   justify-content: center;
-      //   align-items: space-between;
+      color: #9b9b9b;
       padding: 60px 0 70px 0;
       font-size: 18px;
-      .signUp {
-        color: #9b9b9b;
-      }
       .gap {
         margin: 0 15px;
-        color: #9b9b9b;
-      }
-      .findId {
-        color: #9b9b9b;
-      }
-      .findPw {
-        color: #9b9b9b;
       }
     }
     .nonMember {
@@ -168,8 +156,6 @@
       flex-direction: column;
 
       .nonMemberOrder {
-        // height: 60px;
-        // 이렇게 height 지정 안하면 어떻게 되는거야?
         padding: 55px 0 30px 0;
         text-align: center;
         font-size: 22px;

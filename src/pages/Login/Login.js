@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './Login.scss';
-// import '../../styles/reset.scss';
-
 
 class Login extends Component {
     constructor() {
@@ -42,24 +40,22 @@ class Login extends Component {
     }
     
     render() {
-        // console.log(this.state)
         return (
-        
-        <div className="loginContainer">
-            <div class="logo">
-                <img class='logoImage' src='./images/logo.png' alt='이미지' />
+        <div className="Login">
+            <div className="logo">
+                <img src='./images/logo.png' alt='이미지' />
             </div>  
             <div className="messageBox">
                 <img className="gmarketLogo" src="https://pics.gmarket.co.kr/pc/single/kr/common/image__logo.png" alt="gmarketLogo" />
-                <span class='gmarketMessage'>아이디로 이용이 가능합니다.</span>
+                <span className='gmarketMessage'>아이디로 이용이 가능합니다.</span>
             </div>
             <form>
-                <div className = 'inputBox'>
+                <div className='inputBox'>
                     <input className="inputId" placeholder="아이디" name='id' onChange={this.handleInputValueChange}/>
                     <input className="inputPw" placeholder="비밀번호" name='pw' type='password' onChange={this.handleInputValueChange}/>
                 </div>
-                <div class='saveId'>
-                    <input type="checkbox" id="cb1" />
+                <div className='saveId'>
+                    <input type="checkbox" />
                     <label for="cb1" />
                     <div className="rememberId">아이디 기억하기</div>
                 </div>
@@ -70,12 +66,12 @@ class Login extends Component {
                         카카오 로그인
                     </button>
                 </div>
-                <div className = "linkGroup">
-                    <span className="signUp">회원가입</span>
+                <div className="linkGroup">
+                    <span>회원가입</span>
                     <span className="gap">|</span>
-                    <span className="findId">아이디 찾기</span>
+                    <span>아이디 찾기</span>
                     <span className="gap">|</span>
-                    <span className="findPw">비밀번호 찾기</span>
+                    <span>비밀번호 찾기</span>
                 </div>
                 <div className="nonMember">
                     <div className="nonMemberOrder">비회원 주문 조회</div>
@@ -87,9 +83,7 @@ class Login extends Component {
                     </div>
                     <button className="nonMemberOrderHistory">비회원 주문내역 조회</button>
                 </div>
-            </form>
-
-            
+            </form>  
         </div>
         );
     }
