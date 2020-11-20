@@ -40,7 +40,7 @@ body {
       position: relative;
       top: -20px;
       color: gray;
-      .gmarketImage {
+      img {
         width: 140px;
         height: 70px;
       }
@@ -94,7 +94,7 @@ body {
         border: 1px solid #bbbbbb;
         border-bottom: none;
         background-color: white;
-        .idInput {
+        input {
           width: 400px;
           height: 45px;
           margin-top: 10px;
@@ -107,7 +107,7 @@ body {
             color: #9e9e9e;
           }
         }
-        .checkDuplication {
+        button {
           position: relative;
           top: -2px;
           width: 140px;
@@ -131,7 +131,7 @@ body {
         border-top: 1px solid lightgray;
         border-bottom: none;
         background-color: white;
-        .pwInput {
+        input {
           width: 400px;
           height: 45px;
           margin-top: 10px;
@@ -154,7 +154,7 @@ body {
         border-right: 1px solid #bbbbbb;
         border-top: 1px solid lightgray;
         background-color: white;
-        .pwInput {
+        input {
           width: 400px;
           height: 45px;
           margin-top: 10px;
@@ -187,7 +187,7 @@ body {
           @include inputbox;
           @include border;
         }
-        .infoText {
+        div {
           width: 635px;
           height: 66px;
           box-sizing: border-box;
@@ -212,7 +212,7 @@ body {
         box-sizing: border-box;
         padding-left: 15px;
         //   height: 400px;
-        input[id="cb1"] {
+        input {
           position: relative;
           top: 18px;
           width: 22px;
@@ -220,7 +220,7 @@ body {
           border: 2px solid #bcbcbc;
           cursor: pointer;
         }
-        .agreementAll {
+        div {
           padding-top: 24px;
           font-size: 19px;
           margin-left: 4px;
@@ -240,13 +240,13 @@ body {
         .checkAll {
           display: flex;
           color: #40b8ff;
-          input[id="cb1"] {
+          input {
             width: 22px;
             height: 22px;
             border: 2px solid #bcbcbc;
             cursor: pointer;
           }
-          .agreementAll {
+          div {
             padding-top: 7px;
             font-size: 19px;
             margin-left: 4px;
@@ -255,7 +255,7 @@ body {
         }
         .check {
           display: flex;
-          input[id="cb1"] {
+          input {
             position: relative;
             top: 18px;
             width: 22px;
@@ -263,7 +263,7 @@ body {
             border: 2px solid #bcbcbc;
             cursor: pointer;
           }
-          .agreementAll {
+          div {
             padding-top: 24px;
             font-size: 19px;
             margin-left: 4px;
@@ -291,13 +291,13 @@ body {
         .checkAll {
           display: flex;
           color: #40b8ff;
-          input[id="cb1"] {
+          input {
             width: 22px;
             height: 22px;
             border: 2px solid #bcbcbc;
             cursor: pointer;
           }
-          .agreementAll {
+          div {
             padding-top: 7px;
             font-size: 19px;
             margin-left: 4px;
@@ -306,7 +306,7 @@ body {
         }
         .check {
           display: flex;
-          input[id="cb1"] {
+          input {
             position: relative;
             top: 18px;
             width: 22px;
@@ -314,7 +314,7 @@ body {
             border: 2px solid #bcbcbc;
             cursor: pointer;
           }
-          .agreementAll {
+          div {
             padding-top: 24px;
             font-size: 19px;
             margin-left: 4px;
@@ -327,7 +327,7 @@ body {
           color: #bcbcbc;
         }
       }
-      .signUpButton {
+      button {
         margin-top: 15px;
         width: 638px;
         height: 80px;
