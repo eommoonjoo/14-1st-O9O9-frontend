@@ -22,7 +22,7 @@ class ProductInfoTab extends Component {
     this.setState({ activeId: id });
   };
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className='ProductInfoTab'>
         <ul className='productInfoTabContainer'>

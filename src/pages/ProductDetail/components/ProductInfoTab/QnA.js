@@ -1,19 +1,34 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Modal from './Modal';
 import './QnA.scss';
 
 class QnA extends Component {
   constructor() {
     super();
     // 차후에 배형태로 변경 예정
-    this.state = { openComment: false };
+    this.state = { openComment: false, openModal: false };
   }
 
   commentHandler = () => {
     this.setState({ openComment: !this.state.openComment });
   };
 
+  // showModal = () => {
+  //   console.log('+_+');
+  //   this.setState({ ...this.state, show: !this.state.show });
+  // };
+  modalHandler = () => {
+    this.setState({ openModal: true });
+  };
+
+  closeModal = () => {
+    this.setState({ openModal: false });
+  };
+
   render() {
+    const { openModal } = this.state;
+    console.log(openModal);
     return (
       <div className='QnA'>
         <div className='qnAContainer'>
@@ -29,7 +44,7 @@ class QnA extends Component {
 
           <div className='qnAButtonSide'>
             <button>
-              <Link>문의하기</Link>
+              <Link onClick={this.modalHandler}>문의하기</Link>
             </button>
             <button>내 문의보기</button>
             <button>전체 문의보기</button>
@@ -37,7 +52,7 @@ class QnA extends Component {
 
           <div className='reviewButtonSide'></div>
 
-          <div className='qnaTemplet'>
+          <div className='qnaTemplate'>
             <div className='qnaTop'>
               <div className='qnaLabel'>번호</div>
               <div className='qnaLabel'>문의종류</div>
@@ -54,6 +69,7 @@ class QnA extends Component {
               <div className='qnaInput fitCenter'>답변완료</div>
               <div className='qnaInput qnADropDown'>
                 <Link onClick={this.commentHandler}>배송문의</Link>
+                {/* {openModal && } */}
               </div>
               <div className='qnaInput fitCenter'>ryuwisdom</div>
               <div className='qnaInput fitCenter'>2020.11.26</div>
@@ -78,6 +94,7 @@ class QnA extends Component {
             ) : null}
           </div>
         </div>
+        {openModal && <Modal onClose={this.closeModal} />}
       </div>
     );
   }
