@@ -3,9 +3,8 @@
 .NavTop {
   height: 90px;
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   z-index: 10;
   background-color: rgba(255, 255, 255, 0.98);
   min-width: 950px;

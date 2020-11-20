@@ -4,6 +4,7 @@ import { FiShoppingCart } from 'react-icons/fi';
 import { RiHeart3Line } from 'react-icons/ri';
 import { FiUser } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { CATEGORY_MOCK_DATA_API } from '../../config';
 import './NavTop.scss';
 
 class NavTop extends Component {
@@ -13,9 +14,7 @@ class NavTop extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/categorydata.json', {
-      method: 'GET',
-    })
+    fetch(CATEGORY_MOCK_DATA_API)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -33,8 +32,7 @@ class NavTop extends Component {
   };
 
   render() {
-    const { myPageMenu } = this.state;
-    const { activateMyPage } = this.state;
+    const { myPageMenu, activateMyPage } = this.state;
 
     return (
       <nav className='NavTop'>
@@ -66,7 +64,7 @@ class NavTop extends Component {
               </li>
             </ul>
           </div>
-          {!activateMyPage ? (
+          {!activateMyPage && (
             <div
               className='wrapMyPage'
               onMouseLeave={this.toggleMyPageMenu}
@@ -84,7 +82,7 @@ class NavTop extends Component {
                 </ul>
               </div>
             </div>
-          ) : null}
+          )}
         </div>
       </nav>
     );
