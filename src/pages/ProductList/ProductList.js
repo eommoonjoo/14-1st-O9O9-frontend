@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import NavSide from '../../components/NavSide/NavSide';
 import ListContainer from './components/ListContainer/ListContainer';
+import {CATEGORIES_API} from '../../config';
 import './ProductList.scss';
 
 class ProductList extends Component {
@@ -26,11 +27,11 @@ class ProductList extends Component {
 
   getCurrentCategory = (categoryId) => {
     const {categories} = this.state;
-    return categories[categories.findIndex((category) => category.id == categoryId)]
+    return categories[categories.findIndex((category) => category.id === categoryId)]
   }
   
   render() {
-    const currentCategoryId = this.props.location.search.split('=')[1];
+    const currentCategoryId = parseInt(this.props.location.search.split('=')[1]);
     const currentCategory = this.getCurrentCategory(currentCategoryId);
     return (
       <div className="ProductList">
@@ -39,7 +40,7 @@ class ProductList extends Component {
           <p className="categoryTitle">{currentCategory && currentCategory.name}</p>
           <p className="categoryContext">O9O9의 맛있는 큐레이션</p>
         </div>
-        <ListContainer />
+        <ListContainer categoryId={currentCategoryId}/>
       </div>
     );
   }

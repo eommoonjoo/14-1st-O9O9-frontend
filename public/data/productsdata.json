@@ -2,6 +2,8 @@
   "products": [
     {
       "id": 1,
+      "categoryId": 2,
+      "subcategoryId": 1,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -11,6 +13,8 @@
     },
     {
       "id": 2,
+      "categoryId": 2,
+      "subcategoryId": 1,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이크로소프트 서피스북 프로 i5 어쩌구",
       "price": 10900,
@@ -20,6 +24,8 @@
     },
     {
       "id": 3,
+      "categoryId": 2,
+      "subcategoryId": 1,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -28,6 +34,8 @@
     },
     {
       "id": 4,
+      "categoryId": 2,
+      "subcategoryId": 1,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -36,6 +44,8 @@
     },
     {
       "id": 5,
+      "categoryId": 2,
+      "subcategoryId": 1,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -45,6 +55,8 @@
     },
     {
       "id": 6,
+      "categoryId": 2,
+      "subcategoryId": 1,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -54,6 +66,8 @@
     },
     {
       "id": 7,
+      "categoryId": 2,
+      "subcategoryId": 1,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -63,6 +77,8 @@
     },
     {
       "id": 8,
+      "categoryId": 2,
+      "subcategoryId": 2,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -72,6 +88,8 @@
     },
     {
       "id": 9,
+      "categoryId": 2,
+      "subcategoryId": 2,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -81,6 +99,8 @@
     },
     {
       "id": 10,
+      "categoryId": 2,
+      "subcategoryId": 2,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -90,6 +110,8 @@
     },
     {
       "id": 11,
+      "categoryId": 2,
+      "subcategoryId": 2,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -99,6 +121,8 @@
     },
     {
       "id": 12,
+      "categoryId": 2,
+      "subcategoryId": 2,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -108,6 +132,8 @@
     },
     {
       "id": 13,
+      "categoryId": 2,
+      "subcategoryId": 2,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -117,6 +143,8 @@
     },
     {
       "id": 14,
+      "categoryId": 2,
+      "subcategoryId": 3,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -126,6 +154,8 @@
     },
     {
       "id": 15,
+      "categoryId": 2,
+      "subcategoryId": 3,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -135,6 +165,8 @@
     },
     {
       "id": 16,
+      "categoryId": 2,
+      "subcategoryId": 3,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -144,6 +176,8 @@
     },
     {
       "id": 17,
+      "categoryId": 2,
+      "subcategoryId": 3,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -153,6 +187,8 @@
     },
     {
       "id": 18,
+      "categoryId": 2,
+      "subcategoryId": 3,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -162,6 +198,8 @@
     },
     {
       "id": 19,
+      "categoryId": 2,
+      "subcategoryId": 4,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -171,6 +209,8 @@
     },
     {
       "id": 20,
+      "categoryId": 2,
+      "subcategoryId": 4,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -180,6 +220,8 @@
     },
     {
       "id": 21,
+      "categoryId": 2,
+      "subcategoryId": 5,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -189,6 +231,8 @@
     },
     {
       "id": 22,
+      "categoryId": 2,
+      "subcategoryId": 5,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -198,6 +242,8 @@
     },
     {
       "id": 23,
+      "categoryId": 2,
+      "subcategoryId": 5,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -207,6 +253,8 @@
     },
     {
       "id": 24,
+      "categoryId": 2,
+      "subcategoryId": 6,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -216,6 +264,8 @@
     },
     {
       "id": 25,
+      "categoryId": 2,
+      "subcategoryId": 6,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,
@@ -225,6 +275,8 @@
     },
     {
       "id": 26,
+      "categoryId": 2,
+      "subcategoryId": 6,
       "imgUrl": "https://source.unsplash.com/random",
       "title": "마이닭 마이닭 닭가슴살 소세지 핫바 70g 4종 30팩 골라담기",
       "price": 10900,

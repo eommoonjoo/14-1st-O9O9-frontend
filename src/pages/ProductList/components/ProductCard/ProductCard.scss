@@ -5,6 +5,7 @@
     text-decoration: none;
     color: black;
   }
+
   .imageContainer {
     margin-bottom: 20px;
     overflow: hidden;
@@ -38,6 +39,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 13px;
+
     span {
       font-size: 0.9em;
       color: $themeDarkGrayColor;

@@ -60,7 +60,7 @@ class NavSide extends Component {
           { categories && categories.map((item) => 
             (<div key={item.id} className="categoryItem">
               <Link to={`/list?category=${item.id}`}>
-                <span className={parseInt(currentCategoryId) === item.id ? "selected" : ""}>
+                <span className={currentCategoryId === item.id ? "selected" : ""}>
                   {item.name}
                 </span>
               </Link>
