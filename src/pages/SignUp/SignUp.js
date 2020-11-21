@@ -62,6 +62,10 @@ class SignUp extends Component {
           }})
     }
 
+    handleDuplication = () => {
+        
+    }
+
     render() {
         // console.log(this.state)
         return (
@@ -101,7 +105,7 @@ class SignUp extends Component {
                         <div className='agreement'>
                             <input type="checkbox"/>
                             <label for="cb1" />
-                            <div>전체동의</div>
+                            <div onClick={this.handleClickAll}>전체동의</div>
                         </div>
                         <div className='agreementList'>
                             <div className='checkAll'>
