@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
- 
+import NoneCartList from './NoneCartList';
+
+
 class CartList extends Component {
     
     render() {
-        const {cartItem} = this.props;
+        // cartItem is array
+        const {cartItems} = this.props;
+
+        // &&
+        // ||
+        // a ? b : c
         return (
             <>
-            {cartItem &&  cartItem.map((el) => {
+            {cartItems.length < 1 ? <NoneCartList /> : cartItems.map((el) => {
                 return (
                     <div className='selectionList'>
                         <div className='productName'>

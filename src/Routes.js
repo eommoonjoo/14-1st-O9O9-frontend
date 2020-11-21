@@ -15,10 +15,10 @@ class Routes extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" component={Main} />
-          <Route exact path = '/Login' component={Login} />
-          <Route exact path = '/SignUp' component={SignUp} />
-          <Route exact path = '/Cart' component={Cart} />
+          <Route exact path="/" component={props => <Main {...props}/>} />
+          <Route exact path='/Login' component={props => <Login {...props} />} />
+          <Route exact path='/SignUp' component={props => <SignUp {...props} />} />
+          <Route exact path='/Cart' component={props => <Cart {...props} />} />
         </Switch>
       </Router>
     );

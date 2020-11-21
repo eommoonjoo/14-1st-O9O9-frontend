@@ -19,6 +19,7 @@ class Cart extends Component {
       })
       .then(res => res.json())
       .then(res => {
+        //   console.log('res', res);
         this.setState({
           cartItem: res.cartItems,
         });
@@ -34,6 +35,9 @@ class Cart extends Component {
         cartItem[idx].count--;
         this.setState({cartItem});
        }
+       fetch('API url', {
+           method: 'POST'
+       })
     }
 
     handlePlus = (el) => {
@@ -45,6 +49,9 @@ class Cart extends Component {
         } else {
             alert('최대 주문 수량은 5개 입니다.')
         }
+        fetch('', {
+            method: 'POST'
+        })
         
     }
 
@@ -52,6 +59,9 @@ class Cart extends Component {
         const {cartItem} = this.state;
         let removeItem = cartItem.filter((e) => el.id !== e.id);
         this.setState({cartItem: removeItem})
+        fetch('', {
+            method: 'POST'
+        })
     }
 
     totalPrice = () => {
@@ -63,13 +73,16 @@ class Cart extends Component {
       return sum;
     }
 
+    goToMain = () => {
+        this.props.history.push('./');
+    }
     render() {
         let totalPrice = this.totalPrice();
         return (
             <div className='Cart'>
                <nav>
                    <div className='logo'>
-                        <img alt="logo" src='./images/logo_white.png' />
+                        <img alt="logo" src='./images/logo_white.png' onClick={this.goToMain}/>
                    </div>
                    <div className='cartNav'>장바구니</div>
                </nav>
@@ -86,7 +99,7 @@ class Cart extends Component {
                         <div className='selection'>
                             <div className="select">
                                 <input type="checkbox" id="checkBox" />
-                                <label for="cb1" />
+                                <label htmlFor="cb1" />
                                 <span className='selectItem'>선택</span>
                             </div>
                             <div className='delete'>
@@ -94,7 +107,7 @@ class Cart extends Component {
                                 <div className='deleteItem'>삭제</div>
                             </div>
                         </div>
-                        <CartList cartItem={this.state.cartItem} onPlus={this.handlePlus} onMinus={this.handleMinus} onDelete={this.deleteItem}/>
+                        <CartList cartItems={this.state.cartItem} onPlus={this.handlePlus} onMinus={this.handleMinus} onDelete={this.deleteItem}/>
                    </div>
                    <div className='rightSide'>
                         <div className='payment'>
