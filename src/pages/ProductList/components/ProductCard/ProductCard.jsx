@@ -6,7 +6,6 @@ import "./ProductCard.scss";
 class ProductCard extends Component {
   render() {
     const { product } = this.props;
-    console.log(product);
     return (
       <div className="ProductCard">
         {/* 디테일 페이지로 이동시킬것 */}

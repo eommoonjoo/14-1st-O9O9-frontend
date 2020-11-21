@@ -8,8 +8,8 @@ export const SUBCATEGORY_IMG = [
 ]
 
 export const SELECT_OPTIONS = [
-  { value: 'popular', label: '인기순' },
   { value: 'recent', label: '최신순' },
+  { value: 'popular', label: '인기순' },
   { value: 'lowprice', label: '가격낮은순' },
   { value: 'highprice', label: '가격높은순' },
 ]

@@ -41,16 +41,17 @@ class ListContainer extends Component {
     //일단은 그냥 목데이터로 하겠음. 추후에 아래 주석 풀긔
     const productsData = await axios.get(PRODUCTS_MOCK_DATA);
     const products = productsData.data.products;
+    let newProducts;
     if (queryString.length === 2) {
       const categoryId = parseInt(queryString[1]);
-      const newProducts = products.filter((item) => item.categoryId === categoryId);
-      this.setState({ products: newProducts });
+      newProducts = products.filter((item) => item.categoryId === categoryId);
     } else {
       const categoryId = parseInt(queryString[1][0]);
       const subcategoryId = parseInt(queryString[2]);
-      const newProducts = products.filter((item) => item.categoryId === categoryId && item.subcategoryId === subcategoryId);
-      this.setState({ products: newProducts });
+      newProducts = products.filter((item) => item.categoryId === categoryId && item.subcategoryId === subcategoryId);
     }
+    newProducts.sort((product1, product2) => product2.id - product1.id); //받아올때부터 최신순으로 받아오기
+    this.setState({ products: newProducts });
 
     //백엔드와 통신할 부분
     // if (queryString.length === 2) {

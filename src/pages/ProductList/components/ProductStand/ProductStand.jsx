@@ -12,17 +12,32 @@ class ProductStand extends Component {
     super();
     this.state = {
       smallGrid: true,
+      products: [],
     };
   }
 
-  handleOptionChange = (e) => {
-    console.log(e);
+  componentDidUpdate(prevProps) {
+    if (prevProps.products !== this.props.products) {
+      this.setState({ products: this.props.products });
+    }
+  }
+
+  changeOptions = (e) => {
+    const products = [...this.state.products];
+    if (e.value === "recent") {
+      products.sort((product1, product2) => product2.id - product1.id);
+    } else if (e.value === "popular") {
+      products.sort((product1, product2) => product2.order - product1.order);
+    } else if (e.value === "lowprice") {
+      products.sort((product1, product2) => product1.price - product2.price);
+    } else {
+      products.sort((product1, product2) => product2.price - product1.price);
+    }
+    this.setState({ products });
   };
 
   render() {
-    const { smallGrid } = this.state;
-    const { products } = this.props;
-    // console.log(products);
+    const { smallGrid, products } = this.state;
     return (
       <section className="ProductStand">
         <div className="standMenu">
@@ -32,12 +47,11 @@ class ProductStand extends Component {
           <div className="menuRight">
             <RiLayoutGridFill className="gridSmallButton" size="30" color={`${smallGrid ? "black" : "gray"}`} onClick={() => this.setState({ smallGrid: true })} />
             <RiGridFill className="gridBigButton" size="30" color={`${smallGrid ? "gray" : "black"}`} onClick={() => this.setState({ smallGrid: false })} />
-            <Select onChange={this.handleOptionChange} className="optionSelector" options={SELECT_OPTIONS} defaultValue={SELECT_OPTIONS[0]} />
+            <Select onChange={this.changeOptions} className="optionSelector" options={SELECT_OPTIONS} defaultValue={SELECT_OPTIONS[0]} />
             <input className="inputSearch" type="text" placeholder="결과 내 검색" />
             <BsSearch className="searchIcon" />
           </div>
         </div>
-        {/* <div className="productsContainer grid6"> */}
         <div className={`productsContainer ${smallGrid ? "grid4" : "grid6"}`}>{products && products.map((item) => <ProductCard key={item.id} product={item} />)}</div>
       </section>
     );
