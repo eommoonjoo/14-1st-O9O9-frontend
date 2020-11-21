@@ -14,7 +14,7 @@ class ProductCard extends Component {
             <img src="https://source.unsplash.com/random/500x500" alt="product" />
           </div>
           <div className="productInfo">
-            <p className="productPrice">{product.price}</p>
+            <p className="productPrice">{product.price.toLocaleString(2)}</p>
             <p className="productTitle">{product.title}</p>
           </div>
           <button className="coupon">10%쿠폰</button>
