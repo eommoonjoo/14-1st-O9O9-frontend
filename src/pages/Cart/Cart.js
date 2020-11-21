@@ -5,9 +5,66 @@ import CartList from './components/CartList';
 import NoneCartList from './components/NoneCartList';
 import './Cart.scss';
 
-
 class Cart extends Component {
+    constructor() {
+        super();
+        this.state = {
+           cartItem: [],
+        };
+    }
+
+    componentDidMount = () => {
+      fetch('http://localhost:3000/data/cartdata.json', {
+       method: 'GET'
+      })
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          cartItem: res.cartItems,
+        });
+      });
+    }
+    // 유저가 가진 장바구니 정보 get -->토큰 필요
+    // 
+
+    handleMinus = (el) => {
+        const cartItem = [...this.state.cartItem];
+        let idx = cartItem.indexOf(el);
+        if (cartItem[idx].count > 1){
+        cartItem[idx].count--;
+        this.setState({cartItem});
+       }
+    }
+
+    handlePlus = (el) => {
+        const cartItem = [...this.state.cartItem];
+        let idx = cartItem.indexOf(el);
+        if (cartItem[idx].count<5) {
+            cartItem[idx].count++;
+            this.setState({cartItem})
+        } else {
+            alert('최대 주문 수량은 5개 입니다.')
+        }
+        
+    }
+
+    deleteItem = (el) => {
+        const {cartItem} = this.state;
+        let removeItem = cartItem.filter((e) => el.id !== e.id);
+        this.setState({cartItem: removeItem})
+    }
+
+    totalPrice = () => {
+    const {cartItem} = this.state;
+     let sum = 0;
+      for (let i=0; i<cartItem.length; i++) {
+        sum = sum + cartItem[i].price * cartItem[i].count;
+      }  
+      return sum;
+    }
+
     render() {
+        let totalPrice = this.totalPrice();
         return (
             <div className='Cart'>
                <nav>
@@ -37,7 +94,7 @@ class Cart extends Component {
                                 <div className='deleteItem'>삭제</div>
                             </div>
                         </div>
-                        <CartList />
+                        <CartList cartItem={this.state.cartItem} onPlus={this.handlePlus} onMinus={this.handleMinus} onDelete={this.deleteItem}/>
                    </div>
                    <div className='rightSide'>
                         <div className='payment'>
@@ -45,7 +102,7 @@ class Cart extends Component {
                             <div className='totalPay'>
                                 <div className="pay">결제 예정금액</div>
                                 <div className='total'>
-                                    <div className='totalCount'>10,900</div>
+                                    <div className='totalCount'>{totalPrice.toLocaleString(2)}</div>
                                     <div className='won'>원</div>
                                 </div>
                              </div>

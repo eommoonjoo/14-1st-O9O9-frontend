@@ -1,0 +1,64 @@
+.NoneCartList {
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+  .leftSide {
+    width: 65%;
+    height: 600px;
+    margin: 2% 1%;
+    .noneImg {
+      width: 90px;
+      height: 90px;
+      margin-top: 10%;
+      margin-left: 46%;
+      margin-bottom: 20px;
+    }
+    .noneProduct {
+      margin-bottom: 18px;
+      text-align: center;
+      font-size: 22px;
+      letter-spacing: -1px;
+      color: #323232;
+    }
+    .buttonList {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 48px;
+      .goShopping {
+        border-radius: 30px;
+        width: 140px;
+        height: 40px;
+        font-size: 17px;
+        background-color: white;
+        border: 1px solid lightgray;
+        margin-right: 10px;
+      }
+      .goSelectList {
+        border-radius: 30px;
+        width: 140px;
+        height: 40px;
+        font-size: 17px;
+        background-color: white;
+        border: 1px solid lightgray;
+      }
+    }
+  }
+  .rightSide {
+    display: flex;
+    width: 400px;
+    .text {
+      font-size: 25px;
+      font-weight: 400;
+      margin-top: 70px;
+    }
+    .goDetail {
+      font-size: 19px;
+      color: #8f8f8f;
+      // font-weight: 300;
+      letter-spacing: -1px;
+      margin-top: 71px;
+      margin-left: 25px;
+    }
+  }
+}

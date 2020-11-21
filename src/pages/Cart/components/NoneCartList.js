@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import '../components/NonCartList.scss';
 
 class NoneCartList extends Component {
   render() {
     return (
       <div>
-        <aside>
+        <aside className='NoneCart'>
                    <div className='leftSide'>
                         <img className='noneImg' src='./images/exclamation_mark.png' alt='noneImage' />
                         <div className='noneProduct'>장바구니에 담겨 있는 상품이 없습니다.</div>
