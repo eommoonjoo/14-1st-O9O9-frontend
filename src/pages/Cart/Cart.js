@@ -93,7 +93,6 @@ class Cart extends Component {
                     <span className='nextMark'>{'>'}</span>
                     <span className='success'>03 주문완료</span>
                </div>
-               {/* <NoneCartList /> */}
                <aside>
                    <div className='leftSide'>
                         <div className='selection'>
