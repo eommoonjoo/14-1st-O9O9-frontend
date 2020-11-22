@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./HiddenCategories.scss";
 
 class HiddenCategories extends Component {

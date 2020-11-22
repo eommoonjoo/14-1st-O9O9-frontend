@@ -53,6 +53,11 @@
 
     &.grid4 {
       grid-template-columns: 1fr 1fr 1fr 1fr;
+
+      img {
+        width: 60vh;
+        height: 60vh;
+      }
       @media screen and (max-width: 1200px) {
         grid-template-columns: 1fr 1fr;
       }
@@ -60,8 +65,43 @@
 
     &.grid6 {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+      img {
+        width: 40vh;
+        height: 40vh;
+      }
       @media screen and (max-width: 1200px) {
         grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+  }
+
+  .pageButtonContainer {
+    margin: 30px 0 0 30px;
+
+    button {
+      width: 33px;
+      height: 33px;
+      margin-right: 5px;
+      background-color: white;
+      border: 1px solid #cccccc;
+
+      &.inactivated {
+        color: $themeLightGrayColor;
+        border: 1px solid $themeLightGrayColor;
+      }
+
+      &.currentPage {
+        background-color: black;
+        color: $themeLightGrayColor;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:focus {
+        outline: none;
       }
     }
   }

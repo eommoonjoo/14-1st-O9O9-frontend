@@ -7,10 +7,16 @@
   }
 
   .imageContainer {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
     margin-bottom: 20px;
     overflow: hidden;
+
     img {
-      width: 100%;
+      position: absolute;
+      top: 0;
+      object-fit: cover;
     }
   }
 

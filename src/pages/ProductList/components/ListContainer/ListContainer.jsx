@@ -3,7 +3,7 @@ import { withRouter, Link } from "react-router-dom";
 import axios from "axios";
 import HiddenCategories from "../HiddenCategories/HiddenCategories";
 import { SUBCATEGORY_IMG } from "../../ListData";
-import { SUBCATEGORY_MOCK_DATA, PRODUCTS_MOCK_DATA } from "../../../../config";
+import { SUBCATEGORY_MOCK_DATA, PRODUCTS_MOCK_DATA, MAINCATEGORY_PRODUCTS_DATA_API } from "../../../../config";
 import "./ListContainer.scss";
 import ProductStand from "../ProductStand/ProductStand";
 
@@ -38,6 +38,7 @@ class ListContainer extends Component {
   // 현재 카테고리의 모든 상품을 받아옴
   getProducts = async () => {
     const queryString = this.props.location.search.split("=");
+
     //일단은 그냥 목데이터로 하겠음. 추후에 아래 주석 풀긔
     const productsData = await axios.get(PRODUCTS_MOCK_DATA);
     const products = productsData.data.products;
@@ -54,27 +55,21 @@ class ListContainer extends Component {
     this.setState({ products: newProducts });
 
     //백엔드와 통신할 부분
+    // let newProducts;
     // if (queryString.length === 2) {
     //   const categoryId = parseInt(queryString[1]);
-    //   console.log(categoryId);
-    //   //여기서 백엔드에 해당 카테고리에 해당하는 프로덕트 목록 요청.
-    //   //const products = await axios({"어쩌구저쩌구"}); ㅇㅋ?
+    //   const productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `/${categoryId}`);
+    //   console.log(productsData.data.product);
+    //   newProducts = productsData.data.product;
     // } else {
     //   const categoryId = parseInt(queryString[1][0]);
     //   const subcategoryId = parseInt(queryString[2]);
-    //   console.log(categoryId, subcategoryId);
-    //   //여기서 백엔드에 해당 카테고리 && 서브카테고리에 해당하는 프로덕트 목록 요청.
-    //   //const products = await axios({"어쩌구저쩌구"}); ㅇㅋ?
+    //   const productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `/${categoryId}/${subcategoryId}`);
+    //   console.log(productsData.data.product);
+    //   newProducts = productsData.data.product;
     // }
-
-    // const products = await axios({
-    //   method: "post",
-    //   url: "어쩌구저쩌구",
-    //   data: {
-    //     categoryId: this.props.categoryId,
-    //   },
-    // });
-    // console.log(products);
+    // newProducts.sort((product1, product2) => product2.id - product1.id);
+    // this.setState({ products: newProducts });
   };
 
   getFilteredProducts = () => {

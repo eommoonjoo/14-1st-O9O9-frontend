@@ -1,11 +1,11 @@
-@import '../../styles/common.scss';
+@import "../../styles/common.scss";
 
 .Footer {
-  height: 513px;
   width: 100%;
   padding-left: 142px;
   border: 1px solid lightgrey;
   background-color: white;
+
   .footerContainer {
     padding: 30px 60px 30px 40px;
     display: flex;
