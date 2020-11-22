@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import './/NonCartList.scss';
+import { Link } from 'react-router-dom';
 
 class NoneCartList extends Component {
-  render() {
+  goToMain = () => {
+    this.props.history.push('./');
+  }
+
+  render() {  
     return (
       <div>
         <aside className='NoneCartList'>
@@ -13,7 +18,9 @@ class NoneCartList extends Component {
                       </div>
                         <div className='noneProduct'>장바구니에 담겨 있는 상품이 없습니다.</div>
                         <div className='buttonList'>
-                            <button className='goShopping'>쇼핑하러가기</button>
+                            <button className='goShopping'>
+                              <Link to="/">쇼핑하러가기</Link>
+                            </button>
                             <button className='goSelectList'>찜한상품보기</button>
                         </div>
                       </div>

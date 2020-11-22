@@ -19,7 +19,7 @@ class CartList extends Component {
                     <div className='selectionList'>
                         <div className='productName'>
                         <div className='productTitle'>
-                            <input type="checkbox" id="checkBox" />
+                            <input type="checkbox" id="checkBox" idx={el.id}/>
                             <label for="checkBox" />
                             <div className='productId'>{el.productName} </div>
                         </div>

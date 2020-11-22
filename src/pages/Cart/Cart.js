@@ -43,11 +43,11 @@ class Cart extends Component {
     handlePlus = (el) => {
         const cartItem = [...this.state.cartItem];
         let idx = cartItem.indexOf(el);
-        if (cartItem[idx].count<5) {
+        if (cartItem[idx].count<10) {
             cartItem[idx].count++;
             this.setState({cartItem})
         } else {
-            alert('최대 주문 수량은 5개 입니다.')
+            alert('최대 주문 수량은 10개 입니다.')
         }
         fetch('', {
             method: 'POST'
@@ -76,6 +76,15 @@ class Cart extends Component {
     goToMain = () => {
         this.props.history.push('./');
     }
+
+    deleteAll = () => {
+        this.setState({cartItem: []});
+    }
+
+    handleAllChecked = () => {
+        console.log('연결');
+    }
+
     render() {
         let totalPrice = this.totalPrice();
         return (
@@ -97,16 +106,16 @@ class Cart extends Component {
                    <div className='leftSide'>
                         <div className='selection'>
                             <div className="select">
-                                <input type="checkbox" id="checkBox" />
+                                <input type="checkbox" id="checkBox" onClick={this.handleAllChecked}/>
                                 <label htmlFor="cb1" />
                                 <span className='selectItem'>선택</span>
                             </div>
                             <div className='delete'>
                                 <VscTrash size="24" className='deleteIcon'/>
-                                <div className='deleteItem'>삭제</div>
+                                <div className='deleteItem' onClick={this.deleteAll}>삭제</div>
                             </div>
                         </div>
-                        <CartList cartItems={this.state.cartItem} onPlus={this.handlePlus} onMinus={this.handleMinus} onDelete={this.deleteItem}/>
+                        <CartList cartItems={this.state.cartItem} onPlus={this.handlePlus} onMinus={this.handleMinus} onDelete={this.deleteItem} allChecked={this.handleAllChecked}/>
                    </div>
                    <div className='rightSide'>
                         <div className='payment'>
