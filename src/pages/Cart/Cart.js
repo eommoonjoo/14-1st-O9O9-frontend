@@ -10,16 +10,19 @@ class Cart extends Component {
         super();
         this.state = {
            cartItem: [],
+           checked: [],
         };
     }
 
     componentDidMount = () => {
       fetch('http://localhost:3000/data/cartdata.json', {
-       method: 'GET'
+       method: 'GET',
+    //    headers: localStorage.getItem('token')
       })
       .then(res => res.json())
       .then(res => {
         //   console.log('res', res);
+        //  이거 찍어보기..
         this.setState({
           cartItem: res.cartItems,
         });
@@ -34,10 +37,22 @@ class Cart extends Component {
         if (cartItem[idx].count > 1){
         cartItem[idx].count--;
         this.setState({cartItem});
+        fetch('API url', {
+            method: 'POST',
+            body: JSON.stringify({
+                id: el.id,
+                count: el.count-1
+            })
+        })
+        .then((response) => {return response.json()})
+        .then((result) => {
+            // console.log("백엔드에서 오는 응답메시지:" + result);
+            if(result.message==='success') {
+              return;
+            }
+          })
        }
-       fetch('API url', {
-           method: 'POST'
-       })
+    
     }
 
     handlePlus = (el) => {
@@ -46,21 +61,29 @@ class Cart extends Component {
         if (cartItem[idx].count<10) {
             cartItem[idx].count++;
             this.setState({cartItem})
+            fetch('API url', {
+                method: 'POST',
+                body: JSON.stringify({
+                    id: el.id,
+                    count: el.count+1
+                    // id, count => 민영님과 맞추기
+                })
+            })
         } else {
             alert('최대 주문 수량은 10개 입니다.')
         }
-        fetch('', {
-            method: 'POST'
-        })
-        
     }
 
     deleteItem = (el) => {
         const {cartItem} = this.state;
         let removeItem = cartItem.filter((e) => el.id !== e.id);
         this.setState({cartItem: removeItem})
-        fetch('', {
-            method: 'POST'
+        fetch('API url', {
+            method: 'POST',
+            body: JSON.stringify({
+                id: el.id
+                // id => 민영님과 맞추기
+            })
         })
     }
 
@@ -78,6 +101,15 @@ class Cart extends Component {
     }
 
     deleteAll = () => {
+        const items = [...this.state.cartItem];
+        const itemsId = items.map(item => item.id);
+        fetch('API url', {
+            method: 'POST',
+            body: JSON.stringify({
+                items: itemsId
+                // items => 민영님과 맞추기
+            })
+        })
         this.setState({cartItem: []});
     }
 
