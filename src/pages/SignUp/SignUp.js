@@ -41,7 +41,7 @@ class SignUp extends Component {
 
         if (result.message === "success") {
           alert ('회원가입이 완료되었습니다!')
-          this.props.history.push("/")
+          this.props.history.push("/Login")
         } else {
           alert(result.message);
         }})
@@ -60,10 +60,6 @@ class SignUp extends Component {
           } else {
             alert(result.message);
           }})
-    }
-
-    handleDuplication = () => {
-        
     }
 
     render() {
@@ -86,6 +82,7 @@ class SignUp extends Component {
                         <div className='idSection'>
                             <input placeholder='아이디' name="id" onChange={this.handleInputValueChange}/>
                             <button onClick={this.handleDuplication}>중복확인</button>
+                            {/* {!isvalidID &&<p>아이디를 정확히 입력해주세요.</p>} */}
                         </div>
                         <div className='pwSection'>
                             <input type='password' placeholder='비밀번호' name="pw" onChange={this.handleInputValueChange}/>
