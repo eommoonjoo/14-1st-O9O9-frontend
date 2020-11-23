@@ -19,7 +19,9 @@ class ListContainer extends Component {
   }
 
   componentDidMount() {
-    Promise.all([this.getSubcategories(), this.getProducts()]);
+    // Promise.all([this.getSubcategories(), this.getProducts()]);
+    this.getSubcategories();
+    this.getProducts();
     window.addEventListener("scroll", this.handleScroll);
   }
 
@@ -72,14 +74,14 @@ class ListContainer extends Component {
     // if (queryString.length === 2) {
     //   const categoryId = parseInt(queryString[1]);
     //   const productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `/${categoryId}`);
-    //   console.log(productsData.data.product);
-    //   newProducts = productsData.data.product;
+    //   console.log(productsData.data.productList);
+    //   newProducts = productsData.data.productList;
     // } else {
     //   const categoryId = parseInt(queryString[1][0]);
     //   const subcategoryId = parseInt(queryString[2]);
     //   const productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `/${categoryId}/${subcategoryId}`);
-    //   console.log(productsData.data.product);
-    //   newProducts = productsData.data.product;
+    //   console.log(productsData.data.productList);
+    //   newProducts = productsData.data.productList;
     // }
     // newProducts.sort((product1, product2) => product2.id - product1.id);
     // this.setState({ products: newProducts });
