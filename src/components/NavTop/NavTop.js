@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { HiSearch } from 'react-icons/hi';
 import { FiShoppingCart } from 'react-icons/fi';
 import { RiHeart3Line } from 'react-icons/ri';
 import { FiUser } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import {MYPAGE_MENUS} from '../navData';
+import {USERINFO_API} from '../../config';
 import './NavTop.scss';
 
 class NavTop extends Component {
@@ -12,22 +14,27 @@ class NavTop extends Component {
     super();
     this.state = {
       activateMyPage: true, 
-      isLogined: false ,
+      isLogined: true ,
       userInfo: {}
     };
   }
 
   componentDidMount() {
-    if(localStorage.getItem('token')){
+    // if(localStorage.getItem('token')){
       
-      this.setState({ isLogined : true });
-    }
-    else this.setState({ isLogined : false });
+    //   this.setState({ isLogined : true });
+    // }
+    // else this.setState({ isLogined : false });
   }
 
+  handleLogout = () => {
+    localStorage.removeItem('token');
+    this.setState({isLogined: false});
+  }
 
   getUserInformation = async () => {
-    
+    const userdata = await axios({url: USERINFO_API , headers: {authorization : localStorage.getItem('token')}});
+    console.log(userdata.data);
   }
 
   toggleMyPageMenu = () => {
@@ -80,12 +87,14 @@ class NavTop extends Component {
               onMouseEnter={this.outMypage}>
               <div className='myPageMenu'>
                 <ul>
-                  <li><Link to="/Login"><span>로그인</span></Link></li>
-                  <li><Link to="/SignUp"><span>회원가입</span></Link></li>
+                  {!isLogined ? 
+                  [<li><Link to="/Login"><span className="plaintext">로그인</span></Link></li>, <li><Link to="/SignUp"><span className="plaintext">회원가입</span></Link></li>] 
+                  :
+                  [<li><Link to=""><span className="plaintext"><span className="username">맹끼</span>님 안녕하세요</span></Link></li>, <li><Link to=""><span className="plaintext" onClick={this.handleLogout}>로그아웃</span></Link></li>]}
                   {MYPAGE_MENUS.map((el, idx) => (
                     <li key={idx}>
                       <Link to="">
-                        <span>{el.name}</span>
+                        <span className="plaintext">{el.name}</span>
                       </Link>
                     </li>
                   ))}
