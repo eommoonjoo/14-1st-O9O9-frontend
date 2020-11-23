@@ -32,7 +32,10 @@ class SignUp extends Component {
         } else if (name ==='pw') {
             let passwordRules = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
             const validPW = passwordRules.test(value);
-            this.setState({validPW})
+            this.setState({validPW})   
+        } else if (name === 'passwordcheck') {
+            const validDoubleCheck = this.state.pw === value
+            this.setState({validDoubleCheck})
         } else if (name === 'name') {
             let reg = /^[가-힣]{2,4}$/;
             const validName = reg.test(value);
@@ -45,7 +48,7 @@ class SignUp extends Component {
             let emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
             const validEmail = emailRule.test(value);
             this.setState({validEmail})
-        }
+        } 
     }
 
     handleInputValueChange = (e) => {
@@ -141,9 +144,9 @@ class SignUp extends Component {
                         <div className='pwAgainSection'>
                             <div>
                                 <input type='password' name="passwordcheck" onChange={this.handleInputValueChange} placeholder='비밀번호 확인'/>
-                                <div className='locked'><FaUserLock size='35' color='red'/></div>
+                                <div className='locked'><FaUserLock size='35' color={this.state.passwordcheck ? (this.state.validDoubleCheck? '#01b8ff' : 'red') : 'lightgray'}/></div>
                             </div>
-                            <p>비밀번호가 일치하지 않습니다.</p>
+                                {!this.state.validDoubleCheck && <p>비밀번호가 일치하지 않습니다.</p>}
                         </div>
                         <div className='userInfo'>
                             <div>
