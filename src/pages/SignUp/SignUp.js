@@ -52,15 +52,13 @@ class SignUp extends Component {
     }
 
     handleInputValueChange = (e) => {
-        // const { id, pw, name, phone, email } = e.target;
-        this.validationCheck(e.target.name, e.target.value);
-        this.setState({[e.target.name]: e.target.value});
+        const {name, value} = e.target;
+        this.validationCheck(name, value);
+        this.setState({[name]: value});
     }
 
     checkValidation = (e) => {
         e.preventDefault();
-        // console.log('연결확인');
-    
         const {id, pw, name, phone, email, passwordcheck, idDoubleCheck} = this.state;
         if(!idDoubleCheck){
             alert("아이디 중복확인을 해주세요")       
@@ -110,8 +108,6 @@ class SignUp extends Component {
     }
 
     render() {
-        // console.log(this.state)
-        const {idDoubleCheck, validID, validvalidID, validPW, validDoubleCheck, validName, validPhone, validEmail} = this.state
         return (
             <div className='SignUp'>
                 <div className='joinContent'>
@@ -125,7 +121,6 @@ class SignUp extends Component {
                         <span className='joinText'>아이디로 이용이 가능합니다. </span>
                         <span className='login'>로그인하기 {'>'}</span>
                     </div>
-                
                     <div className='idAndPw'>
                         <div className='idSection'>
                             <input placeholder='아이디' name="id" onChange={this.handleInputValueChange}/>
@@ -218,7 +213,6 @@ class SignUp extends Component {
                             <div className='marketingInfo'>상품구매 관련 내용은 수신동의 여부와 관계없이 발송됩니다.</div>
                         </div>
                         <button onClick={this.checkValidation} >동의하고 회원가입</button>
-                        {/* {idDoubleCheck?  <button onClick={this.checkValidation} >동의하고 회원가입</button> :  <button onClick={this.activeButton}>동의하고 회원가입</button>} */}
                     </div>
                 </div>
             </div>

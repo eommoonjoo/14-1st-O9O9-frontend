@@ -1,9 +1,7 @@
 @import "../../styles/common.scss";
 
 @mixin inputbox {
-  // width: 635px;
   height: 45px;
-  box-sizing: border-box;
   font-size: 20px;
   font-weight: 700;
   padding-left: 15px;
@@ -29,9 +27,7 @@
     margin: 0 auto;
 
     .logo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flexCenter;
       padding: 70px 0 50px 0;
     }
     .joinText {
@@ -64,13 +60,8 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      // border: 1px solid #bbbbbb;
-
       .idSection {
         width: 637px;
-        // height: 68px;
-        box-sizing: border-box;
-
         border: 1px solid #bbbbbb;
         border-bottom: none;
         background-color: white;
