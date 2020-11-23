@@ -61,14 +61,14 @@ class Cart extends Component {
         if (cartItem[idx].count<10) {
             cartItem[idx].count++;
             this.setState({cartItem})
-            fetch('API url', {
-                method: 'POST',
-                body: JSON.stringify({
-                    id: el.id,
-                    count: el.count+1
-                    // id, count => 민영님과 맞추기
-                })
-            })
+            // fetch('API url', {
+            //     method: 'POST',
+            //     body: JSON.stringify({
+            //         id: el.id,
+            //         count: el.count+1
+            //         // id, count => 민영님과 맞추기
+            //     })
+            // })
         } else {
             alert('최대 주문 수량은 10개 입니다.')
         }
@@ -151,7 +151,7 @@ class Cart extends Component {
                    </div>
                    <div className='rightSide'>
                         <div className='payment'>
-                            <div className='orderInfo'>주문예정정보</div>
+                            <div className='orderInfo'>주문예정정보(총 {this.state.cartItem.length}개) </div>
                             <div className='totalPay'>
                                 <div className="pay">결제 예정금액</div>
                                 <div className='total'>
