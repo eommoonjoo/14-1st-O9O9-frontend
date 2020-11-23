@@ -14,6 +14,7 @@ class SignUp extends Component {
             phone:'',
             email: '',
             passwordcheck: '',
+            idDoubleCheck: false,
 
             validID: true,
             validPW: true,
@@ -57,8 +58,11 @@ class SignUp extends Component {
         e.preventDefault();
         // console.log('연결확인');
     
-        const {id, pw, name, phone, email, passwordcheck} = this.state;
-    
+        const {id, pw, name, phone, email, passwordcheck, idDoubleCheck} = this.state;
+        if(!idDoubleCheck){
+            alert("아이디 중복확인을 해주세요")       
+            return;
+        }
         fetch('http://10.58.4.236:8000/user/signup', {
           method: "POST",
           body: JSON.stringify({
@@ -89,15 +93,22 @@ class SignUp extends Component {
             }),
           }).then((res) => res.json())
             .then((result) => {
-          if (result.message === "success") {
-            alert ("사용가능한 아이디입니다.")
+          if (result.status === "success") {
+            this.setState({idDoubleCheck: true});
+            alert ("사용가능한 아이디입니다.");
           } else {
             alert(result.message);
-          }})
+          }
+        })
+    }
+
+    activeButton = () => {
+        alert('아이디 중복확인');
     }
 
     render() {
         // console.log(this.state)
+        const {idDoubleCheck, validID, validvalidID, validPW, validDoubleCheck, validName, validPhone, validEmail} = this.state
         return (
             <div className='SignUp'>
                 <div className='joinContent'>
@@ -203,7 +214,8 @@ class SignUp extends Component {
                             </div>
                             <div className='marketingInfo'>상품구매 관련 내용은 수신동의 여부와 관계없이 발송됩니다.</div>
                         </div>
-                        <button onClick={this.checkValidation}>동의하고 회원가입</button>
+                        <button onClick={this.checkValidation} >동의하고 회원가입</button>
+                        {/* {idDoubleCheck?  <button onClick={this.checkValidation} >동의하고 회원가입</button> :  <button onClick={this.activeButton}>동의하고 회원가입</button>} */}
                     </div>
                 </div>
             </div>
