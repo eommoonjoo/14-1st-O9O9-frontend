@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './SignUp.scss';
+import { AiFillLock } from 'react-icons/ai';
+import { FaUserLock } from 'react-icons/fa';
+
 
 class SignUp extends Component {
     constructor() {
@@ -20,20 +23,24 @@ class SignUp extends Component {
             validEmail: true,
         }
     }
-    validationCheck = (type, value) => {
-        if (type==='id') {
+    validationCheck = (name, value) => {
+        if (name ==='id') {
             let idReg = /^[a-z]+[a-z0-9]{5,19}$/g;
             const validID = idReg.test(value);
             this.setState({validID});
-        } else if (type==='pw') {
+        } else if (name ==='pw') {
             let passwordRules = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
             const validPW = passwordRules.test(value);
             this.setState({validPW})
-        } else if (type === 'name') {
+        } else if (name === 'name') {
             let reg = /^[가-힣]{2,4}$/;
             const validName = reg.test(value);
             this.setState({validName});
-        } else if (type === 'email') {
+        } else if(name === 'phone') {
+            let regPhone = /^\d{3}-\d{3,4}-\d{4}$/;
+            const validPhone = regPhone.test(value);
+            this.setState({validPhone})
+        } else if (name === 'email') {
             let emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
             const validEmail = emailRule.test(value);
             this.setState({validEmail})
@@ -95,12 +102,12 @@ class SignUp extends Component {
             <div className='SignUp'>
                 <div className='joinContent'>
                     <div className='logo'>
-                        <img src='./images/logo_transparent.png'/>
+                        <img src='./images/logo_transparent.png' alt='로고이미지'/>
                     </div>
                     <div className='joinText'>잠깐 G마켓 회원이신가요?</div>
                     <div className='joinTextBox'>
                         <span className='joinText'>G9는 </span>
-                            <img src='./images/gmarket.png' />
+                            <img src='./images/gmarket.png' alt='지마켓'/>
                         <span className='joinText'>아이디로 이용이 가능합니다. </span>
                         <span className='login'>로그인하기 {'>'}</span>
                     </div>
@@ -112,12 +119,19 @@ class SignUp extends Component {
                             {!this.state.validID && <p>회원아이디를 정확히 입력해 주세요.</p>}
                         </div>
                         <div className='pwSection'>
-                            <input type='password' placeholder='비밀번호' name="pw" onChange={this.handleInputValueChange}/>
-                            {!this.state.validPW && <p>비밀번호는 영문 대/소문자, 숫자 및 특수문자 2가지 이상의 조합으로 입력해야 합니다.</p>}
-                            
+                            <div>
+                                <input type='password' placeholder='비밀번호' name="pw" onChange={this.handleInputValueChange}/>
+                                <div className='locked'>
+                                    <AiFillLock size='35' color={this.state.pw ? (this.state.validPW? '#01b8ff' : 'red') : 'lightgray'}/>
+                                </div>
+                            </div>
+                            {!this.state.validPW && <p>비밀번호는 영문 대/소문자, 숫자 및 특수문자의 조합으로 8자 이상 입력해야 합니다.</p>}
                         </div>
                         <div className='pwAgainSection'>
-                            <input type='password' name="passwordcheck" onChange={this.handleInputValueChange} placeholder='비밀번호 확인'/>
+                            <div>
+                                <input type='password' name="passwordcheck" onChange={this.handleInputValueChange} placeholder='비밀번호 확인'/>
+                                <div className='locked'><FaUserLock size='35' color='red'/></div>
+                            </div>
                             <p>비밀번호가 일치하지 않습니다.</p>
                         </div>
                         <div className='userInfo'>
