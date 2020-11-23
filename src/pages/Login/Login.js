@@ -29,6 +29,7 @@ class Login extends Component {
           }),
         }).then(res => res.json())
           .then((result) => {
+              console.log(result);
             if (result.authorization) {
                 localStorage.setItem('token', result.authorization)
                 this.props.history.push('/');

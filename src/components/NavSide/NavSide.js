@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import {MAINCATEGORIES} from '../navData';
 import {CATEGORIES_API, CATEGORY_MOCK_DATA_API} from '../../config';
 import './NavSide.scss'
@@ -31,6 +31,11 @@ class NavSide extends Component {
     this.setState({isCategoryToggled : !this.state.isCategoryToggled})
   }
 
+  goToCategories = (e, categoryId) => {
+    window.scrollTo(0,0);
+    this.props.history.push(`/list?category=${categoryId}`);
+  }
+
   render() {
     const {isCategoryToggled, categories} = this.state;
     const {currentCategoryId} = this.props;
@@ -59,11 +64,14 @@ class NavSide extends Component {
         <div className={`categorySide ${isCategoryToggled ? 'toggled': ''}`}>
           { categories && categories.map((item) => 
             (<div key={item.id} className="categoryItem">
-              <Link to={`/list?category=${item.id}`}>
+                <span className={currentCategoryId === item.id ? "selected" : ""} onClick={(e)=> this.goToCategories(e,item.id)}>
+                  {item.name}
+                </span>
+              {/* <Link to={`/list?category=${item.id}`}>
                 <span className={currentCategoryId === item.id ? "selected" : ""}>
                   {item.name}
                 </span>
-              </Link>
+              </Link> */}
             </div>))}
         </div>
       </aside>
@@ -71,4 +79,4 @@ class NavSide extends Component {
   }
 }
 
-export default NavSide;
+export default withRouter(NavSide);

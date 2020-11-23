@@ -7,9 +7,6 @@ import { SUBCATEGORY_MOCK_DATA, PRODUCTS_MOCK_DATA, MAINCATEGORY_PRODUCTS_DATA_A
 import "./ListContainer.scss";
 import ProductStand from "../ProductStand/ProductStand";
 
-const options = { threshold: 1 };
-let prevObserver;
-
 class ListContainer extends Component {
   constructor() {
     super();
@@ -22,34 +19,26 @@ class ListContainer extends Component {
   }
 
   componentDidMount() {
-    this.getSubcategories();
-    this.getProducts();
+    Promise.all([this.getSubcategories(), this.getProducts()]);
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.location.search !== this.props.location.search) {
-      // console.log("링크 바꼈다");
       this.getSubcategories();
       this.getProducts();
     }
-    if (this.subContainerRef.current !== null) {
-      const observer = new IntersectionObserver(this.observerCallback, options);
-      observer.observe(this.subContainerRef.current);
-      // console.log(this.subContainerRef.current);
-    }
   }
 
-  observerCallback = (entries, observer) => {
-    // if(entries.isInter)
-    // console.log(entries[0].isIntersecting);
-
-    if (entries[0].isIntersecting) {
-      if (prevObserver !== null) {
-      }
-      prevObserver = entries[0].isIntersecting;
-      // this.setState({ showHiddenSubs: !this.state.showHiddenSubs });
-      // console.log("트루");
-    }
+  handleScroll = (event) => {
+    const { showHiddenSubs } = this.state;
+    if (event.srcElement.scrollingElement.scrollTop > 430 && !showHiddenSubs) this.setState({ showHiddenSubs: true });
+    else if (event.srcElement.scrollingElement.scrollTop <= 430 && showHiddenSubs)
+      this.setState({ showHiddenSubs: false });
   };
 
   //현재 카테고리에 해당하는 서브카테고리들을 받아옴
@@ -74,6 +63,7 @@ class ListContainer extends Component {
       const subcategoryId = parseInt(queryString[2]);
       newProducts = products.filter((item) => item.categoryId === categoryId && item.subcategoryId === subcategoryId);
     }
+
     newProducts.sort((product1, product2) => product2.id - product1.id); //받아올때부터 최신순으로 받아오기
     this.setState({ products: newProducts });
 
@@ -104,7 +94,6 @@ class ListContainer extends Component {
 
   render() {
     const { subcategories, products, showHiddenSubs } = this.state;
-    // console.log(subcategories, products, currentSubCategory);
     const { categoryId } = this.props;
     return (
       <main className="ListContainer">
