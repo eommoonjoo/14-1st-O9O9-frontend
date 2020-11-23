@@ -54,37 +54,37 @@ class ListContainer extends Component {
     const queryString = this.props.location.search.split("=");
 
     //일단은 그냥 목데이터로 하겠음. 추후에 아래 주석 풀긔
-    const productsData = await axios.get(PRODUCTS_MOCK_DATA);
-    const products = productsData.data.products;
-    let newProducts;
-    if (queryString.length === 2) {
-      const categoryId = parseInt(queryString[1]);
-      newProducts = products.filter((item) => item.categoryId === categoryId);
-    } else {
-      const categoryId = parseInt(queryString[1][0]);
-      const subcategoryId = parseInt(queryString[2]);
-      newProducts = products.filter((item) => item.categoryId === categoryId && item.subcategoryId === subcategoryId);
-    }
-
-    newProducts.sort((product1, product2) => product2.id - product1.id); //받아올때부터 최신순으로 받아오기
-    this.setState({ products: newProducts });
-
-    //백엔드와 통신할 부분
+    // const productsData = await axios.get(PRODUCTS_MOCK_DATA);
+    // const products = productsData.data.products;
     // let newProducts;
     // if (queryString.length === 2) {
     //   const categoryId = parseInt(queryString[1]);
-    //   const productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `/${categoryId}`);
-    //   console.log(productsData.data.productList);
-    //   newProducts = productsData.data.productList;
+    //   newProducts = products.filter((item) => item.categoryId === categoryId);
     // } else {
     //   const categoryId = parseInt(queryString[1][0]);
     //   const subcategoryId = parseInt(queryString[2]);
-    //   const productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `/${categoryId}/${subcategoryId}`);
-    //   console.log(productsData.data.productList);
-    //   newProducts = productsData.data.productList;
+    //   newProducts = products.filter((item) => item.categoryId === categoryId && item.subcategoryId === subcategoryId);
     // }
-    // newProducts.sort((product1, product2) => product2.id - product1.id);
+
+    // newProducts.sort((product1, product2) => product2.id - product1.id); //받아올때부터 최신순으로 받아오기
     // this.setState({ products: newProducts });
+
+    //백엔드와 통신할 부분
+    let newProducts;
+    if (queryString.length === 2) {
+      const categoryId = parseInt(queryString[1]);
+      const productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `/${categoryId}`);
+      // console.log(productsData.data.productList);
+      newProducts = productsData.data.productList;
+    } else {
+      const categoryId = parseInt(queryString[1][0]);
+      const subcategoryId = parseInt(queryString[2]);
+      const productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `/${categoryId}/${subcategoryId}`);
+      // console.log(productsData.data.productList);
+      newProducts = productsData.data.productList;
+    }
+    newProducts.sort((product1, product2) => product2.id - product1.id);
+    this.setState({ products: newProducts });
   };
 
   getFilteredProducts = () => {
