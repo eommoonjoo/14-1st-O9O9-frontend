@@ -1,0 +1,134 @@
+@import '../../../../../styles/common.scss';
+
+.Modal {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  background-color: rgba(44, 44, 44, 0.6);
+  @include flexCenter;
+  // opacity: 90%;
+  z-index: 110;
+
+  .questionModal {
+    width: 560px;
+    height: 700px;
+    // border: 1px solid #262626;
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    // align-items: flex-start;
+    border-radius: 10px;
+    .modalContainer {
+      width: 550px;
+      height: 700px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-top: 20px;
+
+      h1 {
+        font-size: 16px;
+        font-weight: 700;
+        padding: 20px 30px;
+      }
+      .modalTemplate {
+        display: grid;
+        grid-template-columns: 90px 400px;
+        justify-content: center;
+        padding: 10px;
+
+        .input {
+          height: 22px;
+          width: 150px;
+          font-size: 12px;
+          border: 1px solid gray;
+          border-radius: 3px;
+          // margin: 3px;
+        }
+
+        .subtitle {
+          border-right: none;
+          border-bottom: none;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          color: black;
+          font-size: 13px;
+          font-weight: 600;
+          // background-color: $themeLightGrayColor;
+          background-color: #f6f6f6;
+        }
+        div {
+          // border: 1px solid rgba(232, 235, 245, 0.9);
+          border: 1px solid lightgray;
+          font-size: 12px;
+          line-height: 13px;
+          padding: 10px;
+          border-bottom: none;
+          // color: $themeDarkGrayColor;
+        }
+        // .phoneNumber {
+        //   input {
+        //     border: 1px solid gray;
+        //     width: 145px;
+        //     height: 23px;
+        //     margin: 3px;
+        //   }
+        // }
+        .radioGroup {
+          display: flex;
+          justify-content: space-evenly;
+          // align-items: center;
+          // border: 1px solid gold;
+
+          div {
+            font-size: 12px;
+            // line-height: 12px;
+            border: none;
+            padding: 3px;
+            color: black;
+            margin-right: 13px;
+            // border: 1px solid darkblue;
+            display: flex;
+            // justify-content: flex-start;
+            align-items: center;
+          }
+        }
+        .lastrow {
+          border-bottom: 1px solid rgba(232, 235, 245, 0.9);
+          textarea {
+            margin: 5px 0px 35px 0;
+            border: 1px solid gray;
+          }
+          p {
+            color: gray;
+            font-weight: lighter;
+          }
+        }
+      }
+    }
+    .modalButton {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      button {
+        width: 230px;
+        height: 40px;
+        margin: 0 13px;
+
+        // padding: 2px 15px;
+        // background-color: $themeLogoColor;
+        border-radius: 5px;
+        background-color: #f6f6f6;
+        color: #203a43;
+        font-weight: 700;
+        letter-spacing: 5px;
+        text-align: center;
+        border-style: light;
+        border: 1px solid rgba(232, 235, 245, 0.9);
+        cursor: pointer;
+      }
+    }
+  }
+}

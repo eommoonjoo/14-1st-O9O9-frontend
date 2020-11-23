@@ -4,7 +4,7 @@
   height: 603px;
   width: 970px;
   // border: 1px solid #93abd3;
-  margin-left: 143px;
+  margin-left: -150px;
 
   .productViewContainer {
     width: 920px;
@@ -44,16 +44,18 @@
             display: flex;
             justify-content: flex-end;
             margin-bottom: 40px;
+            // padding-bottom: 10px;
+            cursor: pointer;
 
             .likes {
-              height: 30px;
-              line-height: 30px;
+              height: 35px;
+              line-height: 35px;
               margin-bottom: 5px;
               text-align: center;
               width: 65px;
               background-color: transparent;
               border: 1px solid #424242;
-              border-radius: 40px;
+              border-radius: 50px;
             }
           }
           p {
@@ -61,7 +63,7 @@
             font-weight: normal;
 
             border-top: 1px solid #e5e5e5;
-            margin-bottom: 5px;
+            margin: 5px 0;
           }
           h3 {
             font-size: 15px;

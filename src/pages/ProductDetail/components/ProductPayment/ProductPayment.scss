@@ -1,17 +1,27 @@
 @import '../../../../styles/common.scss';
 
 .ProductPayment {
-  height: 100vh;
+  height: 800px;
   width: 298px;
-  position: sticky;
+  position: fixed;
   top: 141px;
-  right: 20px;
-  margin: 0 5px;
+  // right: 20%;
+  right: 0;
+  // margin: 0 5px;
+  margin-right: 10%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   background-color: white;
   border: 1px solid $themeLightGrayColor;
+
+  @media screen and (max-width: 1920px) {
+    margin-right: 5%;
+  }
+
+  @media screen and (max-width: 1530px) {
+    margin-right: 0;
+  }
 
   .productPaymentContainer {
     width: 290px;

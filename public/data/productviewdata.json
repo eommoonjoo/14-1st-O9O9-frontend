@@ -1,0 +1,25 @@
+{
+  "productview": {
+    "id": 1,
+    "productName": "서귀포 조생 감귤",
+    "url": "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80",
+    "price": 10900,
+    "count": 1,
+    "seller": "더브레드",
+    "likesCount": 134,
+    "heart": false,
+    "bought": 365,
+    "deadline": "20201225"
+  },
+
+  "qnauserdata": {
+    "index": 1,
+    "asktype": 0,
+    "username": "jihye ryu",
+    "id": "ryuwisdom",
+    "email": "bonnie.jr54@gmail.com",
+    "phoneNumber": "01095004758",
+    "subject": "",
+    "content": ""
+  }
+}

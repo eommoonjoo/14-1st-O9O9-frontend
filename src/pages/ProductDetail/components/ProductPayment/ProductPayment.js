@@ -10,17 +10,26 @@ class ProductPayment extends Component {
     super();
     this.state = {};
   }
+
   render() {
+    const { productInfo } = this.props;
+    const { handlePlus, handleMinus } = this.props;
+
+    // console.log(productview.length > 0 ? productview.cartItems : '+_+');
+    // console.log(productview.cartItems ? productview.cartItems[0] : '+_+');
+
     return (
       <div className='ProductPayment'>
         <div className='productPaymentContainer'>
           <div className='priceMain'>
-            <span>10,900</span>
+            <span>
+              {productInfo.productview &&
+                productInfo.productview.price.toLocaleString(2)}
+            </span>
             <span>10% 할인받기 ☻</span>
           </div>
           <div className='freeDelivery'>
             <span>
-              {/* <MdLocalShipping /> */}
               <BiBox />
               &nbsp;무료배송&nbsp;
             </span>
@@ -44,22 +53,38 @@ class ProductPayment extends Component {
           <p className='countText'>주문수량</p>
           <div className='orderQuantity'>
             <div className='handleCount'>
-              <input type='number' />
+              <input
+                type='text'
+                value={productInfo.productview && productInfo.productview.count}
+              />
               <div className='countButton'>
-                <img src='http://pics.g9.co.kr/btn/btn_num_up.gif' alt='증가' />
+                <img
+                  src='http://pics.g9.co.kr/btn/btn_num_up.gif'
+                  alt='증가'
+                  onClick={handlePlus}
+                />
                 <img
                   src='http://pics.g9.co.kr/btn/btn_num_down.gif'
                   alt='감소'
+                  onClick={handleMinus}
                 />
               </div>
             </div>
             <div className='priceByQuantity'>
-              <p>10,900원</p>
+              <p>
+                {productInfo.productview &&
+                  productInfo.productview.count * productInfo.productview.price}
+                원
+              </p>
             </div>
           </div>
           <div className='oderPrice'>
             <p>주문금액</p>
-            <p>10,900원</p>
+            <p>
+              {productInfo.productview &&
+                productInfo.productview.count * productInfo.productview.price}
+              원
+            </p>
           </div>
           <div className='orderButtonSide'>
             <button>장바구니</button>
