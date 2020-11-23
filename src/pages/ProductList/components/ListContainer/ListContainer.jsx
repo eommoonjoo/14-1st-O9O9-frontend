@@ -37,8 +37,7 @@ class ListContainer extends Component {
   handleScroll = (event) => {
     const { showHiddenSubs } = this.state;
     if (event.srcElement.scrollingElement.scrollTop > 430 && !showHiddenSubs) this.setState({ showHiddenSubs: true });
-    else if (event.srcElement.scrollingElement.scrollTop <= 430 && showHiddenSubs)
-      this.setState({ showHiddenSubs: false });
+    if (event.srcElement.scrollingElement.scrollTop <= 430 && showHiddenSubs) this.setState({ showHiddenSubs: false });
   };
 
   //현재 카테고리에 해당하는 서브카테고리들을 받아옴
