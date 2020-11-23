@@ -4,11 +4,10 @@ import {
     Switch,
     Route,
 } from 'react-router-dom';
-
+import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import Cart from './pages/Cart/Cart';
-import Main from './pages/Main/Main';
 
 class Routes extends Component {
   render() {
@@ -21,8 +20,7 @@ class Routes extends Component {
           <Route exact path='/Cart' component={props => <Cart {...props} />} />
         </Switch>
       </Router>
-    );
+    )
   }
 }
-
 export default Routes;

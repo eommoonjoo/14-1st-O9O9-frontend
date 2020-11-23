@@ -1,0 +1,240 @@
+@import "../../styles/common.scss";
+
+.Login {
+  width: 800px;
+  //   height: 950px;
+  margin: 0 auto;
+  .logo {
+    @include flexCenter;
+    img {
+      width: 280px;
+      //   height: 150px;
+      padding: 90px 0 30px 0;
+      margin-top: 20px;
+    }
+  }
+  .messageBox {
+    @include flexCenter;
+    margin-bottom: 22px;
+    .gmarketLogo {
+      width: 140px;
+    }
+    .gmarketMessage {
+      position: relative;
+      left: -13px;
+      margin-top: 10px;
+      font-size: 18px;
+      color: #616161;
+    }
+  }
+  form {
+    .inputBox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .inputId {
+        width: 450px;
+        height: 60px;
+        margin-bottom: 10px;
+        font-size: 22px;
+        padding-left: 20px;
+        border-radius: 0;
+        // border-color: #d6d6d6;
+        border: 1px solid #d6d6d6;
+        letter-spacing: 1px;
+        &::placeholder {
+          color: #c9c9c9;
+        }
+        &:focus {
+          outline: none;
+          border-color: black;
+        }
+      }
+      .inputPw {
+        width: 450px;
+        height: 60px;
+        font-size: 22px;
+        padding-left: 20px;
+        border-radius: 0;
+        letter-spacing: 1px;
+        border: 1px solid #d6d6d6;
+        &::placeholder {
+          color: #c9c9c9;
+        }
+        &:focus {
+          outline: none;
+          border-color: black;
+        }
+      }
+    }
+    .saveId {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      padding-right: 335px;
+      padding-bottom: 5px;
+      color: #808080;
+      font-size: 18px;
+      input {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border: 1px solid #bcbcbc;
+        cursor: pointer;
+      }
+      .rememberId {
+        //   width: 200px;
+        //   height: 60px;
+        //   margin-left: 260px;
+        //   margin-bottom: 12px;
+        //   position: relative;
+        //   top: 25px;
+        //   color: #9d9d9d;
+        //   font-size: 18px;
+        margin: 4px 0 0 3px;
+      }
+    }
+    .loginWrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .loginButton {
+        width: 476px;
+        height: 66px;
+        margin-bottom: 70px;
+        font-size: 23px;
+        font-weight: 800;
+        outline: none;
+        // letter-spacing: 1px;
+        text-decoration: none solid rgb(255, 255, 255);
+        background-color: #00b8ff;
+        color: white;
+        border: 1px solid #00b8ff;
+      }
+      .kakaoLoginButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 476px;
+        height: 66px;
+        font-size: 23px;
+        letter-spacing: -1px;
+        font-weight: 400;
+        text-decoration: none solid rgb(255, 255, 255);
+        border: 1px solid #d6d6d6;
+        background-color: white;
+        color: #545468;
+        .kakaoImg {
+          margin-right: 7px;
+          margin-bottom: 2.5px;
+          width: 27px;
+          height: 27px;
+        }
+      }
+    }
+    .linkGroup {
+      width: 400px;
+      margin: 0 auto;
+      text-align: center;
+      color: #9b9b9b;
+      padding: 60px 0 70px 0;
+      font-size: 18px;
+      .gap {
+        margin: 0 15px;
+      }
+    }
+    .nonMember {
+      width: 476px;
+      margin: 0 auto;
+      border-top: 1px solid #d6d6d6;
+      display: flex;
+      flex-direction: column;
+
+      .nonMemberOrder {
+        padding: 55px 0 30px 0;
+        text-align: center;
+        font-size: 22px;
+        color: #4e4e62;
+      }
+      .orderName {
+        width: 476px;
+        height: 65px;
+        border-bottom: none;
+        padding-left: 20px;
+        box-sizing: border-box;
+        font-size: 21px;
+        border: 1px solid #d6d6d6;
+        border-bottom: none;
+        &::placeholder {
+          color: #c9c9c9;
+        }
+        &:focus {
+          outline: none;
+          border-top-color: black;
+          border-left-color: black;
+          border-right-color: black;
+        }
+      }
+      .phoneNumber {
+        width: 476px;
+        height: 65px;
+        line-height: 48px;
+        padding-left: 20px;
+        box-sizing: border-box;
+        font-size: 21px;
+        border: 1px solid #d6d6d6;
+        border-bottom: none;
+        &::placeholder {
+          color: #c9c9c9;
+        }
+        &:focus {
+          outline: none;
+          border-left-color: black;
+          border-right-color: black;
+        }
+      }
+      .orderPw {
+        width: 476px;
+        height: 65px;
+        line-height: 48px;
+        padding-left: 20px;
+        // border-top: 1px solid black;
+        box-sizing: border-box;
+        font-size: 21px;
+        border: 1px solid #d6d6d6;
+        &::placeholder {
+          color: #c9c9c9;
+        }
+        &:focus {
+          outline: none;
+          border-bottom-color: black;
+          border-left-color: black;
+          border-right-color: black;
+        }
+      }
+      .orderMessageBox {
+        margin: 20px 0 30px 0;
+        font-size: 17px;
+        color: #9b9b9b;
+      }
+      .nonMemberOrderHistory {
+        width: 476px;
+        height: 65px;
+        line-height: 48px;
+        padding-left: 20px;
+        border: 1px solid #00c6fe;
+        background-color: white;
+        box-sizing: border-box;
+        font-size: 22px;
+        color: #00c6fe;
+        font-weight: 600;
+        outline: none;
+      }
+    }
+  }
+}
