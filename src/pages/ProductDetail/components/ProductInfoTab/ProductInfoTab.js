@@ -28,10 +28,10 @@ class ProductInfoTab extends Component {
     let component;
 
     if (activeId == 0) {
-      component = <Detail />;
+      component = <Detail productInfo={productInfo} />;
     }
     if (activeId == 1) {
-      component = <Review />;
+      component = <Review productInfo={productInfo} />;
     }
     if (activeId == 2) {
       component = (

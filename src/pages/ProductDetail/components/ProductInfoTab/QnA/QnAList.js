@@ -11,6 +11,10 @@ const typeTable = {
   5: '교환',
   6: '기타',
 };
+const answerStatus = {
+  1: '미답변',
+  2: '답변완료',
+};
 
 class QnAList extends Component {
   constructor() {
@@ -27,14 +31,18 @@ class QnAList extends Component {
     return (
       <div className='QnAList'>
         <div className='qnaContents'>
-          <div className='qnaInput fitCenter'>{qnadata.registNumber}</div>
-          <div className='qnaInput fitCenter'>{typeTable[qnadata.askType]}</div>
-          <div className='qnaInput fitCenter'>{qnadata.answerState}</div>
-          <div className='qnaInput qnADropDown'>
-            <Link onClick={this.commentHandler}>{qnadata.subject}</Link>
+          <div className='qnaInput fitCenter'>{qnadata.number}</div>
+          <div className='qnaInput fitCenter'>
+            {typeTable[qnadata.question_type]}
           </div>
-          <div className='qnaInput fitCenter'>{qnadata.username}</div>
-          <div className='qnaInput fitCenter'>{qnadata.registDate}</div>
+          <div className='qnaInput fitCenter'>
+            {answerStatus[qnadata.answer_status]}
+          </div>
+          <div className='qnaInput qnADropDown'>
+            <Link onClick={this.commentHandler}>{qnadata.title}</Link>
+          </div>
+          <div className='qnaInput fitCenter'>{qnadata.question_man}</div>
+          <div className='qnaInput fitCenter'>{qnadata.created_at}</div>
         </div>
         {this.state.openComment ? (
           <div className='dropDownContent'>

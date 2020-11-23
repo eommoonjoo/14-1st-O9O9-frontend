@@ -16,7 +16,7 @@ class ProductView extends Component {
   render() {
     const { productInfo } = this.props;
     console.log(productInfo);
-
+    // console.log(productInfo. && productInfo.productview.url);
     return (
       <div className='ProductView'>
         <div className='productViewContainer'>
@@ -26,7 +26,7 @@ class ProductView extends Component {
           <div className='productGroup'>
             <div className='productImage'>
               <img
-                src={productInfo.productview && productInfo.productview.url}
+                src='//image.g9.co.kr/g/1942970800/n?ts=1605573467000'
                 alt='감귤'
               />
             </div>
@@ -52,12 +52,9 @@ class ProductView extends Component {
                 </div>
                 <p>
                   <br />
-                  {productInfo.productview && productInfo.productview.seller}
+                  {productInfo && productInfo.brand}
                 </p>
-                <h3>
-                  {productInfo.productview &&
-                    productInfo.productview.productName}
-                </h3>
+                <h3>{productInfo && productInfo.title}</h3>
                 <div className='couponSide'>
                   <img src='./images/쿠폰.png' alt='coupon' />
                 </div>

@@ -28,13 +28,27 @@ class ProductDetail extends Component {
     this.setState({ openModal: false });
   };
 
+  // componentDidMount() {
+  //   fetch(PRODUCTVIEW_MOCK_DATA_API)
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       this.setState({
+  //         productInfo: res,
+  //       });
+  //     });
+
+  // }
+
   componentDidMount() {
-    fetch(PRODUCTVIEW_MOCK_DATA_API)
+    fetch('http://10.58.3.60:8000/Display/VIP/Index/2', {
+      method: 'get',
+    })
       .then((res) => res.json())
       .then((res) => {
         this.setState({
-          productInfo: res,
+          productInfo: res.product[0],
         });
+        // this.setState({ productInfo: res.product[0] });
       });
   }
 

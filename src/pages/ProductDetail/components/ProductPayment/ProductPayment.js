@@ -22,10 +22,7 @@ class ProductPayment extends Component {
       <div className='ProductPayment'>
         <div className='productPaymentContainer'>
           <div className='priceMain'>
-            <span>
-              {productInfo.productview &&
-                productInfo.productview.price.toLocaleString(2)}
-            </span>
+            <span>{productInfo && productInfo.price}</span>
             <span>10% 할인받기 ☻</span>
           </div>
           <div className='freeDelivery'>

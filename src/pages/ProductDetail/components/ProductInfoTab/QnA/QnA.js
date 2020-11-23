@@ -14,16 +14,19 @@ class QnA extends Component {
 
   // 승제님 api는 요기서
   componentDidMount() {
-    fetch(QNA_MOCK_DATA_API)
+    fetch('http://10.58.4.236:8000/review/question')
       .then((res) => res.json())
       .then((res) => {
-        this.setState({ qnadata: res.qnadata });
+        // console.log(res);
+        this.setState({ qnadata: res.question_list });
       });
   }
 
   render() {
     const { qnadata } = this.state;
     const { productInfo } = this.props;
+
+    console.log(qnadata);
     return (
       <>
         <div className='QnA'>

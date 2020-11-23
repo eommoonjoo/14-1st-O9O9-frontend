@@ -14,15 +14,29 @@ class Modal extends Component {
       phoneNumberValue: '',
       title: '',
       context: '',
+      user: {},
     };
   }
 
   componentDidMount() {
     // console.log(this.props);
-    this.setState({
-      emailValue: this.props.productInfo.qnauserdata.email,
-      phoneNumberValue: this.props.productInfo.qnauserdata.phoneNumber,
-    });
+    console.log(localStorage.getItem('token'));
+    fetch('http://10.58.4.236:8000/review/questioninfo', {
+      method: 'post',
+      headers: { authorization: localStorage.getItem('token') },
+      body: JSON.stringify({
+        product_name: this.props.productInfo.title,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        // console.log(res);
+        this.setState({
+          user: res,
+          emailValue: res.email,
+          phoneNumberValue: res.phone_number,
+        });
+      });
   }
 
   changeModalQTypeValue = (e) => {
@@ -54,23 +68,31 @@ class Modal extends Component {
     this.props.onClose && this.props.onClose(e);
   };
 
-  enrollQuestion = () => {
-    // fetch("http://10.58.4.236:8000", {
-    //   method: 'post',
-    //   body: JSON.stringify({
-    //     question_type: 1,
-    //     answer_status: 1,
-    //     title: "klsdfs",
-    //     context: "dfsfs"
-    //   })
-    // }).then(res => res.json()).then(console.log)
-    //setstate자리)
+  enrollQuestion = (e) => {
+    fetch('http://10.58.4.236:8000/review/questionenroll', {
+      method: 'post',
+      headers: { authorization: localStorage.getItem('token') },
+      body: JSON.stringify({
+        type: this.state.question_type,
+        product_name: this.props.productInfo.title,
+        title: this.state.title,
+        content: this.state.context,
+        answer: 1,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      });
+
+    this.onClose(e);
   };
 
   render() {
-    const { emailValue, phoneNumberValue, title, context } = this.state;
+    const { emailValue, phoneNumberValue, title, context, user } = this.state;
     const { productInfo } = this.props;
     console.log(productInfo);
+    console.log(user);
     return (
       <div className='Modal'>
         <div className='questionModal'>
@@ -135,10 +157,10 @@ class Modal extends Component {
                 </div>
               </div>
               <div className='subtitle'>상품명</div>
-              <div>{productInfo.productview.productName}</div>
+              <div>{productInfo.title}</div>
               <div className='subtitle'>이름</div>
               <div>
-                {productInfo.qnauserdata.username}({productInfo.qnauserdata.id})
+                {user.name}({user.name})
               </div>
               <div className='subtitle'>E-mail</div>
               <div>

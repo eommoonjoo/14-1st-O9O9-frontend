@@ -7,6 +7,7 @@ class Detail extends Component {
     this.state = {};
   }
   render() {
+    const { productInfo } = this.props;
     return (
       <div className='Detail'>
         <img
@@ -27,10 +28,6 @@ class Detail extends Component {
               <div>+_+</div>
               <div className='subtitle'>사업자구분</div>
               <div>+_+</div>
-              <div className='subtitle'>
-                포장단위별 내용물의 용량(중량), 수량, 크기
-              </div>
-              <div className='phoneNumber'>+_+</div>
               <div className='subtitle'>생산자/수입자</div>
               <div>+_+</div>
               <div className='subtitle lastrow'>원산지</div>
@@ -39,16 +36,10 @@ class Detail extends Component {
               <div>+_+</div>
               <div className='subtitle lastrow'>유통기한</div>
               <div>+_+</div>
-              <div className='subtitle lastrow'>관련법상 표시사항</div>
-              <div>+_+</div>
-              <div className='subtitle lastrow'>상품구성</div>
-              <div>+_+</div>
               <div className='subtitle lastrow'>보관방법 또는 취급방법</div>
               <div>+_+</div>
-              <div className='subtitle lastrow'>소비자상담 관련 전화번호</div>
-              <div>+_+</div>
               <div className='subtitle lastrow'>주문후 예상 배송기간</div>
-              <div>+_+</div>
+              <div className='lastrow'>+_+</div>
             </div>
           </div>
         </div>
