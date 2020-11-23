@@ -8,7 +8,6 @@ class ProductCard extends Component {
     const { product } = this.props;
     return (
       <div className="ProductCard">
-        {/* 디테일 페이지로 이동시킬것 */}
         <Link to={`/detail/${product.id}`}>
           <div className="imageContainer">
             <img src={product.imageUrl} alt="product" />

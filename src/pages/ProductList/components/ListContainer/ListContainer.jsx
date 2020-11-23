@@ -7,13 +7,18 @@ import { SUBCATEGORY_MOCK_DATA, PRODUCTS_MOCK_DATA, MAINCATEGORY_PRODUCTS_DATA_A
 import "./ListContainer.scss";
 import ProductStand from "../ProductStand/ProductStand";
 
+const options = { threshold: 1 };
+let prevObserver;
+
 class ListContainer extends Component {
   constructor() {
     super();
     this.state = {
       subcategories: [],
       products: [],
+      showHiddenSubs: false,
     };
+    this.subContainerRef = React.createRef();
   }
 
   componentDidMount() {
@@ -27,7 +32,25 @@ class ListContainer extends Component {
       this.getSubcategories();
       this.getProducts();
     }
+    if (this.subContainerRef.current !== null) {
+      const observer = new IntersectionObserver(this.observerCallback, options);
+      observer.observe(this.subContainerRef.current);
+      // console.log(this.subContainerRef.current);
+    }
   }
+
+  observerCallback = (entries, observer) => {
+    // if(entries.isInter)
+    // console.log(entries[0].isIntersecting);
+
+    if (entries[0].isIntersecting) {
+      if (prevObserver !== null) {
+      }
+      prevObserver = entries[0].isIntersecting;
+      // this.setState({ showHiddenSubs: !this.state.showHiddenSubs });
+      // console.log("트루");
+    }
+  };
 
   //현재 카테고리에 해당하는 서브카테고리들을 받아옴
   getSubcategories = async () => {
@@ -80,12 +103,12 @@ class ListContainer extends Component {
   };
 
   render() {
-    const { subcategories, products } = this.state;
+    const { subcategories, products, showHiddenSubs } = this.state;
     // console.log(subcategories, products, currentSubCategory);
     const { categoryId } = this.props;
     return (
       <main className="ListContainer">
-        <div className="subcategoryContainer">
+        <div className="subcategoryContainer" ref={this.subContainerRef}>
           {subcategories &&
             subcategories.map((subcategory, idx) => (
               <div key={subcategory.id} className="subcategory">
@@ -98,7 +121,7 @@ class ListContainer extends Component {
               </div>
             ))}
         </div>
-        <HiddenCategories categoryId={categoryId} subcategories={subcategories} />
+        {showHiddenSubs && <HiddenCategories categoryId={categoryId} subcategories={subcategories} />}
         <ProductStand products={products} />
       </main>
     );

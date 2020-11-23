@@ -35,7 +35,6 @@ class ProductList extends Component {
   render() {
     const currentCategoryId = parseInt(this.props.location.search.split('=')[1]);
     const currentCategory = this.getCurrentCategory(currentCategoryId);
-    console.log(this.props);
     return (
       <>
         <div className="ProductList">
