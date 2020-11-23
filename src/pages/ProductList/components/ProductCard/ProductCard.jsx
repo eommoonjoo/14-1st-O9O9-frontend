@@ -13,7 +13,7 @@ class ProductCard extends Component {
             <img src={product.imageUrl} alt="product" />
           </div>
           <div className="productInfo">
-            <p className="productPrice">{parseInt(product.price).toLocaleString(2)}</p>
+            <p className="productPrice">{Number(product.price).toLocaleString(2)}</p>
             <p className="productTitle">{product.title}</p>
           </div>
           <button className="coupon">10%쿠폰</button>

@@ -33,18 +33,18 @@ class ProductList extends Component {
   }
   
   render() {
-    const currentCategoryId = parseInt(this.props.location.search.split('=')[1]);
-    const currentCategory = this.getCurrentCategory(currentCategoryId);
+    const categoryId = parseInt(this.props.location.search.split('=')[1]);
+    const currentCategory = this.getCurrentCategory(categoryId);
     return (
       <>
         <div className="ProductList">
-          <NavSide currentCategoryId={currentCategoryId}/>
+          <NavSide categoryId={categoryId}/>
           <NavTop />
           <div className="categoryBanner">
             <p className="categoryTitle">{currentCategory && currentCategory.name}</p>
             <p className="categoryContext">O9O9의 맛있는 큐레이션</p>
           </div>
-          <ListContainer categoryId={currentCategoryId}/>
+          <ListContainer categoryId={categoryId}/>
         </div>
         <Footer />
       </> 

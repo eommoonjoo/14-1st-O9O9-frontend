@@ -38,7 +38,7 @@ class NavSide extends Component {
 
   render() {
     const {isCategoryToggled, categories} = this.state;
-    const {currentCategoryId} = this.props;
+    const {categoryId} = this.props;
     return (
       <aside className="NavSide">
         <div className="categories">
@@ -64,14 +64,9 @@ class NavSide extends Component {
         <div className={`categorySide ${isCategoryToggled ? 'toggled': ''}`}>
           { categories && categories.map((item) => 
             (<div key={item.id} className="categoryItem">
-                <span className={currentCategoryId === item.id ? "selected" : ""} onClick={(e)=> this.goToCategories(e,item.id)}>
+                <span className={categoryId === item.id ? "selected" : ""} onClick={(e)=> this.goToCategories(e,item.id)}>
                   {item.name}
                 </span>
-              {/* <Link to={`/list?category=${item.id}`}>
-                <span className={currentCategoryId === item.id ? "selected" : ""}>
-                  {item.name}
-                </span>
-              </Link> */}
             </div>))}
         </div>
       </aside>

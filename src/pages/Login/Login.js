@@ -11,13 +11,11 @@ class Login extends Component {
     }
 
     handleInputValueChange = (e) => {
-        // const { id, pw, name, phone, email } = e.target;
         this.setState({[e.target.name]: e.target.value});
     }
 
     checkValidation = (e) => {
         e.preventDefault();
-        // console.log('연결확인');
     
         const {id, pw} = this.state;
     

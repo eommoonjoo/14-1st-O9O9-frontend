@@ -4,8 +4,8 @@ import axios from "axios";
 import HiddenCategories from "../HiddenCategories/HiddenCategories";
 import { SUBCATEGORY_IMG } from "../../ListData";
 import { SUBCATEGORY_MOCK_DATA, PRODUCTS_MOCK_DATA, MAINCATEGORY_PRODUCTS_DATA_API } from "../../../../config";
-import "./ListContainer.scss";
 import ProductStand from "../ProductStand/ProductStand";
+import "./ListContainer.scss";
 
 class ListContainer extends Component {
   constructor() {
@@ -43,6 +43,7 @@ class ListContainer extends Component {
 
   //현재 카테고리에 해당하는 서브카테고리들을 받아옴
   getSubcategories = async () => {
+    // 나중에 this.props.categoryId 사용해서 불러오기
     const subcategories = await axios.get(SUBCATEGORY_MOCK_DATA);
     this.setState({ subcategories: subcategories.data.subcategories });
   };
@@ -89,7 +90,7 @@ class ListContainer extends Component {
     const { currentSubCategory } = this.state;
     const products = [...this.state.products];
     if (currentSubCategory === -1) return products;
-    else return products.filter((item) => item.subCategoryId === currentSubCategory);
+    return products.filter((item) => item.subCategoryId === currentSubCategory);
   };
 
   render() {

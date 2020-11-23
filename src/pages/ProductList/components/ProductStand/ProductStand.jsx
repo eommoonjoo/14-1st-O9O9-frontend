@@ -43,15 +43,10 @@ class ProductStand extends Component {
 
   changeOptions = (e) => {
     const products = [...this.state.products];
-    if (e.value === "recent") {
-      products.sort((product1, product2) => product2.id - product1.id);
-    } else if (e.value === "popular") {
-      products.sort((product1, product2) => product2.order - product1.order);
-    } else if (e.value === "lowprice") {
-      products.sort((product1, product2) => product1.price - product2.price);
-    } else {
-      products.sort((product1, product2) => product2.price - product1.price);
-    }
+    if (e.value === "recent") products.sort((product1, product2) => product2.id - product1.id);
+    if (e.value === "popular") products.sort((product1, product2) => product2.order - product1.order);
+    if (e.value === "lowprice") products.sort((product1, product2) => product1.price - product2.price);
+    if (e.value === "highprice") products.sort((product1, product2) => product2.price - product1.price);
     this.setState({ products, option: e });
   };
 
@@ -76,13 +71,9 @@ class ProductStand extends Component {
   handlePageButtonClick = (e) => {
     const { innerText } = e.target;
     const { page } = this.state;
-    if (innerText === ">") {
-      this.setState({ page: page + 1 });
-    } else if (innerText === "<") {
-      this.setState({ page: page - 1 });
-    } else {
-      this.setState({ page: parseInt(innerText) });
-    }
+    if (innerText === ">") this.setState({ page: page + 1 });
+    if (innerText === "<") this.setState({ page: page - 1 });
+    if (innerText >= 0) this.setState({ page: parseInt(innerText) });
   };
 
   getSlicedProducts = (toSliceProducts) => {
