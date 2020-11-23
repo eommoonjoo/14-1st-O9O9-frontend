@@ -4,23 +4,30 @@ import { FiShoppingCart } from 'react-icons/fi';
 import { RiHeart3Line } from 'react-icons/ri';
 import { FiUser } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { CATEGORY_MOCK_DATA_API } from '../../config';
+import {MYPAGE_MENUS} from '../navData';
 import './NavTop.scss';
 
 class NavTop extends Component {
   constructor() {
     super();
-    this.state = { activateMyPage: true, myPageMenu: [] };
+    this.state = {
+      activateMyPage: true, 
+      isLogined: false ,
+      userInfo: {}
+    };
   }
 
   componentDidMount() {
-    fetch(CATEGORY_MOCK_DATA_API)
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          myPageMenu: res.myPageMenu,
-        });
-      });
+    if(localStorage.getItem('token')){
+      
+      this.setState({ isLogined : true });
+    }
+    else this.setState({ isLogined : false });
+  }
+
+
+  getUserInformation = async () => {
+    
   }
 
   toggleMyPageMenu = () => {
@@ -32,7 +39,7 @@ class NavTop extends Component {
   };
 
   render() {
-    const { myPageMenu, activateMyPage } = this.state;
+    const { activateMyPage, isLogined } = this.state;
 
     return (
       <nav className='NavTop'>
@@ -61,29 +68,31 @@ class NavTop extends Component {
                 onMouseLeave={this.toggleMyPageMenu}
                 onMouseEnter={this.outMypage}>
                 <FiUser />
+                <span className={`loginStatus ${isLogined ? 'logined' : 'notLogined'}`}>{isLogined ? 'ON' : 'OFF'}</span>
               </li>
             </ul>
           </div>
-          {!activateMyPage && (
+        </div>
+        {!activateMyPage && (
             <div
               className='wrapMyPage'
               onMouseLeave={this.toggleMyPageMenu}
               onMouseEnter={this.outMypage}>
               <div className='myPageMenu'>
                 <ul>
-                  {myPageMenu &&
-                    myPageMenu.map((el, idx) => (
-                      <li key={idx}>
-                        <Link rel='stylesheet' href='#'>
-                          <span>{el.name}</span>
-                        </Link>
-                      </li>
-                    ))}
+                  <li><Link to="/Login"><span>로그인</span></Link></li>
+                  <li><Link to="/SignUp"><span>회원가입</span></Link></li>
+                  {MYPAGE_MENUS.map((el, idx) => (
+                    <li key={idx}>
+                      <Link to="">
+                        <span>{el.name}</span>
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
           )}
-        </div>
       </nav>
     );
   }
