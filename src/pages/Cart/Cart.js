@@ -17,7 +17,7 @@ class Cart extends Component {
     componentDidMount = () => {
       fetch('http://localhost:3000/data/cartdata.json', {
        method: 'GET',
-    //    headers: localStorage.getItem('token')?
+    //    headers: localStorage.getItem('token') ?
       })
       .then(res => res.json())
       .then(res => {
