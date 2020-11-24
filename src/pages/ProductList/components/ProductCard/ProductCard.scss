@@ -1,6 +1,8 @@
 @import "../../../../styles/common.scss";
 
 .ProductCard {
+  cursor: pointer;
+
   a {
     text-decoration: none;
     color: black;
@@ -48,6 +50,15 @@
     display: flex;
     align-items: center;
     margin-bottom: 13px;
+
+    .wishContainer {
+      display: flex;
+      align-items: center;
+
+      .heartIcon {
+        cursor: pointer;
+      }
+    }
 
     span {
       font-size: 0.9em;

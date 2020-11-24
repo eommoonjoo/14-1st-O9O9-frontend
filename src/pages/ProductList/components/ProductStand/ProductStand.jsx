@@ -139,7 +139,10 @@ class ProductStand extends Component {
           </div>
         </div>
         <div className={`productsContainer ${smallGrid ? "grid4" : "grid6"}`}>
-          {pagedProducts && pagedProducts.map((item) => <ProductCard key={item.id} product={item} />)}
+          {pagedProducts &&
+            pagedProducts.map((item) => (
+              <ProductCard key={item.id} product={item} onWishClick={this.props.onWishClick} />
+            ))}
         </div>
         <div className="pageButtonContainer">
           {page === 1 ? (

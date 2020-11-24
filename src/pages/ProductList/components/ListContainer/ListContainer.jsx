@@ -34,6 +34,15 @@ class ListContainer extends Component {
     }
   }
 
+  handleWishClick = (item) => {
+    const products = [...this.state.products];
+    const idx = products.indexOf(item);
+    if (products[idx].isWished) products[idx].wish--;
+    else products[idx].wish++;
+    products[idx].isWished = !products[idx].isWished;
+    this.setState({ products });
+  };
+
   handleScroll = (event) => {
     const { showHiddenSubs } = this.state;
     if (event.srcElement.scrollingElement.scrollTop > 430 && !showHiddenSubs) this.setState({ showHiddenSubs: true });
@@ -67,15 +76,15 @@ class ListContainer extends Component {
 
     //백엔드와 통신할 부분
     // let newProducts, productsData;
+    // console.log(categoryIds);
     // if (categoryIds.subcategoryId) {
-    //   productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `/${categoryIds.categoryId}`);
+    //   productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `?sub=${categoryIds.subcategoryId}`);
     // } else {
-    //   productsData = await axios.get(
-    //     MAINCATEGORY_PRODUCTS_DATA_API + `/${categoryIds.categoryId}/${categoryIds.subcategoryId}`
-    //   );
+    //   productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `?main=${categoryIds.categoryId}`);
     // }
     // newProducts = productsData.data.productList;
     // newProducts.sort((product1, product2) => product2 - product1);
+    // console.log(newProducts);
     // this.setState({ products: newProducts });
   };
 
@@ -106,7 +115,7 @@ class ListContainer extends Component {
             ))}
         </div>
         {showHiddenSubs && <HiddenCategories categoryId={categoryId} subcategories={subcategories} />}
-        <ProductStand products={products} showHiddenSubs={showHiddenSubs} />
+        <ProductStand products={products} showHiddenSubs={showHiddenSubs} onWishClick={this.handleWishClick} />
       </main>
     );
   }

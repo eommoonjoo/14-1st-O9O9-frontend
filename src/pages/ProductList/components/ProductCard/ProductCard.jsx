@@ -1,39 +1,51 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { FaRegHeart } from "react-icons/fa";
+import { withRouter } from "react-router-dom";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import "./ProductCard.scss";
 
 class ProductCard extends Component {
+  constructor() {
+    super();
+  }
+
+  handleClick = () => {
+    this.props.history.push(`/detail/${this.props.product.id}`);
+  };
+
   render() {
     const { product } = this.props;
     return (
       <div className="ProductCard">
-        <Link to={`/detail/${product.id}`}>
-          <div className="imageContainer">
-            <img src={product.imageUrl} alt="product" />
-          </div>
-          <div className="productInfo">
-            <p className="productPrice">{Number(product.price).toLocaleString(2)}</p>
-            <p className="productTitle">{product.title}</p>
-          </div>
-          <button className="coupon">10%쿠폰</button>
-          <div className="cardBottom">
-            <FaRegHeart color={"darkgray"} />
-            <span className="wishCount">{product.wish} 찜</span>
-            <span className="orderCount">{product.order} 구매</span>
-          </div>
-          <div className="storeContainer">
-            {product.brand && (
-              <p>
-                {product.brand}
-                {" >"}
-              </p>
+        <div className="imageContainer" onClick={this.handleClick}>
+          <img src={product.imageUrl} alt="product" />
+        </div>
+        <div className="productInfo" onClick={this.handleClick}>
+          <p className="productPrice">{Number(product.price).toLocaleString(2)}</p>
+          <p className="productTitle">{product.title}</p>
+        </div>
+        <button className="coupon">10%쿠폰</button>
+        <div className="cardBottom">
+          <div className="wishContainer">
+            {product.isWished ? (
+              <FaHeart className="heartIcon" color={"#f73b4f"} onClick={() => this.props.onWishClick(product)} />
+            ) : (
+              <FaRegHeart className="heartIcon" color={"darkgray"} onClick={() => this.props.onWishClick(product)} />
             )}
+            <span className="wishCount">{product.wish} 찜</span>
           </div>
-        </Link>
+          <span className="orderCount">{product.order} 구매</span>
+        </div>
+        <div className="storeContainer">
+          {product.brand && (
+            <p>
+              {product.brand}
+              {" >"}
+            </p>
+          )}
+        </div>
       </div>
     );
   }
 }
 
-export default ProductCard;
+export default withRouter(ProductCard);
