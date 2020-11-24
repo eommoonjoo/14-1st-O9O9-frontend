@@ -74,6 +74,20 @@
           align-items: center;
           cursor: pointer;
 
+          .cartCount {
+            position: absolute;
+            top: 12px;
+            right: 17px;
+            width: 18px;
+            height: 18px;
+            padding-top: 3px;
+            font-size: 0.5em;
+            text-align: center;
+            background-color: #f63b4f;
+            color: white;
+            border-radius: 50%;
+          }
+
           .loginStatus {
             position: absolute;
             top: 12px;

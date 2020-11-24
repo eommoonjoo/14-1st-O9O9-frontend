@@ -15,13 +15,14 @@ class NavTop extends Component {
     this.state = {
       activateMyPage: true, 
       isLogined: true ,
-      userInfo: {}
+      userInfo: {},
+      cartList: [{id: 1, name: '상품1'}, {id: 2, name: '상품2'}, {id: 3, name: '상품3'}]
     };
   }
 
   componentDidMount() {
     // if(localStorage.getItem('token')){
-      
+    //   // this.getUserInformation();
     //   this.setState({ isLogined : true });
     // }
     // else this.setState({ isLogined : false });
@@ -37,6 +38,11 @@ class NavTop extends Component {
     console.log(userdata.data);
   }
 
+  getCartInformation = async () => {
+    const cartdata = await axios({url: USERINFO_API, headers: {authorization : localStorage.getItem('token')}});
+    console.log(cartdata.data);
+  }
+
   toggleMyPageMenu = () => {
     this.setState({ activateMyPage: true });
   };
@@ -46,7 +52,7 @@ class NavTop extends Component {
   };
 
   render() {
-    const { activateMyPage, isLogined } = this.state;
+    const { activateMyPage, isLogined, cartList, userInfo } = this.state;
 
     return (
       <nav className='NavTop'>
@@ -67,6 +73,7 @@ class NavTop extends Component {
             <ul>
               <li>
                 <FiShoppingCart />
+                {isLogined && cartList.length && <span className="cartCount">{cartList.length}</span>}
               </li>
               <li>
                 <RiHeart3Line />
