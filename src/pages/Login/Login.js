@@ -18,7 +18,6 @@ class Login extends Component {
     checkValidation = (e) => {
         e.preventDefault();
         // console.log('연결확인');
-    
         const {id, pw} = this.state;
     
         fetch('http://10.58.4.236:8000/user/signin', {
