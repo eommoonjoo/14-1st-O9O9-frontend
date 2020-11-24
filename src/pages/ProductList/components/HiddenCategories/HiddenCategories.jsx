@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
 import "./HiddenCategories.scss";
 
-class HiddenCategories extends Component {
+class HiddenCategories extends PureComponent {
   render() {
     const { subcategories, categoryId } = this.props;
     return (

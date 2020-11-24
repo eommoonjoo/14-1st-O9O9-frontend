@@ -84,11 +84,26 @@ class ProductStand extends Component {
 
   render() {
     const { smallGrid, products, option, page, searchValue, filteredProducts } = this.state;
+    const { showHiddenSubs } = this.props;
     const filtered = searchValue ? filteredProducts : products;
     const pagedProducts = this.getSlicedProducts(filtered);
     const pageButtons = this.getPageButtons(filtered);
     return (
       <section className="ProductStand" ref={this.standRef}>
+        {showHiddenSubs && (
+          <div className="hiddenSearchContainer">
+            <div className="searchContainer">
+              <input
+                className="hiddenSearch"
+                type="text"
+                placeholder="결과 내 검색"
+                onChange={this.handleSearchInputChange}
+                value={searchValue}
+              />
+              <BsSearch className="searchIcon" />
+            </div>
+          </div>
+        )}
         <div className="standMenu">
           <div className="menuLeft">
             <p>전체 상품 {filtered.length}</p>
