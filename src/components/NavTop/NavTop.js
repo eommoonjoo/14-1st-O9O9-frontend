@@ -14,18 +14,18 @@ class NavTop extends Component {
     super();
     this.state = {
       activateMyPage: true, 
-      isLogined: true ,
+      isLogined: false ,
       userInfo: {},
       cartList: [{id: 1, name: '상품1'}, {id: 2, name: '상품2'}, {id: 3, name: '상품3'}]
     };
   }
 
   componentDidMount() {
-    // if(localStorage.getItem('token')){
-    //   // this.getUserInformation();
-    //   this.setState({ isLogined : true });
-    // }
-    // else this.setState({ isLogined : false });
+    if(localStorage.getItem('token')){
+      // this.getUserInformation();
+      this.setState({ isLogined : true });
+    }
+    else this.setState({ isLogined : false });
   }
 
   handleLogout = () => {
@@ -98,8 +98,8 @@ class NavTop extends Component {
                   [<li><Link to="/Login"><span className="plaintext">로그인</span></Link></li>, <li><Link to="/SignUp"><span className="plaintext">회원가입</span></Link></li>] 
                   :
                   [<li><Link to=""><span className="plaintext"><span className="username">맹끼</span>님 안녕하세요</span></Link></li>, <li><Link to=""><span className="plaintext" onClick={this.handleLogout}>로그아웃</span></Link></li>]}
-                  {MYPAGE_MENUS.map((el, idx) => (
-                    <li key={idx}>
+                  {MYPAGE_MENUS.map((el) => (
+                    <li key={el.id}>
                       <Link to="">
                         <span className="plaintext">{el.name}</span>
                       </Link>

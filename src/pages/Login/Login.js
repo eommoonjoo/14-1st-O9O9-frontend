@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {LOGIN_API} from "../../config";
 import './Login.scss';
 
 class Login extends Component {
@@ -21,7 +22,7 @@ class Login extends Component {
     
         const {id, pw} = this.state;
     
-        fetch('http://10.58.4.236:8000/user/signin', {
+        fetch(LOGIN_API, {
           method: "POST",
           body: JSON.stringify({
             ID: id, 
@@ -29,6 +30,7 @@ class Login extends Component {
           }),
         }).then(res => res.json())
           .then((result) => {
+              console.log(result);
             if (result.authorization) {
                 localStorage.setItem('token', result.authorization)
                 this.props.history.push('/');
