@@ -10,7 +10,7 @@ class Cart extends Component {
         super();
         this.state = {
            cartItem: [],
-           checked: [],
+           allChecked: false,
         };
     }
 
@@ -22,7 +22,9 @@ class Cart extends Component {
       .then(res => res.json())
       .then(res => {
         //   console.log('res', res);
-        //  이거 찍어보기..
+        for (let i=0; i<res.cartItems.length; i++) {
+            res.cartItems[i].ischecked=false;
+        }
         this.setState({
           cartItem: res.cartItems,
         });
@@ -52,7 +54,6 @@ class Cart extends Component {
             }
           })
        }
-    
     }
 
     handlePlus = (el) => {
@@ -113,8 +114,24 @@ class Cart extends Component {
         this.setState({cartItem: []});
     }
 
-    handleAllChecked = () => {
+    handleChecked = (el) => {
         console.log('연결');
+        const cartItem = [...this.state.cartItem]
+        let idx = cartItem.indexOf(el);
+        cartItem[idx].ischecked = !cartItem[idx].ischecked;
+        this.setState({
+            cartItem
+        })
+    }
+
+    handleAllChecked = () => {
+        const cartItem = [...this.state.cartItem];
+        cartItem.map((el) => {
+            el.ischecked = !el.ischecked;
+        })
+        this.setState({
+            cartItem
+        })
     }
 
     render() {
@@ -147,7 +164,7 @@ class Cart extends Component {
                                 <div className='deleteItem' onClick={this.deleteAll}>삭제</div>
                             </div>
                         </div>
-                        <CartList cartItems={this.state.cartItem} onPlus={this.handlePlus} onMinus={this.handleMinus} onDelete={this.deleteItem} allChecked={this.handleAllChecked}/>
+                        <CartList cartItems={this.state.cartItem} onPlus={this.handlePlus} onMinus={this.handleMinus} onDelete={this.deleteItem} onChecked={(this.handleChecked)}/>
                    </div>
                    <div className='rightSide'>
                         <div className='payment'>

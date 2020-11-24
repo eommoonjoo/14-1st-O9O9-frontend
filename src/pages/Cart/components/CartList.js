@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import NoneCartList from './NoneCartList';
-
+import { withRouter } from 'react-router-dom'
 
 class CartList extends Component {
+    constructor() {
+        super();
+        this.state = {
+        }
+    }
     
     render() {
-        // cartItem is array
         const {cartItems} = this.props;
-
-        // &&
-        // ||
-        // a ? b : c
         return (
             <>
-            {cartItems.length < 1 ? <NoneCartList /> : cartItems.map((el) => {
+            {cartItems.length < 1 ? <NoneCartList /> : cartItems.map((el, idx) => {
                 return (
-                    <div className='selectionList'>
+                    <div className='selectionList' key={idx}>
                         <div className='productName'>
                         <div className='productTitle'>
-                            <input type="checkbox" id="checkBox" idx={el.id}/>
-                            <label for="checkBox" />
+                            <input type="checkbox" id="checkBox" idx={el.id} onChange={()=> {this.props.onChecked(el)}} checked={el.ischecked}/>
+                            <label htmlFor="checkBox" />
                             <div className='productId'>{el.productName} </div>
                         </div>
                         <AiOutlineClose size="30" className='XIcon' onClick={() => {this.props.onDelete(el)}}/>
@@ -51,4 +51,4 @@ class CartList extends Component {
     }
 }
 
-export default CartList;
+export default withRouter(CartList);
