@@ -61,31 +61,31 @@ class ListContainer extends Component {
     const categoryIds = this.parseQueryString(this.props.location.search);
 
     //일단은 그냥 목데이터로 하겠음. 추후에 아래 주석 풀긔
-    const productsData = await axios.get(PRODUCTS_MOCK_DATA);
-    const products = productsData.data.products;
-    let newProducts;
-    if (categoryIds.subcategoryId) {
-      newProducts = products.filter(
-        (item) => item.categoryId === categoryIds.categoryId && item.subcategoryId === categoryIds.subcategoryId
-      );
-    } else {
-      newProducts = products.filter((item) => item.categoryId === categoryIds.categoryId);
-    }
-    newProducts.sort((product1, product2) => product2.id - product1.id); //받아올때부터 최신순으로 받아오기
-    this.setState({ products: newProducts });
+    // const productsData = await axios.get(PRODUCTS_MOCK_DATA);
+    // const products = productsData.data.products;
+    // let newProducts;
+    // if (categoryIds.subcategoryId) {
+    //   newProducts = products.filter(
+    //     (item) => item.categoryId === categoryIds.categoryId && item.subcategoryId === categoryIds.subcategoryId
+    //   );
+    // } else {
+    //   newProducts = products.filter((item) => item.categoryId === categoryIds.categoryId);
+    // }
+    // newProducts.sort((product1, product2) => product2.id - product1.id); //받아올때부터 최신순으로 받아오기
+    // this.setState({ products: newProducts });
 
     //백엔드와 통신할 부분
-    // let newProducts, productsData;
-    // console.log(categoryIds);
-    // if (categoryIds.subcategoryId) {
-    //   productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `?sub=${categoryIds.subcategoryId}`);
-    // } else {
-    //   productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `?main=${categoryIds.categoryId}`);
-    // }
-    // newProducts = productsData.data.productList;
-    // newProducts.sort((product1, product2) => product2 - product1);
-    // console.log(newProducts);
-    // this.setState({ products: newProducts });
+    let newProducts, productsData;
+    console.log(categoryIds);
+    if (categoryIds.subcategoryId) {
+      productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `?sub=${categoryIds.subcategoryId}`);
+    } else {
+      productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `?main=${categoryIds.categoryId}`);
+    }
+    newProducts = productsData.data.productList;
+    newProducts.sort((product1, product2) => product2 - product1);
+    console.log(newProducts);
+    this.setState({ products: newProducts });
   };
 
   parseQueryString = (queryString) => {

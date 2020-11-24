@@ -20,11 +20,12 @@ class NavSide extends Component {
   }
 
   getCategories = async () => {
-    const categories = await axios.get(CATEGORY_MOCK_DATA_API);
-    this.setState({categories : categories.data.categories});
+    // const categories = await axios.get(CATEGORY_MOCK_DATA_API);
+    // this.setState({categories : categories.data.categories});
 
-    // const categories = await axios.get(CATEGORIES_API);
-    // this.setState({categories : categories.data.category});
+    const categories = await axios.get(CATEGORIES_API);
+    console.log(categories);
+    this.setState({categories : categories.data.categories});
   }
 
   toggleCategory = () => {

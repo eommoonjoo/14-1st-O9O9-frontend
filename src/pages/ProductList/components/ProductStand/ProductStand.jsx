@@ -79,7 +79,7 @@ class ProductStand extends Component {
   getSlicedProducts = (toSliceProducts) => {
     const { page } = this.state;
     if (page * productPerPage > toSliceProducts.length) return toSliceProducts.slice((page - 1) * productPerPage);
-    else return toSliceProducts.slice((page - 1) * productPerPage, page * productPerPage);
+    return toSliceProducts.slice((page - 1) * productPerPage, page * productPerPage);
   };
 
   render() {
