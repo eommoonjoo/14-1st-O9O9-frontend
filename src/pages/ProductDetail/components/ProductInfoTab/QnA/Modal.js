@@ -13,7 +13,7 @@ class Modal extends Component {
       emailValue: '',
       phoneNumberValue: '',
       title: '',
-      context: '',
+      content: '',
       user: {},
     };
   }
@@ -61,7 +61,7 @@ class Modal extends Component {
   };
   changeModalContextValue = (e) => {
     this.setState({
-      context: e.target.value,
+      content: e.target.value,
     });
   };
   onClose = (e) => {
@@ -76,7 +76,7 @@ class Modal extends Component {
         type: this.state.question_type,
         product_name: this.props.productInfo.title,
         title: this.state.title,
-        content: this.state.context,
+        content: this.state.content,
         answer: 1,
       }),
     })
@@ -89,7 +89,7 @@ class Modal extends Component {
   };
 
   render() {
-    const { emailValue, phoneNumberValue, title, context, user } = this.state;
+    const { emailValue, phoneNumberValue, title, content, user } = this.state;
     const { productInfo } = this.props;
     console.log(productInfo);
     console.log(user);
@@ -203,7 +203,7 @@ class Modal extends Component {
                   id=''
                   cols='45'
                   rows='7'
-                  value={context}
+                  value={content}
                   onChange={this.changeModalContextValue}></textarea>
                 <p>문의시 유의해주세요!</p>
                 <p>

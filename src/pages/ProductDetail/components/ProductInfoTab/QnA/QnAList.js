@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import './QnAList.scss';
 
 const typeTable = {
-  1: '상품',
-  2: '배송',
+  1: '배송',
+  2: '상품',
   3: '취소',
   4: '반품',
   5: '교환',
@@ -48,12 +48,12 @@ class QnAList extends Component {
           <div className='dropDownContent'>
             <div className='question'>
               <h3>Q&nbsp;</h3>
-              <span>{qnadata.subject}</span>
+              <span>{qnadata.title}</span>
             </div>
             <div className='answer'>
               <h3>A&nbsp;</h3>
               <span>
-                {qnadata.answer}
+                {qnadata.content}
                 <br />
                 <br />
                 <p>판매자의 답변 | 2020-11-17 오후 11:18:51</p>
