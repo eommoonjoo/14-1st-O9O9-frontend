@@ -20,6 +20,7 @@ class CartList extends Component {
                         <div className='productName'>
                         <div className='productTitle'>
                             <input type="checkbox" id="checkBox" idx={el.id} onChange={()=> {this.props.onChecked(el)}} checked={el.ischecked}/>
+                            {/* input 버튼의 check상태: true, false로 관리할 수 있다. */}
                             <label htmlFor="checkBox" />
                             <div className='productId'>{el.productName} </div>
                         </div>

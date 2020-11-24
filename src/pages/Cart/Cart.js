@@ -39,6 +39,7 @@ class Cart extends Component {
         if (cartItem[idx].count > 1){
         cartItem[idx].count--;
         this.setState({cartItem});
+
         fetch('API url', {
             method: 'POST',
             body: JSON.stringify({
@@ -62,6 +63,7 @@ class Cart extends Component {
         if (cartItem[idx].count<10) {
             cartItem[idx].count++;
             this.setState({cartItem})
+
             // fetch('API url', {
             //     method: 'POST',
             //     body: JSON.stringify({
@@ -79,6 +81,7 @@ class Cart extends Component {
         const {cartItem} = this.state;
         let removeItem = cartItem.filter((e) => el.id !== e.id);
         this.setState({cartItem: removeItem})
+
         fetch('API url', {
             method: 'POST',
             body: JSON.stringify({
@@ -104,6 +107,7 @@ class Cart extends Component {
     deleteAll = () => {
         const items = [...this.state.cartItem];
         const itemsId = items.map(item => item.id);
+
         fetch('API url', {
             method: 'POST',
             body: JSON.stringify({
@@ -115,23 +119,38 @@ class Cart extends Component {
     }
 
     handleChecked = (el) => {
-        console.log('연결');
+        // console.log('연결');
         const cartItem = [...this.state.cartItem]
         let idx = cartItem.indexOf(el);
         cartItem[idx].ischecked = !cartItem[idx].ischecked;
+        let cnt =0;
+        for (let i=0; i<cartItem.length; i++) {
+            if(cartItem[i].ischecked) cnt++;
+        }
+        if(cnt === cartItem.length) {
+            this.setState({allChecked: true})
+        } else this.setState({allChecked : false});
         this.setState({
             cartItem
-        })
+        }, 
+        )
     }
 
-    handleAllChecked = () => {
+    handleAllChecked = (el) => {
         const cartItem = [...this.state.cartItem];
+        // this.state.allChecked ? cartItem.map((el) => {
+        //     el.ischecked = false;
+        // }) 
+        // :
+        // cartItem.map((el) => {
+        //     el.ischecked = true;}) 
+
         cartItem.map((el) => {
-            el.ischecked = !el.ischecked;
-        })
+            el.ischecked = this.state.allChecked ? false : true }) 
+
         this.setState({
-            cartItem
-        })
+            cartItem,
+            allChecked: !this.state.allChecked})
     }
 
     render() {
@@ -155,7 +174,7 @@ class Cart extends Component {
                    <div className='leftSide'>
                         <div className='selection'>
                             <div className="select">
-                                <input type="checkbox" id="checkBox" onClick={this.handleAllChecked}/>
+                                <input type="checkbox" id="checkBox" onClick={this.handleAllChecked} checked={this.state.allChecked}/>
                                 <label htmlFor="cb1" />
                                 <span className='selectItem'>선택</span>
                             </div>
@@ -164,7 +183,7 @@ class Cart extends Component {
                                 <div className='deleteItem' onClick={this.deleteAll}>삭제</div>
                             </div>
                         </div>
-                        <CartList cartItems={this.state.cartItem} onPlus={this.handlePlus} onMinus={this.handleMinus} onDelete={this.deleteItem} onChecked={(this.handleChecked)}/>
+                        <CartList cartItems={this.state.cartItem} onPlus={this.handlePlus} onMinus={this.handleMinus} onDelete={this.deleteItem} onChecked={this.handleChecked}/>
                    </div>
                    <div className='rightSide'>
                         <div className='payment'>
