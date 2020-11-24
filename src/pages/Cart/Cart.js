@@ -15,23 +15,23 @@ class Cart extends Component {
     }
 
     componentDidMount = () => {
-      fetch('http://localhost:3000/data/cartdata.json', {
+      fetch('http://172.30.1.53:8000/order/', {
        method: 'GET',
-    //    headers: localStorage.getItem('token') ?
+    // headers: {authorization : localStorage.getItem('token')}
+    // get은 body를 못 만들어 ...!!
       })
       .then(res => res.json())
       .then(res => {
         //   console.log('res', res);
-        for (let i=0; i<res.cartItems.length; i++) {
-            res.cartItems[i].ischecked=false;
+        for (let i=0; i<res.product.length; i++) {
+            res.product[i].ischecked=false;
         }
         this.setState({
-          cartItem: res.cartItems,
+          cartItem: res.product,
         });
       });
     }
     // 유저가 가진 장바구니 정보 get -->토큰 필요
-    // 
 
     handleMinus = (el) => {
         const cartItem = [...this.state.cartItem];
@@ -40,18 +40,17 @@ class Cart extends Component {
         cartItem[idx].count--;
         this.setState({cartItem});
 
-        fetch('API url', {
-            method: 'POST',
+        fetch(`http://172.30.1.53:8000/order/${cartItem[idx].id}`, {
+            method: 'PATCH',
             body: JSON.stringify({
-                id: el.id,
-                count: el.count-1
+                count: cartItem[idx].count
             })
         })
         .then((response) => {return response.json()})
         .then((result) => {
             // console.log("백엔드에서 오는 응답메시지:" + result);
             if(result.message==='success') {
-              return;
+              console.log(result.message);
             }
           })
        }
@@ -59,21 +58,29 @@ class Cart extends Component {
 
     handlePlus = (el) => {
         const cartItem = [...this.state.cartItem];
+        
         let idx = cartItem.indexOf(el);
-        if (cartItem[idx].count<10) {
+        if (cartItem[idx].count<20) {
             cartItem[idx].count++;
             this.setState({cartItem})
-
-            // fetch('API url', {
-            //     method: 'POST',
-            //     body: JSON.stringify({
-            //         id: el.id,
-            //         count: el.count+1
-            //         // id, count => 민영님과 맞추기
-            //     })
-            // })
+        
+            fetch(`http://172.30.1.53:8000/order/${cartItem[idx].id}`, {
+                method: 'PATCH',
+                body: JSON.stringify({
+                    count: cartItem[idx].count
+                })
+            })
+            .then((response) => {return response.json()})
+            .then((result) => {
+                // console.log("백엔드에서 오는 응답메시지:" + result);
+                if(result.message==='success') {
+                  console.log(result.message);
+                }
+              });
+           
+            
         } else {
-            alert('최대 주문 수량은 10개 입니다.')
+            alert('최대 주문 수량은 50개 입니다.')
         }
     }
 
@@ -82,10 +89,10 @@ class Cart extends Component {
         let removeItem = cartItem.filter((e) => el.id !== e.id);
         this.setState({cartItem: removeItem})
 
-        fetch('API url', {
+        fetch(`http://172.30.1.53:8000/order/cart`, {
             method: 'POST',
             body: JSON.stringify({
-                id: el.id
+                ids: [el.id]
                 // id => 민영님과 맞추기
             })
         })
@@ -104,22 +111,25 @@ class Cart extends Component {
         this.props.history.push('./');
     }
 
-    deleteAll = () => {
-        const items = [...this.state.cartItem];
-        const itemsId = items.map(item => item.id);
-
-        fetch('API url', {
+    onCheckDelete = (el) => {
+        const cartItem = [...this.state.cartItem];
+        let remove = cartItem.map((el) => {
+            if(el.ischecked) return el.id;
+        })
+        let removeItem = cartItem.filter((el) => el.ischecked !== true)
+        this.setState({cartItem : removeItem});
+        // console.log(remove)
+        fetch(`http://172.30.1.53:8000/order/cart`, {
             method: 'POST',
             body: JSON.stringify({
-                items: itemsId
-                // items => 민영님과 맞추기
+                ids: remove
+                // id => 민영님과 맞추기
             })
-        })
-        this.setState({cartItem: []});
+        }).then(res => res.json()).then(console.log);
+        
     }
 
     handleChecked = (el) => {
-        // console.log('연결');
         const cartItem = [...this.state.cartItem]
         let idx = cartItem.indexOf(el);
         cartItem[idx].ischecked = !cartItem[idx].ischecked;
@@ -180,10 +190,10 @@ class Cart extends Component {
                             </div>
                             <div className='delete'>
                                 <VscTrash size="24" className='deleteIcon'/>
-                                <div className='deleteItem' onClick={this.deleteAll}>삭제</div>
+                                <div className='deleteItem' onClick={this.onCheckDelete}>삭제</div>
                             </div>
                         </div>
-                        <CartList cartItems={this.state.cartItem} onPlus={this.handlePlus} onMinus={this.handleMinus} onDelete={this.deleteItem} onChecked={this.handleChecked}/>
+                        <CartList cartItems={this.state.cartItem} onPlus={this.handlePlus} onMinus={this.handleMinus} onDelete={this.deleteItem} onChecked={this.handleChecked}  />
                    </div>
                    <div className='rightSide'>
                         <div className='payment'>
