@@ -1,0 +1,49 @@
+@import "../../../../styles/common.scss";
+
+.ListContainer {
+  padding-left: 140px;
+
+  .subcategoryContainer {
+    @include flexCenter;
+    padding: 50px 0;
+
+    .subcategory {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 12px;
+
+      a {
+        text-decoration: none;
+      }
+
+      .imageContainer {
+        width: 73px;
+        height: 73px;
+        overflow: hidden;
+        border-radius: 50%;
+
+        img {
+          width: 73px;
+          height: 73px;
+          object-fit: cover;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      p {
+        padding-top: 12px;
+        font-size: 0.8em;
+        text-align: center;
+        color: $themeDarkGrayColor;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
