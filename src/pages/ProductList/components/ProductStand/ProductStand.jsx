@@ -43,10 +43,17 @@ class ProductStand extends Component {
 
   changeOptions = (e) => {
     const products = [...this.state.products];
-    if (e.value === "recent") products.sort((product1, product2) => product2.id - product1.id);
-    if (e.value === "popular") products.sort((product1, product2) => product2.order - product1.order);
-    if (e.value === "lowprice") products.sort((product1, product2) => product1.price - product2.price);
-    if (e.value === "highprice") products.sort((product1, product2) => product2.price - product1.price);
+    //이렇게..바꿔야하는것인가욥...?모르겠어욥....
+    products.sort((product1, product2) => {
+      if (e.value === "recent") return product2.id - product1.id;
+      if (e.value === "popular") return product2.order - product1.order;
+      if (e.value === "lowprice") return product1.price - product2.price;
+      if (e.value === "highprice") return product2.price - product1.price;
+    });
+    // if (e.value === "recent") products.sort((product1, product2) => product2.id - product1.id);
+    // if (e.value === "popular") products.sort((product1, product2) => product2.order - product1.order);
+    // if (e.value === "lowprice") products.sort((product1, product2) => product1.price - product2.price);
+    // if (e.value === "highprice") products.sort((product1, product2) => product2.price - product1.price);
     this.setState({ products, option: e });
   };
 
