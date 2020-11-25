@@ -6,7 +6,7 @@ import { RiHeart3Line } from 'react-icons/ri';
 import { FiUser } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import {MYPAGE_MENUS} from '../navData';
-import {USERINFO_API} from '../../config';
+import {USERINFO_API, CARTLIST_API} from '../../config';
 import './NavTop.scss';
 
 class NavTop extends Component {
@@ -14,15 +14,16 @@ class NavTop extends Component {
     super();
     this.state = {
       activateMyPage: true, 
-      isLogined: false ,
+      isLogined: true ,
       userInfo: {},
-      cartList: [{id: 1, name: '상품1'}, {id: 2, name: '상품2'}, {id: 3, name: '상품3'}]
+      cartList: []
     };
   }
 
   componentDidMount() {
     if(localStorage.getItem('token')){
       // this.getUserInformation();
+      this.getCartInformation();
       this.setState({ isLogined : true });
     }
     else this.setState({ isLogined : false });
@@ -39,8 +40,10 @@ class NavTop extends Component {
   }
 
   getCartInformation = async () => {
-    const cartdata = await axios({url: USERINFO_API, headers: {authorization : localStorage.getItem('token')}});
-    console.log(cartdata.data);
+    // const cartdata = await axios({url: CARTLIST_API, headers: {authorization : localStorage.getItem('token')}});
+    const cartdata = await axios.get(CARTLIST_API);
+    // console.log(cartdata.data.product);
+    this.setState({cartList : cartdata.data.product});
   }
 
   toggleMyPageMenu = () => {
