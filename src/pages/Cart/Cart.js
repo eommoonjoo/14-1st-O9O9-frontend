@@ -178,7 +178,7 @@ class Cart extends Component {
                                 <span className='selectItem'>선택</span>
                             </div>
                             <div className='delete'>
-                                <VscTrash size="24" className='deleteIcon'/>
+                                <VscTrash size="22" className='deleteIcon'/>
                                 <div className='deleteItem' onClick={this.onCheckDelete}>삭제</div>
                             </div>
                         </div>
@@ -197,7 +197,7 @@ class Cart extends Component {
                             <button className='order'>주문하기</button>
                         </div>
                         <div className='rightSideBottom'>
-                            <span className='text'>배송비, 반품비 걱정없는 O9O9</span>
+                            <span className='text'>배송비, 반품비 걱정없는 O9O9 💙</span>
                             <span className='goDetail'>자세히 보기 {'>'} </span>
                         </div>
                    </div>
