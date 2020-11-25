@@ -10,4 +10,4 @@ export const SUBCATEGORY_PRODUCTS_DATA_API = "";
 // Login Page
 
 // 로그인 유효성검사 API
-export const LOGIN_CHECK_VALIDATION = "http://10.58.4.236:8000/user/signin";
+export const LOGIN_CHECK_VALIDATION_API = "http://10.58.4.236:8000/user/signin";
