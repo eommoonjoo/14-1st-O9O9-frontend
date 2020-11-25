@@ -16,6 +16,7 @@ class SignUp extends Component {
             email: '',
             passwordcheck: '',
             idDoubleCheck: false,
+            codeNumber: '',
 
             validID: true,
             validPW: true,
@@ -69,9 +70,13 @@ class SignUp extends Component {
 
     checkValidation = (e) => {
         e.preventDefault();
-        const {id, pw, name, phone, email, passwordcheck, idDoubleCheck} = this.state;
+        const {id, pw, name, phone, email, passwordcheck, idDoubleCheck, validCode} = this.state;
         if(!idDoubleCheck){
             alert("아이디 중복확인을 해주세요")       
+            return;
+        }
+        if(!validCode){
+            alert("이메일 인증을 진행해주세요")
             return;
         }
         fetch('http://10.58.4.236:8000/user/signup', {
@@ -183,11 +188,31 @@ class SignUp extends Component {
         fetch('', {
             method: 'POST',
             body: JSON.stringify({
-                email: this.state.emial
+                email: this.state.email
             }),
         }).then((res) => res.json())
           .then((result) => {
               if (result.status === 'success') {
+                  console.log(result.message);
+              }
+          })
+    }
+
+    validCodeCheck = () => {
+        fetch('', {
+            method: 'POST',
+            body: JSON.stringify({
+                codeNumber: this.state.codeNumber
+            }),
+        }).then((res) => res.json())
+          .then((result) => {
+              if (result.status === 'success') {
+                  console.log(result.message);
+                  this.setState({
+                      validCode: true,
+                  })
+              } else {
+                  alert(result.message)
               }
           })
     }
@@ -244,8 +269,8 @@ class SignUp extends Component {
                             </div>
                             <div>
                                 <input className='emailCode' placeholder='인증코드' name="codeNumber" onChange={this.handleInputValueChange} />
-                                <button>인증코드 확인</button>
-                                {!this.state.validCode && <p>인증코드를 정확히 입력해 주세요.</p>}
+                                <button onClick={this.validCodeCheck}>인증코드 확인</button>
+                                {this.state.codeNumber ? (!this.state.validCode ? <p>인증코드를 정확히 입력해 주세요.</p> : '') : ''}
                             </div>
                             <div className='textSignUp'> ※ 만 14세 이상 고객만 가입이 가능합니다.</div>
                         </div>
