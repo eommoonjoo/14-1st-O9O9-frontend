@@ -114,7 +114,7 @@ class SignUp extends Component {
                     <div className='logo'>
                         <img src='./images/logo_transparent.png' alt='로고이미지'/>
                     </div>
-                    <div className='joinText'>잠깐 G마켓 회원이신가요?</div>
+                    <div className='joinText'>잠깐 O마켓 회원이신가요?</div>
                     <div className='joinTextBox'>
                         <span className='joinText'>G9는 </span>
                             <img src='./images/gmarket.png' alt='지마켓'/>
@@ -131,7 +131,7 @@ class SignUp extends Component {
                             <div>
                                 <input type='password' placeholder='비밀번호' name="pw" onChange={this.handleInputValueChange}/>
                                 <div className='locked'>
-                                    <AiFillLock size='35' color={this.state.pw ? (this.state.validPW? '#01b8ff' : 'red') : 'lightgray'}/>
+                                    <AiFillLock size='28' color={this.state.pw ? (this.state.validPW? '#01b8ff' : 'red') : 'lightgray'}/>
                                 </div>
                             </div>
                             {!this.state.validPW && <p>비밀번호는 영문 대/소문자, 숫자 및 특수문자의 조합으로 8자 이상 입력해야 합니다.</p>}
@@ -139,7 +139,7 @@ class SignUp extends Component {
                         <div className='pwAgainSection'>
                             <div>
                                 <input type='password' name="passwordcheck" onChange={this.handleInputValueChange} placeholder='비밀번호 확인'/>
-                                <div className='locked'><FaUserLock size='35' color={this.state.passwordcheck ? (this.state.validDoubleCheck? '#01b8ff' : 'red') : 'lightgray'}/></div>
+                                <div className='locked'><FaUserLock size='28' color={this.state.passwordcheck ? (this.state.validDoubleCheck? '#01b8ff' : 'red') : 'lightgray'}/></div>
                             </div>
                                 {!this.state.validDoubleCheck && <p>비밀번호가 일치하지 않습니다.</p>}
                         </div>
