@@ -6,3 +6,6 @@ export const PRODUCTS_MOCK_DATA = "http://localhost:3000/data/productsdata.json"
 export const MAINCATEGORY_PRODUCTS_DATA_API = "http://172.30.1.29:8000/products/categories";
 export const SUBCATEGORY_PRODUCTS_DATA_API = "";
 
+// Cart Page
+// 카트 아이템 불러오는 API
+// 백틱?

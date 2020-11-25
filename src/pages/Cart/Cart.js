@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { VscTrash } from 'react-icons/vsc';
 import { AiOutlineClose } from 'react-icons/ai';
 import CartList from './components/CartList';
-import NoneCartList from './components/NoneCartList';
 import './Cart.scss';
 
 class Cart extends Component {
@@ -31,7 +30,6 @@ class Cart extends Component {
         });
       });
     }
-    // 유저가 가진 장바구니 정보 get -->토큰 필요
 
     handleMinus = (el) => {
         const cartItem = [...this.state.cartItem];
@@ -123,7 +121,6 @@ class Cart extends Component {
             method: 'POST',
             body: JSON.stringify({
                 ids: remove
-                // id => 민영님과 맞추기
             })
         }).then(res => res.json()).then(console.log);
         
@@ -148,16 +145,8 @@ class Cart extends Component {
 
     handleAllChecked = (el) => {
         const cartItem = [...this.state.cartItem];
-        // this.state.allChecked ? cartItem.map((el) => {
-        //     el.ischecked = false;
-        // }) 
-        // :
-        // cartItem.map((el) => {
-        //     el.ischecked = true;}) 
-
         cartItem.map((el) => {
-            el.ischecked = this.state.allChecked ? false : true }) 
-
+            el.ischecked = this.state.allChecked ? false : true })
         this.setState({
             cartItem,
             allChecked: !this.state.allChecked})
