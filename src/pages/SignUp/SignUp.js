@@ -3,10 +3,10 @@ import './SignUp.scss';
 import { AiFillLock } from 'react-icons/ai';
 import { FaUserLock } from 'react-icons/fa';
 import {AiOutlineUnlock} from 'react-icons/ai';
-import { CHECK_VALIDATION } from '../../config';
-import { DUPLICATION_CHECK } from '../../config';
-import { POST_EMAIL } from '../../config';
-import { CODE_CHECK } from '../../config';
+import { CHECK_VALIDATION_API } from '../../config';
+import { DUPLICATION_CHECK_API } from '../../config';
+import { POST_EMAIL_API } from '../../config';
+import { CODE_CHECK_API } from '../../config';
 
 
 class SignUp extends Component {
@@ -94,7 +94,7 @@ class SignUp extends Component {
             alert("이메일 인증을 진행해주세요")
             return;
         }
-        fetch(CHECK_VALIDATION, {
+        fetch(CHECK_VALIDATION_API, {
           method: "POST",
           body: JSON.stringify({
             ID: id, 
@@ -117,7 +117,7 @@ class SignUp extends Component {
     }
     
     handleDuplication = () => {
-        fetch(DUPLICATION_CHECK, {
+        fetch(DUPLICATION_CHECK_API, {
             method: "POST",
             body: JSON.stringify({
               ID: this.state.id,
@@ -200,7 +200,7 @@ class SignUp extends Component {
     }
 
     postEmail = () => {
-        fetch(POST_EMAIL, {
+        fetch(POST_EMAIL_API, {
             method: 'POST',
             body: JSON.stringify({
                 name: this.state.name,
@@ -216,7 +216,7 @@ class SignUp extends Component {
     }
 
     validCodeCheck = () => {
-        fetch(CODE_CHECK, {
+        fetch(CODE_CHECK_API, {
             method: 'POST',
             body: JSON.stringify({
                 codeNumber: this.state.codeNumber
@@ -230,7 +230,7 @@ class SignUp extends Component {
                   })
                   alert('인증이 완료되었습니다👩‍💻')
               } else {
-                  alert('인증코드를 다시 확인해주세요')
+                  alert('인증코드를 다시 확인해주세요!')
               }
           })
     }
