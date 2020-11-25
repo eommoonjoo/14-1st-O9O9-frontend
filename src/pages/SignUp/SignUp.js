@@ -3,6 +3,10 @@ import './SignUp.scss';
 import { AiFillLock } from 'react-icons/ai';
 import { FaUserLock } from 'react-icons/fa';
 import {AiOutlineUnlock} from 'react-icons/ai';
+import { CHECKVALIDATION } from '../../config';
+import { DUPLICATIONCHECK } from '../../config';
+import { POSTEMAIL } from '../../config';
+import { CODECHECK } from '../../config';
 
 
 class SignUp extends Component {
@@ -90,7 +94,7 @@ class SignUp extends Component {
             alert("이메일 인증을 진행해주세요")
             return;
         }
-        fetch('http://10.58.4.236:8000/user/signup', {
+        fetch(CHECKVALIDATION, {
           method: "POST",
           body: JSON.stringify({
             ID: id, 
@@ -113,7 +117,7 @@ class SignUp extends Component {
     }
     
     handleDuplication = () => {
-        fetch('http://10.58.4.236:8000/user/doublecheck', {
+        fetch(DUPLICATIONCHECK, {
             method: "POST",
             body: JSON.stringify({
               ID: this.state.id,
@@ -196,7 +200,7 @@ class SignUp extends Component {
     }
 
     postEmail = () => {
-        fetch('http://10.58.4.236:8000/user/signupcode', {
+        fetch(POSTEMAIL, {
             method: 'POST',
             body: JSON.stringify({
                 name: this.state.name,
@@ -212,7 +216,7 @@ class SignUp extends Component {
     }
 
     validCodeCheck = () => {
-        fetch('http://10.58.4.236:8000/user/signupallow', {
+        fetch(CODECHECK, {
             method: 'POST',
             body: JSON.stringify({
                 codeNumber: this.state.codeNumber
