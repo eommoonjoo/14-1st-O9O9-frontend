@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './SignUp.scss';
 import { AiFillLock } from 'react-icons/ai';
 import { FaUserLock } from 'react-icons/fa';
+import {AiOutlineUnlock} from 'react-icons/ai';
 
 
 class SignUp extends Component {
@@ -22,13 +23,17 @@ class SignUp extends Component {
             validName: true,
             validPhone: true,
             validEmail: true,
+           
 
             allNecessaryChecked: false,
             checked1: false,
             checked2: false,
-            checked3: false
+            checked3: false,
+
+            validCode: false,
         }
     }
+
     validationCheck = (name, value) => {
         if (name ==='id') {
             let idReg = /^[a-z]+[a-z0-9]{5,19}$/g;
@@ -108,22 +113,24 @@ class SignUp extends Component {
         })
     }
 
-    activeButton = () => {
-        alert('아이디 중복확인');
-    }
 
     handleAllChecked = () => {
-        // if(this.state.checked1 && this.state.checked2 && this.state.checked3 === true) {
-        //     this.setState({
-        //         allNecessaryChecked: true,
-        //     })
-        // }
-        this.setState({
-            allNecessaryChecked: !this.state.allNecessaryChecked,
-            checked1: !this.state.checked1,
-            checked2: !this.state.checked2,
-            checked3: !this.state.checked3
-        })
+        if (this.state.allNecessaryChecked === true) {
+            this.setState({
+                checked1: false,
+                checked2: false,
+                checked3: false,
+                allNecessaryChecked: false,
+            })
+        } else {
+            this.setState({
+                checked1: true,
+                checked2: true,
+                checked3: true,
+                allNecessaryChecked: true,
+            })
+        }
+        
     }
 
     handleEachChecked1 = () => {
@@ -140,6 +147,36 @@ class SignUp extends Component {
         this.setState ({
             checked3: !this.state.checked3
         })     
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        const {checked1, checked2, checked3} = this.state;
+        let prevtruecnt = 0, curtruecnt = 0;
+        if(prevState.checked1) prevtruecnt++; 
+        if(prevState.checked2) prevtruecnt++;
+        if(prevState.checked3) prevtruecnt++;
+
+        if(checked1) curtruecnt++; 
+        if(checked2) curtruecnt++;
+        if(checked3) curtruecnt++;
+
+        if( prevtruecnt<3 && curtruecnt===3 ) {
+            this.setState({
+                allNecessaryChecked : true
+            })
+        } 
+        if(prevtruecnt===3 && curtruecnt<3) {
+            this.setState({
+                allNecessaryChecked : false
+            })
+        }
+        // if( !(prevState.checked1 && prevState.checked2 && prevState.checked3) && (checked1 && checked2 &&checked3) ){
+        //     this.setState({allNecessaryChecked : true});
+        // }
+        // if( (prevState.checked1 && prevState.checked2 && prevState.checked3) && !(checked1 && checked2 &&checked3) ){
+        //     this.setState({allNecessaryChecked : false});
+        // }
+        // 이해가 필요해서 주석처리 해놓았습니다... ㅠㅠ
     }
 
     render() {
@@ -189,7 +226,13 @@ class SignUp extends Component {
                             </div>
                             <div>
                                 <input className='emailInput' placeholder='이메일' name="email" onChange={this.handleInputValueChange} />
+                                <button>인증코드 발송</button>
                                 {!this.state.validEmail && <p>메일주소를 정확히 입력해 주세요.</p>}
+                            </div>
+                            <div>
+                                <input className='emailCode' placeholder='인증코드' name="codeNumber" onChange={this.handleInputValueChange} />
+                                <button>인증코드 확인</button>
+                                {!this.state.validCode && <p>인증코드를 정확히 입력해 주세요.</p>}
                             </div>
                             <div className='textSignUp'> ※ 만 14세 이상 고객만 가입이 가능합니다.</div>
                         </div>
