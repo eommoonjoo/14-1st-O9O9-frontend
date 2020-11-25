@@ -22,6 +22,11 @@ class SignUp extends Component {
             validName: true,
             validPhone: true,
             validEmail: true,
+
+            allNecessaryChecked: false,
+            checked1: false,
+            checked2: false,
+            checked3: false
         }
     }
     validationCheck = (name, value) => {
@@ -107,6 +112,36 @@ class SignUp extends Component {
         alert('아이디 중복확인');
     }
 
+    handleAllChecked = () => {
+        // if(this.state.checked1 && this.state.checked2 && this.state.checked3 === true) {
+        //     this.setState({
+        //         allNecessaryChecked: true,
+        //     })
+        // }
+        this.setState({
+            allNecessaryChecked: !this.state.allNecessaryChecked,
+            checked1: !this.state.checked1,
+            checked2: !this.state.checked2,
+            checked3: !this.state.checked3
+        })
+    }
+
+    handleEachChecked1 = () => {
+        this.setState ({
+            checked1: !this.state.checked1
+        })     
+    }
+    handleEachChecked2 = () => {
+        this.setState ({
+            checked2: !this.state.checked2
+        })     
+    }
+    handleEachChecked3 = () => {
+        this.setState ({
+            checked3: !this.state.checked3
+        })     
+    }
+
     render() {
         return (
             <div className='SignUp'>
@@ -168,22 +203,22 @@ class SignUp extends Component {
                         </div>
                         <div className='agreementList'>
                             <div className='checkAll'>
-                                <input type="checkbox"/>
+                                <input type="checkbox" onChange={this.handleAllChecked} checked={this.state.allNecessaryChecked}/>
                                 <label for="cb1" />
                                 <div>필수항목 전체동의</div>
                             </div>
                             <div className='check'>
-                                <input type="checkbox"/>
+                                <input type="checkbox" onChange={this.handleEachChecked1} checked={this.state.checked1}/>
                                 <label for="cb1" />
                                 <div>G9 구매회원 약관</div>
                             </div>
                             <div className='check'>
-                                <input type="checkbox"/>
+                                <input type="checkbox" onChange={this.handleEachChecked2} checked={this.state.checked2}/>
                                 <label for="cb1" />
                                 <div>G마켓 구매회원 약관</div>
                             </div>
                             <div className='check'>
-                                <input type="checkbox"/>
+                                <input type="checkbox"onChange={this.handleEachChecked3} checked={this.state.checked3}/>
                                 <label for="cb1" />
                                 <div>개인정보 수집 및 이용</div>
                             </div>
