@@ -29,7 +29,7 @@ class Footer extends Component {
               {footerMenu &&
                 footerMenu.map((el, idx) => (
                   <li key={idx}>
-                    <Link>{el.name}</Link>
+                    <Link to="">{el.name}</Link>
                   </li>
                 ))}
             </ul>

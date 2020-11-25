@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import {MAINCATEGORIES} from '../navData';
+import {CATEGORIES_API, CATEGORY_MOCK_DATA_API} from '../../config';
 import './NavSide.scss'
 
 class NavSide extends Component {
@@ -19,21 +20,33 @@ class NavSide extends Component {
   }
 
   getCategories = async () => {
-    const categoriesData = await axios.get('http://localhost:3000/data/categorydata.json');
-    this.setState({categories : categoriesData.data.categories});
+    // const categories = await axios.get(CATEGORY_MOCK_DATA_API);
+    // this.setState({categories : categories.data.categories});
+
+    const categories = await axios.get(CATEGORIES_API);
+    console.log(categories);
+    this.setState({categories : categories.data.categories});
   }
 
   toggleCategory = () => {
     this.setState({isCategoryToggled : !this.state.isCategoryToggled})
   }
 
+  goToCategories = (e, categoryId) => {
+    window.scrollTo(0,0);
+    this.props.history.push(`/list?category=${categoryId}`);
+  }
+
   render() {
     const {isCategoryToggled, categories} = this.state;
+    const {categoryId} = this.props;
     return (
       <aside className="NavSide">
         <div className="categories">
           <div className="logoContainer">
-            <img src="./images/logo.png" alt="O9O9 logo"/>
+            <Link to="/">
+              <img src="./images/logo.png" alt="O9O9 logo"/>
+            </Link>
           </div>
           <div className="categoryTop">
             <div className={`categoryItem ${isCategoryToggled ? "selected" : ""}`} onClick={this.toggleCategory}>
@@ -52,7 +65,9 @@ class NavSide extends Component {
         <div className={`categorySide ${isCategoryToggled ? 'toggled': ''}`}>
           { categories && categories.map((item) => 
             (<div key={item.id} className="categoryItem">
-              <Link to=""><span>{item.name}</span></Link>
+                <span className={categoryId === item.id ? "selected" : ""} onClick={(e)=> this.goToCategories(e,item.id)}>
+                  {item.name}
+                </span>
             </div>))}
         </div>
       </aside>
@@ -60,4 +75,4 @@ class NavSide extends Component {
   }
 }
 
-export default NavSide;
+export default withRouter(NavSide);

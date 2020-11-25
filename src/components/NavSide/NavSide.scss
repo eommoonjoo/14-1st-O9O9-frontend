@@ -19,7 +19,8 @@
 
     .logoContainer {
       position: absolute;
-      top: 20px;
+      top: 25px;
+      left: 17px;
       width: 100px;
 
       img {
@@ -104,18 +105,24 @@
     .categoryItem {
       padding: 8px 0;
 
-      a {
-        text-decoration: none;
+      span {
+        font-weight: normal;
+        font-size: 0.8em;
+        color: #222222;
 
-        span {
-          font-weight: normal;
-          font-size: 0.8em;
+        &.selected,
+        &:hover {
+          cursor: pointer;
+        }
+
+        &.selected {
+          border-bottom: 1px solid $themeLogoColor;
+          color: $themeLogoColor;
+        }
+
+        &:hover {
+          border-bottom: 1px solid #222222;
           color: #222222;
-
-          &:hover {
-            cursor: pointer;
-            border-bottom: 1px solid #222222;
-          }
         }
       }
     }

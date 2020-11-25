@@ -16,6 +16,7 @@ class Login extends Component {
 
     checkValidation = (e) => {
         e.preventDefault();
+    
         const {id, pw} = this.state;
         fetch('http://10.58.4.236:8000/user/signin', {
           method: "POST",
@@ -25,6 +26,7 @@ class Login extends Component {
           }),
         }).then(res => res.json())
           .then((result) => {
+              console.log(result);
             if (result.authorization) {
                 localStorage.setItem('token', result.authorization)
                 this.props.history.push('/');

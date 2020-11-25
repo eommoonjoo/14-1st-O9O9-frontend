@@ -8,7 +8,7 @@ import "./Main.scss";
 class Main extends Component {
   render() {
     return (
-      <div className='Main'>
+      <div className="Main">
         <NavSide />
         <NavTop />
         <MainContainer />
