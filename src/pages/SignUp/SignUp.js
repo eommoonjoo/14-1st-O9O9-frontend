@@ -185,34 +185,37 @@ class SignUp extends Component {
     }
 
     postEmail = () => {
-        fetch('', {
+        fetch('http://10.58.4.236:8000/user/signupcode', {
             method: 'POST',
             body: JSON.stringify({
+                name: this.state.name,
                 email: this.state.email
             }),
         }).then((res) => res.json())
           .then((result) => {
-              if (result.status === 'success') {
+              if (result.message === 'success') {
                   console.log(result.message);
+                  alert('인증코드가 발송되었습니다.');
               }
-          })
+        })
     }
 
     validCodeCheck = () => {
-        fetch('', {
+        fetch('http://10.58.4.236:8000/user/signupallow', {
             method: 'POST',
             body: JSON.stringify({
                 codeNumber: this.state.codeNumber
             }),
         }).then((res) => res.json())
           .then((result) => {
-              if (result.status === 'success') {
+              if (result.message === 'success') {
                   console.log(result.message);
                   this.setState({
                       validCode: true,
                   })
+                  alert('인증이 완료되었습니다👩‍💻')
               } else {
-                  alert(result.message)
+                  alert('인증코드를 다시 확인해주세요')
               }
           })
     }
@@ -224,7 +227,7 @@ class SignUp extends Component {
                     <div className='logo'>
                         <img src='./images/logo_transparent.png' alt='로고이미지'/>
                     </div>
-                    <div className='joinText'>잠깐 O마켓 회원이신가요?</div>
+                    <div className='joinText'>잠깐 O9마켓 회원이신가요?</div>
                     <div className='joinTextBox'>
                         <span className='joinText'>G9는 </span>
                             <img src='./images/gmarket.png' alt='지마켓'/>
