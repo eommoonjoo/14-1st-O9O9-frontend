@@ -15,7 +15,7 @@ class Cart extends Component {
     }
 
     componentDidMount = () => {
-      fetch('http://172.30.1.53:8000/order/', {
+      fetch('http://10.58.2.26:8000/order/', {
        method: 'GET',
     // headers: {authorization : localStorage.getItem('token')}
     // get은 body를 못 만들어 ...!!
@@ -40,7 +40,7 @@ class Cart extends Component {
         cartItem[idx].count--;
         this.setState({cartItem});
 
-        fetch(`http://172.30.1.53:8000/order/${cartItem[idx].id}`, {
+        fetch(`http://10.58.2.26:8000/order/${cartItem[idx].id}`, {
             method: 'PATCH',
             body: JSON.stringify({
                 count: cartItem[idx].count
@@ -64,7 +64,7 @@ class Cart extends Component {
             cartItem[idx].count++;
             this.setState({cartItem})
         
-            fetch(`http://172.30.1.53:8000/order/${cartItem[idx].id}`, {
+            fetch(`http://10.58.2.26:8000/order/${cartItem[idx].id}`, {
                 method: 'PATCH',
                 body: JSON.stringify({
                     count: cartItem[idx].count
@@ -89,7 +89,7 @@ class Cart extends Component {
         let removeItem = cartItem.filter((e) => el.id !== e.id);
         this.setState({cartItem: removeItem})
 
-        fetch(`http://172.30.1.53:8000/order/cart`, {
+        fetch(`http://10.58.2.26:8000/order/cart`, {
             method: 'POST',
             body: JSON.stringify({
                 ids: [el.id]
@@ -119,7 +119,7 @@ class Cart extends Component {
         let removeItem = cartItem.filter((el) => el.ischecked !== true)
         this.setState({cartItem : removeItem});
         // console.log(remove)
-        fetch(`http://172.30.1.53:8000/order/cart`, {
+        fetch(`http://10.58.2.26:8000/order/cart`, {
             method: 'POST',
             body: JSON.stringify({
                 ids: remove
@@ -208,7 +208,7 @@ class Cart extends Component {
                             <button className='order'>주문하기</button>
                         </div>
                         <div className='rightSideBottom'>
-                            <span className='text'>배송비, 반품비 걱정없는 G9</span>
+                            <span className='text'>배송비, 반품비 걱정없는 O9O9</span>
                             <span className='goDetail'>자세히 보기 {'>'} </span>
                         </div>
                    </div>

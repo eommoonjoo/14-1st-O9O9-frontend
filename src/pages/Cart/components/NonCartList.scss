@@ -21,7 +21,7 @@
       .noneProduct {
         // margin-bottom: 18px;
         text-align: center;
-        font-size: 22px;
+        font-size: 20px;
         letter-spacing: -1px;
         color: #323232;
       }
@@ -34,18 +34,24 @@
           border-radius: 30px;
           width: 140px;
           height: 40px;
-          font-size: 17px;
+          font-size: 15px;
           background-color: white;
           border: 1px solid lightgray;
           margin-right: 10px;
+          outline: 0;
+          a {
+            text-decoration: none;
+            color: black;
+          }
         }
         .goSelectList {
           border-radius: 30px;
           width: 140px;
           height: 40px;
-          font-size: 17px;
+          font-size: 15px;
           background-color: white;
           border: 1px solid lightgray;
+          outline: 0;
         }
       }
     }

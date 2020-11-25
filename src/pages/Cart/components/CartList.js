@@ -24,7 +24,7 @@ class CartList extends Component {
                             <label htmlFor="checkBox" />
                             <div className='productId'>{el.productName} </div>
                         </div>
-                        <AiOutlineClose size="30" className='XIcon' onClick={() => {this.props.onDelete(el)}}/>
+                        <AiOutlineClose size="20" className='XIcon' onClick={() => {this.props.onDelete(el)}}/>
                     </div>
                     <div className='product'>
                         <img className='productImage' src={el.url} alt="이미지"/>
