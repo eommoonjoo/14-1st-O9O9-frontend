@@ -40,25 +40,36 @@ class SignUp extends Component {
             let idReg = /^[a-z]+[a-z0-9]{5,19}$/g;
             const validID = idReg.test(value);
             this.setState({validID});
-        } else if (name ==='pw') {
+            return;
+        } 
+        if (name ==='pw') {
             let passwordRules = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
             const validPW = passwordRules.test(value);
-            this.setState({validPW})   
-        } else if (name === 'passwordcheck') {
+            this.setState({validPW});
+            return;   
+        } 
+        if (name === 'passwordcheck') {
             const validDoubleCheck = this.state.pw === value
-            this.setState({validDoubleCheck})
-        } else if (name === 'name') {
+            this.setState({validDoubleCheck});
+            return;
+        } 
+        if (name === 'name') {
             let reg = /^[가-힣]{2,4}$/;
             const validName = reg.test(value);
             this.setState({validName});
-        } else if(name === 'phone') {
+            return;
+        } 
+        if (name === 'phone') {
             let regPhone = /^\d{3}-\d{3,4}-\d{4}$/;
             const validPhone = regPhone.test(value);
-            this.setState({validPhone})
-        } else if (name === 'email') {
+            this.setState({validPhone});
+            return;
+        } 
+        if (name === 'email') {
             let emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
             const validEmail = emailRule.test(value);
-            this.setState({validEmail})
+            this.setState({validEmail});
+            return;
         } 
     }
 
@@ -96,9 +107,9 @@ class SignUp extends Component {
         if (result.message === "success") {
           alert ('회원가입이 완료되었습니다!')
           this.props.history.push("/Login")
-        } else {
-          alert(result.message);
-        }})
+        } 
+          return alert(result.message);
+        })
     }
     
     handleDuplication = () => {
