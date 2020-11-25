@@ -178,7 +178,7 @@ class Cart extends Component {
                                 <span className='selectItem'>선택</span>
                             </div>
                             <div className='delete'>
-                                <VscTrash size="22" className='deleteIcon'/>
+                                <VscTrash size="20" className='deleteIcon'/>
                                 <div className='deleteItem' onClick={this.onCheckDelete}>삭제</div>
                             </div>
                         </div>
