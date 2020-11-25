@@ -32,15 +32,15 @@
 
     .logo {
       img {
-        width: 240px;
+        width: 180px;
       }
       @include flexCenter;
-      padding: 70px 0 50px 0;
+      padding: 70px 0 40px 0;
     }
     .joinText {
       text-align: center;
       color: gray;
-      font-size: 15px;
+      font-size: 12px;
     }
     .joinTextBox {
       display: flex;
@@ -50,8 +50,8 @@
       top: -20px;
       color: gray;
       img {
-        width: 140px;
-        height: 70px;
+        width: 130px;
+        height: 65px;
       }
       .joinText {
         position: relative;
@@ -61,7 +61,8 @@
         position: relative;
         top: 7px;
         margin-left: 5px;
-        font-size: 15px;
+        font-size: 12px;
+        cursor: pointer;
       }
     }
     .idAndPw {
