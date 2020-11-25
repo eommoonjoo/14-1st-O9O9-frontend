@@ -15,15 +15,15 @@ class NavTop extends Component {
     this.state = {
       activateMyPage: true, 
       isLogined: true ,
-      userInfo: {},
+      userInfo: "",
       cartList: []
     };
   }
 
   componentDidMount() {
     if(localStorage.getItem('token')){
-      // this.getUserInformation();
-      this.getCartInformation();
+      this.getUserInformation();
+      // this.getCartInformation();
       this.setState({ isLogined : true });
     }
     else this.setState({ isLogined : false });
@@ -36,13 +36,13 @@ class NavTop extends Component {
 
   getUserInformation = async () => {
     const userdata = await axios({url: USERINFO_API , headers: {authorization : localStorage.getItem('token')}});
-    console.log(userdata.data);
+    this.setState({userInfo : userdata.data.message});
   }
 
   getCartInformation = async () => {
+    // 원래는 토큰이 들어가야하지만 아직 머지가 되지 않아서 일단 임시로 이렇게!
     // const cartdata = await axios({url: CARTLIST_API, headers: {authorization : localStorage.getItem('token')}});
     const cartdata = await axios.get(CARTLIST_API);
-    // console.log(cartdata.data.product);
     this.setState({cartList : cartdata.data.product});
   }
 
@@ -76,7 +76,7 @@ class NavTop extends Component {
             <ul>
               <li>
                 <FiShoppingCart />
-                {isLogined && cartList.length && <span className="cartCount">{cartList.length}</span>}
+                {isLogined && !!cartList.length && <span className="cartCount">{cartList.length}</span>}
               </li>
               <li>
                 <RiHeart3Line />
@@ -100,7 +100,7 @@ class NavTop extends Component {
                   {!isLogined ? 
                   [<li><Link to="/Login"><span className="plaintext">로그인</span></Link></li>, <li><Link to="/SignUp"><span className="plaintext">회원가입</span></Link></li>] 
                   :
-                  [<li><Link to=""><span className="plaintext"><span className="username">맹끼</span>님 안녕하세요</span></Link></li>, <li><Link to=""><span className="plaintext" onClick={this.handleLogout}>로그아웃</span></Link></li>]}
+                  [<li><Link to=""><span className="plaintext"><span className="username">{userInfo}</span>님 안녕하세요</span></Link></li>, <li><Link to=""><span className="plaintext" onClick={this.handleLogout}>로그아웃</span></Link></li>]}
                   {MYPAGE_MENUS.map((el) => (
                     <li key={el.id}>
                       <Link to="">
