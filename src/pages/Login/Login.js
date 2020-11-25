@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Login.scss';
+import { LOGIN_CHECK_VALIDATION } from '../../config';
 
 class Login extends Component {
     constructor() {
@@ -18,7 +19,7 @@ class Login extends Component {
         e.preventDefault();
     
         const {id, pw} = this.state;
-        fetch('http://10.58.4.236:8000/user/signin', {
+        fetch(LOGIN_CHECK_VALIDATION, {
           method: "POST",
           body: JSON.stringify({
             ID: id, 
