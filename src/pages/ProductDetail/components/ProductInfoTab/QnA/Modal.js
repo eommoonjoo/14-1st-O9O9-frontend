@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { RiBoxingLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import { QUESTIONINFO_API } from '../../../../../config';
+import {
+  QUESTION_ENROLL_API,
+  PRODUCT_QNALIST_API,
+} from '../../../../../config';
 import './Modal.scss';
 
 class Modal extends Component {
   constructor() {
     super();
 
-    // const { productview } = this.props;
     this.state = {
       question_type: 1,
       emailValue: '',
@@ -19,9 +23,8 @@ class Modal extends Component {
   }
 
   componentDidMount() {
-    // console.log(this.props);
     console.log(localStorage.getItem('token'));
-    fetch('http://10.58.4.236:8000/review/questioninfo', {
+    fetch(QUESTIONINFO_API, {
       method: 'post',
       headers: { authorization: localStorage.getItem('token') },
       body: JSON.stringify({
@@ -30,7 +33,7 @@ class Modal extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         this.setState({
           user: res,
           emailValue: res.email,
@@ -41,35 +44,22 @@ class Modal extends Component {
 
   changeModalQTypeValue = (e) => {
     this.setState({
-      question_type: e.target.id,
+      [e.target.name]: e.target.id,
     });
   };
-  changeModalEmailValue = (e) => {
+
+  changeModalValue = (e) => {
     this.setState({
-      emailValue: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
-  changeModalPhoneNumberValue = (e) => {
-    this.setState({
-      phoneNumberValue: e.target.value,
-    });
-  };
-  changeModalTitleValue = (e) => {
-    this.setState({
-      title: e.target.value,
-    });
-  };
-  changeModalContextValue = (e) => {
-    this.setState({
-      content: e.target.value,
-    });
-  };
+
   onClose = (e) => {
     this.props.onClose && this.props.onClose(e);
   };
 
   enrollQuestion = (e) => {
-    fetch('http://10.58.4.236:8000/review/questionenroll', {
+    fetch(QUESTION_ENROLL_API, {
       method: 'post',
       headers: { authorization: localStorage.getItem('token') },
       body: JSON.stringify({
@@ -91,6 +81,7 @@ class Modal extends Component {
   render() {
     const { emailValue, phoneNumberValue, title, content, user } = this.state;
     const { productInfo } = this.props;
+    const { changeModalValue, changeModalQTypeValue, enrollQuestion } = this;
     console.log(productInfo);
     console.log(user);
     return (
@@ -106,7 +97,7 @@ class Modal extends Component {
                     type='radio'
                     name='category'
                     id='1'
-                    onChange={this.changeModalQTypeValue}
+                    onChange={changeModalQTypeValue}
                   />
                   상품
                 </div>
@@ -115,7 +106,7 @@ class Modal extends Component {
                     type='radio'
                     name='category'
                     id='2'
-                    onChange={this.changeModalQTypeValue}
+                    onChange={changeModalQTypeValue}
                   />
                   배송
                 </div>
@@ -124,7 +115,7 @@ class Modal extends Component {
                     type='radio'
                     name='category'
                     id='3'
-                    onChange={this.changeModalQTypeValue}
+                    onChange={changeModalQTypeValue}
                   />
                   취소
                 </div>
@@ -133,7 +124,7 @@ class Modal extends Component {
                     type='radio'
                     name='category'
                     id='4'
-                    onChange={this.changeModalQTypeValue}
+                    onChange={changeModalQTypeValue}
                   />
                   반품
                 </div>
@@ -142,7 +133,7 @@ class Modal extends Component {
                     type='radio'
                     name='category'
                     id='5'
-                    onChange={this.changeModalQTypeValue}
+                    onChange={changeModalQTypeValue}
                   />
                   교환
                 </div>
@@ -151,7 +142,7 @@ class Modal extends Component {
                     type='radio'
                     name='category'
                     id='6'
-                    onChange={this.changeModalQTypeValue}
+                    onChange={changeModalQTypeValue}
                   />
                   기타
                 </div>
@@ -167,10 +158,10 @@ class Modal extends Component {
                 <input
                   className='input'
                   type='email'
-                  name=''
+                  name='emailValue'
                   id=''
                   value={emailValue}
-                  onChange={this.changeModalEmailValue}
+                  onChange={changeModalValue}
                 />
                 &nbsp; 답변을 해당 메일로 보내드립니다.
               </div>
@@ -179,32 +170,32 @@ class Modal extends Component {
                 <input
                   className='input'
                   type='text'
-                  name=''
+                  name='phoneNumber'
                   id=''
                   value={phoneNumberValue}
-                  onChange={this.changeModalPhoneNumberValue}
+                  onChange={changeModalValue}
                 />
               </div>
               <div className='subtitle'>제목</div>
               <div>
                 <input
-                  className='input'
+                  className='input inputTitle'
                   type='text'
-                  name=''
+                  name='title'
                   id=''
                   value={title}
-                  onChange={this.changeModalTitleValue}
+                  onChange={changeModalValue}
                 />
               </div>
               <div className='subtitle lastrow'>내용</div>
               <div className='lastrow'>
                 <textarea
-                  name=''
+                  name='content'
                   id=''
                   cols='45'
                   rows='7'
                   value={content}
-                  onChange={this.changeModalContextValue}></textarea>
+                  onChange={changeModalValue}></textarea>
                 <p>문의시 유의해주세요!</p>
                 <p>
                   주민등록번호, 연락처 등의 정보는 타인에게 노출될 경우 개인정보
@@ -216,7 +207,7 @@ class Modal extends Component {
               </div>
             </div>
             <div className='modalButton'>
-              <button onClick={this.enrollQuestion}>확인</button>
+              <button onClick={enrollQuestion}>확인</button>
               <button
                 onClick={(e) => {
                   this.onClose(e);

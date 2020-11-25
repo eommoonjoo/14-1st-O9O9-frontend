@@ -45,12 +45,14 @@ class Review extends Component {
             </div>
 
             {/* Map돌릴부분 */}
-            {reviewdata.map((el, idx) => (
+            {reviewdata.map((list, idx) => (
               <div className='reviewContents' key={idx}>
-                <div className='reviewInput rateing'>{el.username}</div>
-                <div className='reviewInput rateing'>{el.satisfaction}</div>
-                <div className='reviewInput'>{el.content}</div>
-                <div className='reviewInput rateing'>{el.registDate}</div>
+                <div className='reviewInput rateing'>{list.username}</div>
+                <div className='reviewInput rateing'>
+                  {rating[list.satisfaction]}
+                </div>
+                <div className='reviewInput'>{list.content}</div>
+                <div className='reviewInput rateing'>{list.registDate}</div>
               </div>
               //satisfaction은 숫자로 받으면
             ))}

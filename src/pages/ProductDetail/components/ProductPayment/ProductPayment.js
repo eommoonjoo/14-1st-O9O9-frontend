@@ -12,17 +12,19 @@ class ProductPayment extends Component {
   }
 
   render() {
-    const { productInfo } = this.props;
-    const { handlePlus, handleMinus } = this.props;
+    const { productInfo, productQuantity } = this.props;
+    const { handlePlusQuantity, handleMinusQuantity } = this.props;
 
     // console.log(productview.length > 0 ? productview.cartItems : '+_+');
     // console.log(productview.cartItems ? productview.cartItems[0] : '+_+');
-
+    console.log(productInfo.price);
     return (
       <div className='ProductPayment'>
         <div className='productPaymentContainer'>
           <div className='priceMain'>
-            <span>{productInfo && productInfo.price}</span>
+            <span>
+              {productInfo && Number(productInfo.price).toLocaleString(2)}
+            </span>
             <span>10% 할인받기 ☻</span>
           </div>
           <div className='freeDelivery'>
@@ -50,38 +52,27 @@ class ProductPayment extends Component {
           <p className='countText'>주문수량</p>
           <div className='orderQuantity'>
             <div className='handleCount'>
-              <input
-                type='text'
-                value={productInfo.productview && productInfo.productview.count}
-              />
+              <input type='text' value={this.props.productQuantity} />
               <div className='countButton'>
                 <img
                   src='http://pics.g9.co.kr/btn/btn_num_up.gif'
                   alt='증가'
-                  onClick={handlePlus}
+                  onClick={handlePlusQuantity}
                 />
                 <img
                   src='http://pics.g9.co.kr/btn/btn_num_down.gif'
                   alt='감소'
-                  onClick={handleMinus}
+                  onClick={handleMinusQuantity}
                 />
               </div>
             </div>
             <div className='priceByQuantity'>
-              <p>
-                {productInfo.productview &&
-                  productInfo.productview.count * productInfo.productview.price}
-                원
-              </p>
+              <p>{(productQuantity * productInfo.price).toLocaleString(2)}원</p>
             </div>
           </div>
           <div className='oderPrice'>
             <p>주문금액</p>
-            <p>
-              {productInfo.productview &&
-                productInfo.productview.count * productInfo.productview.price}
-              원
-            </p>
+            <p>{(productQuantity * productInfo.price).toLocaleString(2)}원</p>
           </div>
           <div className='orderButtonSide'>
             <button>장바구니</button>

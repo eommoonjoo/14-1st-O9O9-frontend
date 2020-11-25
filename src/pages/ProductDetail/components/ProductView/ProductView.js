@@ -16,7 +16,7 @@ class ProductView extends Component {
   render() {
     const { productInfo } = this.props;
     console.log(productInfo);
-    // console.log(productInfo. && productInfo.productview.url);
+
     return (
       <div className='ProductView'>
         <div className='productViewContainer'>
@@ -25,10 +25,7 @@ class ProductView extends Component {
           </div>
           <div className='productGroup'>
             <div className='productImage'>
-              <img
-                src='//image.g9.co.kr/g/1942970800/n?ts=1605573467000'
-                alt='감귤'
-              />
+              <img src={productInfo && productInfo.imageUrl} alt='감귤' />
             </div>
             <div className='productInfo'>
               <div className='productIntro'>
@@ -36,17 +33,17 @@ class ProductView extends Component {
                   className='pickButton'
                   onClick={() => this.props.handleHeartClick()}>
                   <p className='likes'>
-                    {productInfo.productview &&
+                    {/* {productInfo.productview &&
                     !productInfo.productview.heart ? (
                       <RiHeart2Line style={{ fill: 'red' }} />
                     ) : (
                       <RiHeart2Fill style={{ fill: 'red' }} />
-                    )}
+                    )} */}
                     &nbsp;
                     <span>
-                      {productInfo.productview
+                      {/* {productInfo.productview
                         ? productInfo.productview.likesCount
-                        : ''}
+                        : ''} */}
                     </span>
                   </p>
                 </div>

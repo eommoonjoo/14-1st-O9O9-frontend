@@ -2,13 +2,13 @@
 .Footer {
   width: 100%;
   padding-left: 142px;
+  margin-top: 100px;
   border: 1px solid lightgrey;
   background-color: white;
-  margin-top: 100px;
   .footerContainer {
-    padding: 30px 60px 30px 40px;
     display: flex;
     justify-content: space-between;
+    padding: 30px 60px 30px 40px;
     .footerMenu {
       li {
         margin: 27px 0px;

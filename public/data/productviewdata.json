@@ -1,25 +1,19 @@
 {
-  "productview": {
-    "id": 1,
-    "productName": "서귀포 조생 감귤",
-    "url": "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80",
-    "price": 10900,
-    "count": 1,
-    "seller": "더브레드",
-    "likesCount": 134,
-    "heart": false,
-    "bought": 365,
-    "deadline": "20201225"
-  },
+  "product": {
+  "maincategoryId": 2,
+  "subcategoryId": 1,
+  "imageUrl": "https://images.unsplash.com/photo-1499125562588-29fb8a56b5d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80",
+  "title": "생연어슬라이스 400g",
+  "price": "9900",
+  "brand": "바른씨",
+  "moreInformation": "과세상품",
+  "sellerInformation": "주식회사쿠플 / 박종남",
+  "exchange": "상품 하자 반품/교환시 : 무료 / 무하자 반품 배송시 : 4,000원",
+  "productgroup": "[HACCP인증/ 슈페리어급]생연어 슬라이스 400g",
+  "buy": 30,
+  "likes":134,
+  "leftTime":23,
+  "productNumber":
 
-  "qnauserdata": {
-    "index": 1,
-    "asktype": 0,
-    "username": "jihye ryu",
-    "id": "ryuwisdom",
-    "email": "bonnie.jr54@gmail.com",
-    "phoneNumber": "01095004758",
-    "subject": "",
-    "content": ""
   }
-}
+  }

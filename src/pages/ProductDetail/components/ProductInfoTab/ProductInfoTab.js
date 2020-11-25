@@ -5,17 +5,12 @@ import QnA from './QnA/QnA';
 import RefundInfo from './RefundInfo/RefundInfo';
 import { Link } from 'react-router-dom';
 import './ProductInfoTab.scss';
-
-// const obj = {
-//   0: <Detail />,
-//   1: <Review />,
-//   2: <QnA />,
-//   3: <RefundInfo />,
-// };
+import { QUESTIONINFO_API } from '../../../../config';
 
 class ProductInfoTab extends Component {
   state = {
     activeId: 0,
+    userCheck: {},
   };
 
   clickHandler = (id) => {
@@ -23,25 +18,29 @@ class ProductInfoTab extends Component {
   };
 
   render() {
-    const { productInfo, qnadata } = this.props;
+    const { productInfo, qnadata, userCheck, openModal } = this.props;
     const { activeId } = this.state;
     let component;
 
-    if (activeId == 0) {
+    if (activeId === 0) {
       component = <Detail productInfo={productInfo} />;
     }
-    if (activeId == 1) {
+    if (activeId === 1) {
       component = <Review productInfo={productInfo} />;
     }
-    if (activeId == 2) {
+    if (activeId === 2) {
       component = (
-        <QnA modalHandler={this.props.modalHandler} productInfo={productInfo} />
+        <QnA
+          openModal={openModal}
+          modalHandler={this.props.modalHandler}
+          productInfo={productInfo}
+          userCheck={userCheck}
+        />
       );
     }
-    if (activeId == 3) {
-      component = <RefundInfo />;
+    if (activeId === 3) {
+      component = <RefundInfo productInfo={productInfo} />;
     }
-    console.log(this.props.modalHandler);
 
     return (
       <div className='ProductInfoTab'>
