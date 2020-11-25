@@ -160,7 +160,7 @@ class Cart extends Component {
                    <div className='logo'>
                         <img alt="logo" src='./images/logo_white.png' onClick={this.goToMain}/>
                    </div>
-                   <div className='cartNav'>장바구니</div>
+                   <div className='cartNav'>🛍 장바구니 🛍</div>
                </nav>
                <div className='orderStatus'>
                     <span className='cart'>01 장바구니</span>
