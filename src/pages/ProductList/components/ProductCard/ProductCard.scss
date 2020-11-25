@@ -1,0 +1,84 @@
+@import "../../../../styles/common.scss";
+
+.ProductCard {
+  cursor: pointer;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .imageContainer {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      top: 0;
+      object-fit: cover;
+    }
+  }
+
+  .productInfo {
+    height: 80px;
+    .productPrice {
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 1.3em;
+    }
+
+    .productTitle {
+      margin-bottom: 5px;
+      font-size: 0.9em;
+      color: #222222;
+      line-height: 1.5em;
+    }
+  }
+
+  .coupon {
+    margin-bottom: 13px;
+    background-color: white;
+    border: 1px solid #b7bdc3;
+    font-size: 0.8em;
+    color: #7e868f;
+  }
+
+  .cardBottom {
+    display: flex;
+    align-items: center;
+    margin-bottom: 13px;
+
+    .wishContainer {
+      display: flex;
+      align-items: center;
+
+      .heartIcon {
+        cursor: pointer;
+      }
+    }
+
+    span {
+      font-size: 0.9em;
+      color: $themeDarkGrayColor;
+      &.wishCount {
+        margin: 0 20px 0 5px;
+      }
+    }
+  }
+
+  .storeContainer {
+    height: 20px;
+    p {
+      padding-top: 10px;
+      font-size: 0.8em;
+      border-top: 1px solid $themeLightGrayColor;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    padding: 0 40px;
+  }
+}

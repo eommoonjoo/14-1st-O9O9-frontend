@@ -1,0 +1,143 @@
+@import "../../../../styles/common.scss";
+
+.ProductStand {
+  .hiddenSearchContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    top: 140px;
+    width: 100%;
+    height: 50px;
+    padding-right: 170px;
+    background-color: white;
+    z-index: 40;
+
+    .searchContainer {
+      position: relative;
+
+      .hiddenSearch {
+        width: 240px;
+        height: 33px;
+        padding-left: 10px;
+        border: 1px solid #cccccc;
+        border-radius: 3px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .searchIcon {
+        position: absolute;
+        top: 9px;
+        right: 9px;
+      }
+    }
+  }
+
+  .standMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+
+    .menuRight {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      width: 500px;
+
+      .gridBigButton {
+        margin: 0 10px;
+      }
+
+      .optionSelector {
+        width: 150px;
+        font-size: 14px;
+      }
+
+      .inputSearch {
+        width: 200px;
+        height: 34px;
+        margin-left: 10px;
+        padding-left: 10px;
+        border: 1px solid #cccccc;
+        border-radius: 3px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .searchIcon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+    }
+  }
+
+  .productsContainer {
+    width: 100%;
+    display: grid;
+    row-gap: 60px;
+    column-gap: 25px;
+    padding: 0 30px;
+
+    &.grid4 {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+
+      img {
+        width: 60vh;
+        height: 60vh;
+      }
+      @media screen and (max-width: 1200px) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    &.grid6 {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+      img {
+        width: 40vh;
+        height: 40vh;
+      }
+      @media screen and (max-width: 1200px) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+  }
+
+  .pageButtonContainer {
+    margin: 30px 0 0 30px;
+
+    button {
+      width: 33px;
+      height: 33px;
+      margin-right: 5px;
+      background-color: white;
+      border: 1px solid #cccccc;
+
+      &.inactivated {
+        color: $themeLightGrayColor;
+        border: 1px solid $themeLightGrayColor;
+      }
+
+      &.currentPage {
+        background-color: black;
+        color: $themeLightGrayColor;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

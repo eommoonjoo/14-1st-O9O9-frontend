@@ -170,13 +170,26 @@ class SignUp extends Component {
                 allNecessaryChecked : false
             })
         }
+        // 이해가 필요해서 주석처리 해놓았습니다.. ㅜ
         // if( !(prevState.checked1 && prevState.checked2 && prevState.checked3) && (checked1 && checked2 &&checked3) ){
         //     this.setState({allNecessaryChecked : true});
         // }
         // if( (prevState.checked1 && prevState.checked2 && prevState.checked3) && !(checked1 && checked2 &&checked3) ){
         //     this.setState({allNecessaryChecked : false});
         // }
-        // 이해가 필요해서 주석처리 해놓았습니다... ㅠㅠ
+    }
+
+    postEmail = () => {
+        fetch('', {
+            method: 'POST',
+            body: JSON.stringify({
+                email: this.state.emial
+            }),
+        }).then((res) => res.json())
+          .then((result) => {
+              if (result.status === 'success') {
+              }
+          })
     }
 
     render() {
@@ -226,7 +239,7 @@ class SignUp extends Component {
                             </div>
                             <div>
                                 <input className='emailInput' placeholder='이메일' name="email" onChange={this.handleInputValueChange} />
-                                <button>인증코드 발송</button>
+                                <button onClick={this.postEmail}>인증코드 발송</button>
                                 {!this.state.validEmail && <p>메일주소를 정확히 입력해 주세요.</p>}
                             </div>
                             <div>
