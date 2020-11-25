@@ -8,14 +8,14 @@ export const SUBCATEGORY_PRODUCTS_DATA_API = "";
 
 // SignUp Page //
 // 회원가입 유효성 검사 API
-export const CHECKVALIDATION = "http://10.58.4.236:8000/user/signup";
+export const CHECK_VALIDATION = "http://10.58.4.236:8000/user/signup";
 
 // 아이디 중복확인 체크 API
-export const DUPLICATIONCHECK = "http://10.58.4.236:8000/user/doublecheck";
+export const DUPLICATION_CHECK = "http://10.58.4.236:8000/user/doublecheck";
 
 // 인증메일 발송 API
-export const POSTEMAIL  = "http://10.58.4.236:8000/user/signupcode";
+export const POST_EMAIL  = "http://10.58.4.236:8000/user/signupcode";
 
 // 인증 코드 유효성 검사 API
-export const CODECHECK = "http://10.58.4.236:8000/user/signupcode";
+export const CODE_CHECK = "http://10.58.4.236:8000/user/signupcode";
 
