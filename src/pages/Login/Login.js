@@ -11,13 +11,11 @@ class Login extends Component {
     }
 
     handleInputValueChange = (e) => {
-        // const { id, pw, name, phone, email } = e.target;
         this.setState({[e.target.name]: e.target.value});
     }
 
     checkValidation = (e) => {
         e.preventDefault();
-        // console.log('연결확인');
     
         const {id, pw} = this.state;
     
@@ -29,6 +27,7 @@ class Login extends Component {
           }),
         }).then(res => res.json())
           .then((result) => {
+              console.log(result);
             if (result.authorization) {
                 localStorage.setItem('token', result.authorization)
                 this.props.history.push('/');
