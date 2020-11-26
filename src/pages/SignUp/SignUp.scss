@@ -3,10 +3,10 @@
 @mixin inputbox {
   width: 300px;
   height: 35px;
-  font-size: 15px;
-  font-weight: 700;
   padding-left: 15px;
   margin: 7px 50px 7px 0;
+  font-size: 15px;
+  font-weight: 700;
   border-radius: 0;
   background-color: white;
   &::placeholder {
@@ -19,8 +19,8 @@
 }
 
 @mixin pTag {
-  color: red;
   margin: 0 0 5px 15px;
+  color: red;
   font-size: 13px;
 }
 
@@ -43,9 +43,7 @@
       font-size: 12px;
     }
     .joinTextBox {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flexCenter;
       position: relative;
       top: -20px;
       color: gray;
@@ -66,10 +64,8 @@
       }
     }
     .idAndPw {
-      display: flex;
+      @include flexCenter;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
       .idSection {
         width: 500px;
         border: 1px solid #bbbbbb;
@@ -79,10 +75,10 @@
           width: 270px;
           height: 45px;
           margin: 2px 0;
-          font-size: 15px;
-          font-weight: 700;
           padding-left: 15px;
           margin-right: 70px;
+          font-size: 15px;
+          font-weight: 700;
           border-radius: 0;
           background-color: white;
           outline: none;
@@ -92,9 +88,9 @@
         }
         button {
           position: relative;
-          top: -1px;
           width: 120px;
           height: 35px;
+          top: -1px;
           border: none;
           background-color: #30beff;
           color: white;
@@ -112,11 +108,11 @@
       }
       .pwSection {
         width: 500px;
-        box-sizing: border-box;
         border-left: 1px solid #bbbbbb;
         border-right: 1px solid #bbbbbb;
         border-top: 1px solid lightgray;
         border-bottom: none;
+        box-sizing: border-box;
         background-color: white;
         div {
           display: flex;
@@ -174,10 +170,10 @@
       }
 
       .userInfo {
-        margin-top: 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 20px;
         border: 1px solid #bbbbbb;
         background-color: white;
         div {
@@ -206,11 +202,11 @@
           }
         }
         button {
-          margin-left: 25px;
           position: relative;
-          top: -2px;
           width: 90px;
           height: 33px;
+          margin-left: 25px;
+          top: -2px;
           border: none;
           background-color: #2fb8fc;
           color: white;
@@ -223,10 +219,10 @@
         }
         .textSignUp {
           width: 500px;
+          padding: 20px;
           box-sizing: border-box;
           text-align: left;
           color: #bbbbbb;
-          padding: 20px;
           background-color: white;
           border: none;
           font-size: 14px;
@@ -237,27 +233,26 @@
       width: 500px;
       margin: 0 auto;
       .agreement {
+        display: flex;
         width: 500px;
         height: 66px;
-        display: flex;
-
         margin: 20px auto 0 auto;
+        padding-left: 15px;
         background-color: white;
         border: 1px solid #bbbbbb;
         box-sizing: border-box;
-        padding-left: 15px;
         input {
-          position: relative;
-          top: 18px;
           width: 18px;
           height: 18px;
+          position: relative;
+          top: 18px;
           border: 2px solid #bcbcbc;
           cursor: pointer;
         }
         div {
           padding-top: 24px;
-          font-size: 15px;
           margin-left: 4px;
+          font-size: 15px;
           font-weight: 700;
         }
       }
@@ -286,10 +281,10 @@
         .check {
           display: flex;
           input {
-            position: relative;
-            top: 18px;
             width: 18px;
             height: 18px;
+            position: relative;
+            top: 18px;
             border: 2px solid #bcbcbc;
             cursor: pointer;
           }
@@ -301,20 +296,20 @@
         }
         .line {
           width: 450px;
+          top: 36px;
           margin: 0 auto;
           border-bottom: 1px solid #bcbcbc;
           font-weight: 200;
           position: relative;
-          top: 36px;
         }
       }
       .optionalAgreementList {
-        background-color: white;
         width: 500px;
         border-left: 1px solid #bcbcbc;
         border-right: 1px solid #bcbcbc;
         border-bottom: 1px solid #bcbcbc;
         padding: 20px 20px 30px 20px;
+        background-color: white;
         font-size: 15px;
         .checkAll {
           display: flex;
@@ -334,10 +329,10 @@
         .check {
           display: flex;
           input {
-            position: relative;
-            top: 18px;
             width: 18px;
             height: 18px;
+            position: relative;
+            top: 18px;
             border: 2px solid #bcbcbc;
             cursor: pointer;
           }
@@ -348,21 +343,21 @@
           }
         }
         .marketingInfo {
-          font-size: 15px;
           padding: 20px 30px 0 25px;
+          font-size: 15px;
           color: #bcbcbc;
         }
       }
       button {
-        margin-top: 15px;
         width: 500px;
         height: 60px;
+        margin-top: 15px;
+        margin-bottom: 40px;
         border: none;
         background-color: #40b8ff;
         color: white;
         font-size: 17px;
         font-weight: 700;
-        margin-bottom: 40px;
         cursor: pointer;
       }
     }

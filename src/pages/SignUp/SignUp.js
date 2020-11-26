@@ -87,12 +87,10 @@ class SignUp extends Component {
         e.preventDefault();
         const {id, pw, name, phone, email, passwordcheck, idDoubleCheck, validCode} = this.state;
         if(!idDoubleCheck){
-            alert("아이디 중복확인을 해주세요")       
-            return;
+            return alert("아이디 중복확인을 해주세요");
         }
         if(!validCode){
-            alert("이메일 인증을 진행해주세요")
-            return;
+            return alert("이메일 인증을 진행해주세요");
         }
         fetch(CHECK_VALIDATION_API, {
           method: "POST",
@@ -127,9 +125,8 @@ class SignUp extends Component {
           if (result.status === "success") {
             this.setState({idDoubleCheck: true});
             alert ("사용가능한 아이디입니다.");
-          } else {
-            alert(result.message);
-          }
+          } 
+          return alert(result.message);
         })
     }
 
@@ -229,13 +226,36 @@ class SignUp extends Component {
                       validCode: true,
                   })
                   alert('인증이 완료되었습니다👩‍💻')
-              } else {
-                  alert('인증코드를 다시 확인해주세요!')
-              }
+              } return alert('인증코드를 다시 확인해주세요!');
           })
     }
-
     render() {
+        const { 
+        id, 
+        pw,
+        name,
+        phone,
+        email,
+        passwordcheck,
+        idDoubleCheck,
+        codeNumber,
+
+        validID,
+        validPW,
+        validDoubleCheck,
+        validName,
+        validPhone,
+        validEmail,
+       
+
+        allNecessaryChecked,
+        checked1,
+        checked2,
+        checked3,
+
+        validCode
+        } = this.state
+
         return (
             <div className='SignUp'>
                 <div className='joinContent'>
@@ -253,42 +273,42 @@ class SignUp extends Component {
                         <div className='idSection'>
                             <input placeholder='아이디' name="id" onChange={this.handleInputValueChange}/>
                             <button onClick={this.handleDuplication}>중복확인</button>
-                            {!this.state.validID && <p>회원아이디를 정확히 입력해 주세요.</p>}
+                            {!validID && <p>회원아이디를 정확히 입력해 주세요.</p>}
                         </div>
                         <div className='pwSection'>
                             <div>
                                 <input type='password' placeholder='비밀번호' name="pw" onChange={this.handleInputValueChange}/>
                                 <div className='locked'>
-                                    <AiFillLock size='28' color={this.state.pw ? (this.state.validPW? '#01b8ff' : 'red') : 'lightgray'}/>
+                                    <AiFillLock size='28' color={pw ? (validPW? '#01b8ff' : 'red') : 'lightgray'}/>
                                 </div>
                             </div>
-                            {!this.state.validPW && <p>비밀번호는 영문 대/소문자, 숫자 및 특수문자의 조합으로 8자 이상 입력해야 합니다.</p>}
+                            {!validPW && <p>비밀번호는 영문 대/소문자, 숫자 및 특수문자의 조합으로 8자 이상 입력해야 합니다.</p>}
                         </div>
                         <div className='pwAgainSection'>
                             <div>
                                 <input type='password' name="passwordcheck" onChange={this.handleInputValueChange} placeholder='비밀번호 확인'/>
-                                <div className='locked'><FaUserLock size='28' color={this.state.passwordcheck ? (this.state.validDoubleCheck? '#01b8ff' : 'red') : 'lightgray'}/></div>
+                                <div className='locked'><FaUserLock size='28' color={passwordcheck ? (validDoubleCheck? '#01b8ff' : 'red') : 'lightgray'}/></div>
                             </div>
-                                {!this.state.validDoubleCheck && <p>비밀번호가 일치하지 않습니다.</p>}
+                                {!validDoubleCheck && <p>비밀번호가 일치하지 않습니다.</p>}
                         </div>
                         <div className='userInfo'>
                             <div>
                                 <input className='nameInput' placeholder='이름' name="name" onChange={this.handleInputValueChange} />
-                                {!this.state.validName && <p>이름을 입력해 주세요.</p>}
+                                {!validName && <p>이름을 입력해 주세요.</p>}
                             </div>
                             <div>
                                 <input className='phoneNumberInput' placeholder='휴대폰 번호' name="phone" onChange={this.handleInputValueChange} />
-                                {!this.state.validPhone && <p>휴대폰 번호를 정확히 입력해 주세요.</p>}
+                                {!validPhone && <p>휴대폰 번호를 정확히 입력해 주세요.</p>}
                             </div>
                             <div>
                                 <input className='emailInput' placeholder='이메일' name="email" onChange={this.handleInputValueChange} />
                                 <button onClick={this.postEmail}>인증코드 발송</button>
-                                {!this.state.validEmail && <p>메일주소를 정확히 입력해 주세요.</p>}
+                                {!validEmail && <p>메일주소를 정확히 입력해 주세요.</p>}
                             </div>
                             <div>
                                 <input className='emailCode' placeholder='인증코드' name="codeNumber" onChange={this.handleInputValueChange} />
                                 <button onClick={this.validCodeCheck}>인증코드 확인</button>
-                                {this.state.codeNumber ? (!this.state.validCode ? <p>인증코드를 정확히 입력해 주세요.</p> : '') : ''}
+                                {codeNumber ? (!validCode ? <p>인증코드를 정확히 입력해 주세요.</p> : '') : ''}
                             </div>
                             <div className='textSignUp'> ※ 만 14세 이상 고객만 가입이 가능합니다.</div>
                         </div>
@@ -302,22 +322,22 @@ class SignUp extends Component {
                         </div>
                         <div className='agreementList'>
                             <div className='checkAll'>
-                                <input type="checkbox" onChange={this.handleAllChecked} checked={this.state.allNecessaryChecked}/>
+                                <input type="checkbox" onChange={this.handleAllChecked} checked={allNecessaryChecked}/>
                                 <label for="cb1" />
                                 <div>필수항목 전체동의</div>
                             </div>
                             <div className='check'>
-                                <input type="checkbox" onChange={this.handleEachChecked1} checked={this.state.checked1}/>
+                                <input type="checkbox" onChange={this.handleEachChecked1} checked={checked1}/>
                                 <label for="cb1" />
                                 <div>G9 구매회원 약관</div>
                             </div>
                             <div className='check'>
-                                <input type="checkbox" onChange={this.handleEachChecked2} checked={this.state.checked2}/>
+                                <input type="checkbox" onChange={this.handleEachChecked2} checked={checked2}/>
                                 <label for="cb1" />
                                 <div>G마켓 구매회원 약관</div>
                             </div>
                             <div className='check'>
-                                <input type="checkbox"onChange={this.handleEachChecked3} checked={this.state.checked3}/>
+                                <input type="checkbox"onChange={this.handleEachChecked3} checked={checked3}/>
                                 <label for="cb1" />
                                 <div>개인정보 수집 및 이용</div>
                             </div>
