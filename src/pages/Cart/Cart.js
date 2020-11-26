@@ -21,7 +21,6 @@ class Cart extends Component {
       })
       .then(res => res.json())
       .then(res => {
-        //   console.log('res', res);
         for (let i=0; i<res.product.length; i++) {
             res.product[i].ischecked=false;
         }
@@ -46,7 +45,6 @@ class Cart extends Component {
         })
         .then((response) => {return response.json()})
         .then((result) => {
-            // console.log("백엔드에서 오는 응답메시지:" + result);
             if(result.message==='success') {
               console.log(result.message);
             }
@@ -70,16 +68,12 @@ class Cart extends Component {
             })
             .then((response) => {return response.json()})
             .then((result) => {
-                // console.log("백엔드에서 오는 응답메시지:" + result);
                 if(result.message==='success') {
                   console.log(result.message);
                 }
               });
-           
-            
-        } else {
-            alert('최대 주문 수량은 50개 입니다.')
-        }
+              return alert('최대 주문 수량은 50개 입니다.')
+        } 
     }
 
     deleteItem = (el) => {
@@ -91,7 +85,6 @@ class Cart extends Component {
             method: 'POST',
             body: JSON.stringify({
                 ids: [el.id]
-                // id => 민영님과 맞추기
             })
         })
     }
@@ -116,7 +109,6 @@ class Cart extends Component {
         })
         let removeItem = cartItem.filter((el) => el.ischecked !== true)
         this.setState({cartItem : removeItem});
-        // console.log(remove)
         fetch(`http://10.58.2.26:8000/order/cart`, {
             method: 'POST',
             body: JSON.stringify({
