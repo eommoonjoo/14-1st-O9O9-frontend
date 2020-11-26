@@ -57,6 +57,10 @@ export const PRODUCT_QNALIST_API = 'http://10.58.4.236:8000/review/question';
 // 승제님 qna modal api
 export const QUESTIONINFO_API = 'http://10.58.4.236:8000/review/questioninfo';
 
+// Login Page
+
+// 로그인 유효성검사 API
+export const LOGIN_CHECK_VALIDATION_API = "http://10.58.4.236:8000/user/signin";
 // 승제님 qna enroll api
 export const QUESTION_ENROLL_API =
   'http://10.58.4.236:8000/review/questionenroll';

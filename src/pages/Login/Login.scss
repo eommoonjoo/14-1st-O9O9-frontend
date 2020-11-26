@@ -2,12 +2,12 @@
 
 .Login {
   width: 800px;
-  //   height: 950px;
+  height: 150%;
   margin: 0 auto;
   .logo {
     @include flexCenter;
     img {
-      width: 280px;
+      width: 200px;
       //   height: 150px;
       padding: 90px 0 30px 0;
       margin-top: 20px;
@@ -17,13 +17,13 @@
     @include flexCenter;
     margin-bottom: 22px;
     .gmarketLogo {
-      width: 140px;
+      width: 100px;
     }
     .gmarketMessage {
       position: relative;
-      left: -13px;
+      left: -8px;
       margin-top: 10px;
-      font-size: 18px;
+      font-size: 13px;
       color: #616161;
     }
   }
@@ -32,17 +32,16 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-
       .inputId {
-        width: 450px;
-        height: 60px;
+        width: 370px;
+        height: 47px;
         margin-bottom: 10px;
-        font-size: 22px;
         padding-left: 20px;
         border-radius: 0;
-        // border-color: #d6d6d6;
         border: 1px solid #d6d6d6;
+        font-size: 15px;
         letter-spacing: 1px;
+        box-sizing: border-box;
         &::placeholder {
           color: #c9c9c9;
         }
@@ -52,13 +51,14 @@
         }
       }
       .inputPw {
-        width: 450px;
-        height: 60px;
-        font-size: 22px;
+        width: 370px;
+        height: 47px;
+        font-size: 15px;
         padding-left: 20px;
         border-radius: 0;
         letter-spacing: 1px;
         border: 1px solid #d6d6d6;
+        box-sizing: border-box;
         &::placeholder {
           color: #c9c9c9;
         }
@@ -69,33 +69,23 @@
       }
     }
     .saveId {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flexCenter;
       height: 60px;
       margin-top: 5px;
       margin-bottom: 10px;
-      padding-right: 335px;
+      padding-right: 250px;
       padding-bottom: 5px;
       color: #808080;
-      font-size: 18px;
+      font-size: 15px;
       input {
         display: inline-block;
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
         border: 1px solid #bcbcbc;
         cursor: pointer;
       }
       .rememberId {
-        //   width: 200px;
-        //   height: 60px;
-        //   margin-left: 260px;
-        //   margin-bottom: 12px;
-        //   position: relative;
-        //   top: 25px;
-        //   color: #9d9d9d;
-        //   font-size: 18px;
-        margin: 4px 0 0 3px;
+        margin: 0 0 0 3px;
       }
     }
     .loginWrap {
@@ -104,10 +94,10 @@
       justify-content: center;
       align-items: center;
       .loginButton {
-        width: 476px;
-        height: 66px;
-        margin-bottom: 70px;
-        font-size: 23px;
+        width: 370px;
+        height: 47px;
+        margin-bottom: 30px;
+        font-size: 18px;
         font-weight: 800;
         outline: none;
         // letter-spacing: 1px;
@@ -115,14 +105,15 @@
         background-color: #00b8ff;
         color: white;
         border: 1px solid #00b8ff;
+        cursor: pointer;
       }
       .kakaoLoginButton {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 476px;
-        height: 66px;
-        font-size: 23px;
+        width: 370px;
+        height: 47px;
+        font-size: 17px;
         letter-spacing: -1px;
         font-weight: 400;
         text-decoration: none solid rgb(255, 255, 255);
@@ -142,14 +133,14 @@
       margin: 0 auto;
       text-align: center;
       color: #9b9b9b;
-      padding: 60px 0 70px 0;
-      font-size: 18px;
+      padding: 40px 0 50px 0;
+      font-size: 14px;
       .gap {
         margin: 0 15px;
       }
     }
     .nonMember {
-      width: 476px;
+      width: 370px;
       margin: 0 auto;
       border-top: 1px solid #d6d6d6;
       display: flex;
@@ -158,16 +149,16 @@
       .nonMemberOrder {
         padding: 55px 0 30px 0;
         text-align: center;
-        font-size: 22px;
+        font-size: 20px;
         color: #4e4e62;
       }
       .orderName {
-        width: 476px;
-        height: 65px;
+        width: 370px;
+        height: 47px;
         border-bottom: none;
         padding-left: 20px;
         box-sizing: border-box;
-        font-size: 21px;
+        font-size: 15px;
         border: 1px solid #d6d6d6;
         border-bottom: none;
         &::placeholder {
@@ -181,12 +172,12 @@
         }
       }
       .phoneNumber {
-        width: 476px;
-        height: 65px;
+        width: 370px;
+        height: 47px;
         line-height: 48px;
         padding-left: 20px;
         box-sizing: border-box;
-        font-size: 21px;
+        font-size: 15px;
         border: 1px solid #d6d6d6;
         border-bottom: none;
         &::placeholder {
@@ -199,13 +190,13 @@
         }
       }
       .orderPw {
-        width: 476px;
-        height: 65px;
+        width: 370px;
+        height: 47px;
         line-height: 48px;
         padding-left: 20px;
         // border-top: 1px solid black;
         box-sizing: border-box;
-        font-size: 21px;
+        font-size: 15px;
         border: 1px solid #d6d6d6;
         &::placeholder {
           color: #c9c9c9;
@@ -219,18 +210,18 @@
       }
       .orderMessageBox {
         margin: 20px 0 30px 0;
-        font-size: 17px;
+        font-size: 14px;
         color: #9b9b9b;
       }
       .nonMemberOrderHistory {
-        width: 476px;
-        height: 65px;
+        width: 370px;
+        height: 47px;
         line-height: 48px;
         padding-left: 20px;
         border: 1px solid #00c6fe;
         background-color: white;
         box-sizing: border-box;
-        font-size: 22px;
+        font-size: 18px;
         color: #00c6fe;
         font-weight: 600;
         outline: none;
