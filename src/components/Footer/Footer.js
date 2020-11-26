@@ -49,9 +49,12 @@ class Footer extends Component {
               <div> 상담가능시간</div>
               <div> 오전9시-오후6시 토요일,공휴일 휴무</div>
               <div> 주소</div>
-              <div> 경기도 부천시 부일로 223 투나빌딩 9층</div>
+              <div>
+                {' '}
+                서울시 강남구 테헤란로 427 위워크 타워(위워크 선릉 2호점)
+              </div>
               <div> E-Mail</div>
-              <div> g9_help@g9.co.kr</div>
+              <div> O9O9_help@O9O9.co.kr</div>
             </div>
             <small>분쟁처리절차</small>
           </div>
@@ -85,16 +88,16 @@ class Footer extends Component {
         <div className='copyRight'>
           <p>
             <br />
-            G9는 G마켓에서 만든 패밀리사이트입니다.
-            <br /> 이베이코리아 유한책임회사 사이트의 상품/판매자/쇼핑 정보,
+            O9O9는 O마켓에서 만든 패밀리사이트입니다.
+            <br /> 위베이코리아 유한책임회사 사이트의 상품/판매자/쇼핑 정보,
             콘텐츠, UI 등에 대한 무단 복제, 전송, 배포, 스크래핑 등의 행위는
             저작권법, 콘텐츠산업진흥법 등에 의하여 엄격히 금지됩니다.
-            <span>콘텐츠 산업 진흥법에 따른 표시</span> G9는 통신판매중개자이며
-            통신판매 당사자가 아닙니다. 따라서 G9는 상품, 거래정보 및 거래에
-            대하여 책임을 지지 않습니다.
+            <span>콘텐츠 산업 진흥법에 따른 표시</span> O9O9는
+            통신판매중개자이며 통신판매 당사자가 아닙니다. 따라서 O9O9는 상품,
+            거래정보 및 거래에 대하여 책임을 지지 않습니다.
             <br />
             <br />
-            Copyrightⓒ eBay Korea LLC All rights reserved.
+            Copyrightⓒ weBay Korea LLC All rights reserved.
           </p>
         </div>
       </footer>
