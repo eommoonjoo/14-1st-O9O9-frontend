@@ -43,7 +43,7 @@ class QnA extends Component {
             </h1>
             <p>
               &nbsp;상품, 배송, 취소/반품, A/S 등의 문의를 남겨주시면 판매자가
-              직접 답변을 드립니다.
+              직접 답변을 드립니다!
             </p>
           </div>
 
