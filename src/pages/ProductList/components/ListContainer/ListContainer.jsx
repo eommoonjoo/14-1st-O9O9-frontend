@@ -83,6 +83,10 @@ class ListContainer extends Component {
     //   productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `?main=${categoryIds.categoryId}`);
     // }
     // newProducts = productsData.data.productList;
+    // newProducts = newProducts.map((product) => {
+    //   product["isWished"] = false;
+    //   return product;
+    // });
     // newProducts.sort((product1, product2) => product2 - product1);
     // console.log(newProducts);
     // this.setState({ products: newProducts });
