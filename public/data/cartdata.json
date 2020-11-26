@@ -1,0 +1,53 @@
+{
+  "cartItems": [
+    {
+      "id": 1,
+      "productName": "서귀포 조생 감귤",
+      "url": "https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80",
+      "price": 10900,
+      "count": 1
+    },
+    {
+      "id": 2,
+      "productName": "논산 딸기",
+      "url": "https://images.unsplash.com/photo-1560155069-ad79768f2666?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80",
+      "price": 20900,
+      "count": 4
+    },
+    {
+      "id": 3,
+      "productName": "바나나",
+      "url": "https://images.unsplash.com/photo-1528825871115-3581a5387919?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=658&q=80",
+      "price": 3900,
+      "count": 1
+    },
+    {
+      "id": 4,
+      "productName": "서귀포 조생 감귤",
+      "url": "https://images.unsplash.com/photo-1586999528871-ded77bc9656c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2002&q=80",
+      "price": 3690,
+      "count": 1
+    },
+    {
+      "id": 5,
+      "productName": "서귀포 조생 감귤",
+      "url": "https://images.unsplash.com/photo-1544755101-93bfbad2396c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "price": 10900,
+      "count": 1
+    },
+    {
+      "id": 6,
+      "productName": "서귀포 조생 감귤",
+      "url": "https://images.unsplash.com/photo-1581402757010-0e17a98be20c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
+      "price": 10900,
+      "count": 1
+    },
+    {
+      "id": 7,
+      "productName": "서귀포 조생 감귤",
+      "url": "https://images.unsplash.com/photo-1567445517997-20a969632aad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1345&q=80",
+      "price": 10900,
+      "count": 1
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {LOGIN_API} from "../../config";
 import './Login.scss';
+import { LOGIN_CHECK_VALIDATION_API } from '../../config';
 
 class Login extends Component {
     constructor() {
@@ -19,8 +20,7 @@ class Login extends Component {
         e.preventDefault();
     
         const {id, pw} = this.state;
-    
-        fetch(LOGIN_API, {
+        fetch(LOGIN_CHECK_VALIDATION_API, {
           method: "POST",
           body: JSON.stringify({
             ID: id, 
