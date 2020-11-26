@@ -1,3 +1,5 @@
+@import "../../../styles/common.scss";
+
 .NoneCartList {
   display: flex;
   width: 70%;
@@ -26,9 +28,7 @@
         color: #323232;
       }
       .buttonList {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flexCenter;
         margin-top: 25px;
         .goShopping {
           border-radius: 30px;

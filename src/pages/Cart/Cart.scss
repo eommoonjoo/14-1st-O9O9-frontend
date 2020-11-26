@@ -35,7 +35,6 @@
   .orderStatus {
     width: 65%;
     margin: 0 auto;
-    box-sizing: border-box;
     padding: 50px 10px 25px 300px;
     text-align: right;
     border-bottom: 1px solid lightgray;
@@ -208,7 +207,6 @@
       margin-top: 20px;
       background-color: white;
       border-bottom: 1px solid lightgray;
-      box-sizing: border-box;
       .payment {
         width: 100%;
         .orderInfo {

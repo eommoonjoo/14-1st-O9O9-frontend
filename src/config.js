@@ -24,6 +24,7 @@ export const CATEGORIES_API = "http://172.30.1.29:8000/products";
 
 export const SUBCATEGORY_PRODUCTS_DATA_API = "";
 
+
 // SignUp Page //
 // 회원가입 유효성 검사 API
 export const CHECK_VALIDATION_API = "http://10.58.4.236:8000/user/signup";
