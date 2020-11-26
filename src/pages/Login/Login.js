@@ -33,9 +33,9 @@ class Login extends Component {
             if (result.authorization) {
                 localStorage.setItem('token', result.authorization)
                 this.props.history.push('/');
-            } else {
-                alert (result.message);
-            }
+                return;
+            } 
+            alert (result.message);
         }
         )
     }

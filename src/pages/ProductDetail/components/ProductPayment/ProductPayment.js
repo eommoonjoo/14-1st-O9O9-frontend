@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { BsCreditCard } from 'react-icons/bs';
 import { MdLocalShipping } from 'react-icons/md';
 import { BiBox } from 'react-icons/bi';
+import {CARTLIST_API} from '../../../../config';
 import './ProductPayment.scss';
 
 class ProductPayment extends Component {
@@ -11,9 +13,14 @@ class ProductPayment extends Component {
     this.state = {};
   }
 
-  handleCartButtonClick = () => {
+  handleCartButtonClick = async () => {
     //여기에 민영님에게 fetch하는부분 추가
-    this.props.handleCartUpdated();
+    const postCartdata = await axios({
+      method: "post", 
+      url: CARTLIST_API, 
+      headers: {authorization: localStorage.getItem('token')},
+      data:{product_id: this.props.productId, quantity: this.props.productQuantity}});
+    this.props.handleCartAddClick();
   };
 
   render() {

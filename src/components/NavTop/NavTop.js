@@ -31,9 +31,10 @@ class NavTop extends Component {
   }
 
   componentDidUpdate(prevProps){
-    if(prevProps.isCartUpdated !== this.props.isCartUpdated){
+    if(prevProps.cartList !== this.props.cartList){
+      // console.log("이거");
       this.getCartInformation();
-      this.props.handleCartUpdated();
+      // this.setState({cartList: this.props.cartList});
     }
   }
 
@@ -49,8 +50,9 @@ class NavTop extends Component {
 
   getCartInformation = async () => {
     // 원래는 토큰이 들어가야하지만 아직 머지가 되지 않아서 일단 임시로 이렇게!
-    // const cartdata = await axios({url: CARTLIST_API, headers: {authorization : localStorage.getItem('token')}});
-    const cartdata = await axios.get(CARTLIST_API);
+    const cartdata = await axios({url: CARTLIST_API, headers: {authorization : localStorage.getItem('token')}});
+    // const cartdata = await axios.get(CARTLIST_API);
+    console.log(cartdata.data);
     this.setState({cartList : cartdata.data.product});
   }
 

@@ -107,11 +107,12 @@ class SignUp extends Component {
           .then((res) => res.json())
           .then((result) => {
 
-        if (result.message === "success") {
-          alert ('회원가입이 완료되었습니다!')
-          this.props.history.push("/Login")
-        } 
-          return alert(result.message);
+            if (result.message === "success") {
+                alert ('회원가입이 완료되었습니다!')
+                this.props.history.push("/Login")
+                return;
+            } 
+          alert(result.message);
         })
     }
     
@@ -126,8 +127,9 @@ class SignUp extends Component {
           if (result.status === "success") {
             this.setState({idDoubleCheck: true});
             alert ("사용가능한 아이디입니다.");
+            return;
           } 
-          return alert(result.message);
+          alert(result.message);
         })
     }
 

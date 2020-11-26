@@ -4,7 +4,7 @@
 
 - FrontEnd
 
-🌸 **류지혜 (PM)** Detail Page
+🌸 **류지혜 (PM)** Product Detail Page
 
 🌺 **김현지** Main Page, Product List Page
 
@@ -12,15 +12,17 @@
 
 - BackEnd
 
-☘️ **박승제**
+☘️ **박승제** Login, Signup, Q&A CRUD 구현
 
-🌻 **이민영**
+🌻 **이민영** Cart CRUD, Email 인증 및 발송 기능 구현
 
-🌹 **이성보**
+🌹 **이성보** Products Page, Category Page, Product feature 구현
 
 [G9]: https://www.g9.co.kr/
 
 
+
+<br>
 
 ### 📌 About O9O9
 
@@ -44,7 +46,10 @@ Frontend
 
 Backend
 
-- 
+- Python
+- Django
+
+
 
 
 

@@ -17,11 +17,12 @@ class Cart extends Component {
     componentDidMount = () => {
       fetch(CART_API, {
        method: 'GET',
-    // headers: {authorization : localStorage.getItem('token')}
+        headers: {authorization : localStorage.getItem('token')}
     // get은 body를 못 만들어 ...!!
       })
       .then(res => res.json())
       .then(res => {
+          console.log(res);
         for (let i=0; i<res.product.length; i++) {
             res.product[i].ischecked=false;
         }
@@ -40,6 +41,7 @@ class Cart extends Component {
 
         fetch(`${CART_API}${cartItem[idx].id}`, {
             method: 'PATCH',
+            headers: {authorization : localStorage.getItem('token')},
             body: JSON.stringify({
                 count: cartItem[idx].count
             })
@@ -63,6 +65,7 @@ class Cart extends Component {
         
             fetch(`${CART_API}${cartItem[idx].id}`, {
                 method: 'PATCH',
+                headers: {authorization : localStorage.getItem('token')},
                 body: JSON.stringify({
                     count: cartItem[idx].count
                 })
@@ -70,11 +73,12 @@ class Cart extends Component {
             .then((response) => {return response.json()})
             .then((result) => {
                 if(result.message==='success') {
-                  console.log(result.message);
+                    console.log(result.message);
                 }
               });
-              return alert('최대 주문 수량은 50개 입니다.')
+            return;
         } 
+        alert('최대 주문 수량은 50개 입니다.');
     }
 
     deleteItem = (el) => {
@@ -84,6 +88,7 @@ class Cart extends Component {
 
         fetch(`${CART_API}cart`, {
             method: 'POST',
+            headers: {authorization : localStorage.getItem('token')},
             body: JSON.stringify({
                 ids: [el.id]
             })
@@ -91,16 +96,16 @@ class Cart extends Component {
     }
 
     totalPrice = () => {
-    const {cartItem} = this.state;
-     let sum = 0;
-      for (let i=0; i<cartItem.length; i++) {
-        sum = sum + cartItem[i].price * cartItem[i].count;
-      }  
-      return sum;
+        const {cartItem} = this.state;
+        let sum = 0;
+        for (let i=0; i<cartItem.length; i++) {
+            sum = sum + cartItem[i].price * cartItem[i].count;
+        }  
+        return sum;
     }
 
     goToMain = () => {
-        this.props.history.push('./');
+        this.props.history.push('/');
     }
 
     onCheckDelete = (el) => {
@@ -112,6 +117,7 @@ class Cart extends Component {
         this.setState({cartItem : removeItem});
         fetch(`${CART_API}cart`, {
             method: 'POST',
+            headers: {authorization : localStorage.getItem('token')},
             body: JSON.stringify({
                 ids: remove
             })

@@ -45,7 +45,7 @@ class ProductStand extends Component {
     const products = [...this.state.products];
     products.sort((product1, product2) => {
       if (e.value === "recent") return product2.id - product1.id;
-      if (e.value === "popular") return product2.order - product1.order;
+      if (e.value === "popular") return product2.buy_count - product1.buy_count;
       if (e.value === "lowprice") return product1.price - product2.price;
       if (e.value === "highprice") return product2.price - product1.price;
     });

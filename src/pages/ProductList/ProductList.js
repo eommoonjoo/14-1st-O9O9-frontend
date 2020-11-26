@@ -4,7 +4,7 @@ import NavSide from '../../components/NavSide/NavSide';
 import ListContainer from './components/ListContainer/ListContainer';
 import NavTop from '../../components/NavTop/NavTop';
 import Footer from '../../components/Footer/Footer';
-import {CATEGORY_MOCK_DATA_API, CATEGORIES_API} from '../../config';
+import {CATEGORY_MOCK_DATA_API, MAINCATEGORY_PRODUCTS_DATA_API} from '../../config';
 import './ProductList.scss';
 
 class ProductList extends Component {
@@ -23,7 +23,7 @@ class ProductList extends Component {
     // const categories = await axios.get(CATEGORY_MOCK_DATA_API);
     // this.setState({categories : categories.data.categories});
 
-    const categories = await axios.get(CATEGORIES_API);
+    const categories = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API);
     console.log(categories);
     this.setState({categories : categories.data.categories});
   }

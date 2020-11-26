@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { PRODUCT_DETAIL_API } from '../../config';
+import axios from 'axios';
+import { PRODUCT_DETAIL_API, CARTLIST_API } from '../../config';
 import NavSide from '../../components/NavSide/NavSide';
 import NavTop from '../../components/NavTop/NavTop';
 import Footer from '../../components/Footer/Footer';
@@ -19,13 +20,10 @@ class ProductDetail extends Component {
       openModal: false,
       productInfo: {},
       productQuantity: 1,
-      isCartUpdated: false,
+      cartList: [],
     };
   }
 
-  handleCartUpdated = () => {
-    this.setState({ isCartUpdated: !this.state.isCartUpdated });
-  };
   modalHandler = () => {
     this.setState({ openModal: true });
   };
@@ -43,6 +41,11 @@ class ProductDetail extends Component {
           productInfo: res.product,
         });
       });
+  }
+
+  handleCartAddClick = async () => {
+    const cartdata = await axios({url: CARTLIST_API, headers: {authorization : localStorage.getItem('token')}});
+    this.setState({cartList : cartdata.data.product});
   }
 
   handlePlusQuantity = () => {
@@ -67,13 +70,13 @@ class ProductDetail extends Component {
       productInfo,
       productQuantity,
       openModal,
-      isCartUpdated,
+      cartList
     } = this.state;
     const {
-      handleCartUpdated,
       handleHeartClick,
       handlePlusQuantity,
       handleMinusQuantity,
+      handleCartAddClick,
       modalHandler,
       closeModal,
     } = this;
@@ -82,8 +85,7 @@ class ProductDetail extends Component {
       <>
         <NavSide />
         <NavTop
-          isCartUpdated={isCartUpdated}
-          handleCartUpdated={handleCartUpdated}
+          cartList={cartList}
         />
         <div className='ProductDetail'>
           <SelectCategory productInfo={productInfo} />
@@ -94,10 +96,11 @@ class ProductDetail extends Component {
             />
             <ProductPayment
               productInfo={productInfo}
+              productId={this.props.match.params["id"]}
               productQuantity={productQuantity}
               handlePlusQuantity={handlePlusQuantity}
               handleMinusQuantity={handleMinusQuantity}
-              handleCartUpdated={handleCartUpdated}
+              handleCartAddClick={handleCartAddClick}
             />
           </div>
           <ProductInfoTab

@@ -17,7 +17,7 @@ class ProductCard extends Component {
     return (
       <div className="ProductCard">
         <div className="imageContainer" onClick={this.handleClick}>
-          <img src={product.imageUrl} alt="product" />
+          <img src={product.image_url} alt="product" />
         </div>
         <div className="productInfo" onClick={this.handleClick}>
           <p className="productPrice">{Number(product.price).toLocaleString(2)}</p>
@@ -31,9 +31,9 @@ class ProductCard extends Component {
             ) : (
               <FaRegHeart className="heartIcon" color={"darkgray"} onClick={() => this.props.onWishClick(product)} />
             )}
-            <span className="wishCount">{product.wish} 찜</span>
+            <span className="wishCount">{product.watch_list} 찜</span>
           </div>
-          <span className="orderCount">{product.order} 구매</span>
+          <span className="orderCount">{product.buy_count} 구매</span>
         </div>
         <div className="storeContainer">
           {product.brand && (

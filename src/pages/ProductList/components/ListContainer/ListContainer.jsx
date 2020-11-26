@@ -3,7 +3,7 @@ import { withRouter, Link } from "react-router-dom";
 import axios from "axios";
 import HiddenCategories from "../HiddenCategories/HiddenCategories";
 import { SUBCATEGORY_IMG } from "../../ListData";
-import { SUBCATEGORY_MOCK_DATA, PRODUCTS_MOCK_DATA, MAINCATEGORY_PRODUCTS_DATA_API } from "../../../../config";
+import { SUBCATEGORY_MOCK_DATA, PRODUCTS_MOCK_DATA, PRODUCTS_LIST_API } from "../../../../config";
 import ProductStand from "../ProductStand/ProductStand";
 import "./ListContainer.scss";
 
@@ -34,11 +34,23 @@ class ListContainer extends Component {
     }
   }
 
-  handleWishClick = (item) => {
+  handleWishClick = async (item) => {
     const products = [...this.state.products];
     const idx = products.indexOf(item);
-    if (products[idx].isWished) products[idx].wish--;
-    else products[idx].wish++;
+
+    //만약 백엔드분들 합쳤는데도 안되면 주석처리 해라
+    const postwish = await axios({
+      method: "post",
+      url: `${PRODUCTS_LIST_API}/watchlist`,
+      headers: { authorization: localStorage.getItem("token") },
+      data: {
+        product_id: products[idx].id,
+      },
+    });
+    //요기까지
+
+    if (products[idx].isWished) products[idx].watch_list--;
+    else products[idx].watch_list++;
     products[idx].isWished = !products[idx].isWished;
     this.setState({ products });
   };
@@ -61,35 +73,36 @@ class ListContainer extends Component {
     const categoryIds = this.parseQueryString(this.props.location.search);
 
     //일단은 그냥 목데이터로 하겠음. 추후에 아래 주석 풀긔
-    const productsData = await axios.get(PRODUCTS_MOCK_DATA);
-    const products = productsData.data.products;
-    let newProducts;
-    if (categoryIds.subcategoryId) {
-      newProducts = products.filter(
-        (item) => item.categoryId === categoryIds.categoryId && item.subcategoryId === categoryIds.subcategoryId
-      );
-    } else {
-      newProducts = products.filter((item) => item.categoryId === categoryIds.categoryId);
-    }
-    newProducts.sort((product1, product2) => product2.id - product1.id); //받아올때부터 최신순으로 받아오기
-    this.setState({ products: newProducts });
+    // const productsData = await axios.get(PRODUCTS_MOCK_DATA);
+    // const products = productsData.data.products;
+    // let newProducts;
+    // if (categoryIds.subcategoryId) {
+    //   newProducts = products.filter(
+    //     (item) => item.categoryId === categoryIds.categoryId && item.subcategoryId === categoryIds.subcategoryId
+    //   );
+    // } else {
+    //   newProducts = products.filter((item) => item.categoryId === categoryIds.categoryId);
+    // }
+    // newProducts.sort((product1, product2) => product2.id - product1.id); //받아올때부터 최신순으로 받아오기
+    // this.setState({ products: newProducts });
 
     //백엔드와 통신할 부분
-    // let newProducts, productsData;
-    // console.log(categoryIds);
-    // if (categoryIds.subcategoryId) {
-    //   productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `?sub=${categoryIds.subcategoryId}`);
-    // } else {
-    //   productsData = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API + `?main=${categoryIds.categoryId}`);
-    // }
-    // newProducts = productsData.data.productList;
-    // newProducts = newProducts.map((product) => {
-    //   product["isWished"] = false;
-    //   return product;
-    // });
-    // newProducts.sort((product1, product2) => product2 - product1);
-    // console.log(newProducts);
-    // this.setState({ products: newProducts });
+    let newProducts, productsData;
+    console.log(categoryIds);
+    if (categoryIds.subcategoryId) {
+      productsData = await axios.get(PRODUCTS_LIST_API + `?sub=${categoryIds.subcategoryId}`);
+    } else {
+      productsData = await axios.get(PRODUCTS_LIST_API + `?main=${categoryIds.categoryId}`);
+    }
+    newProducts = productsData.data.productList;
+    newProducts = newProducts.map((product) => {
+      product["isWished"] = false;
+      product["buy_count"] = Number(product["buy_count"]);
+      return product;
+    });
+    newProducts.sort((product1, product2) => product2 - product1);
+    console.log(newProducts);
+    this.setState({ products: newProducts });
   };
 
   parseQueryString = (queryString) => {

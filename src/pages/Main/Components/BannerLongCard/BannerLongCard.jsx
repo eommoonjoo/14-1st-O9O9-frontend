@@ -36,7 +36,7 @@ class BannerLongCard extends PureComponent {
           ))}
         </div>
         <div className="bottomLinkContainer">
-          <span className="bottomLink">이번 가을 뷰티 트렌드 만나보기 ></span>
+          <span className="bottomLink">이번 가을 뷰티 트렌드 만나보기 {">"}</span>
         </div>
       </div>
     );
