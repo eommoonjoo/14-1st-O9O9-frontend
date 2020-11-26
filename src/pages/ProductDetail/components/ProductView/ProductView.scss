@@ -1,0 +1,108 @@
+@import '../../../../styles/common.scss';
+
+.ProductView {
+  height: 603px;
+  width: 970px;
+  margin-left: -150px;
+  // border: 1px solid seagreen;
+
+  .productViewContainer {
+    width: 920px;
+    background-color: white;
+    height: inherit;
+    margin: 20px 20px;
+    // border: 1px solid blue;
+    .banner {
+      width: 100%;
+      height: 120px;
+      margin-top: 20px;
+    }
+    .freeShippingBanner {
+      padding: 0;
+      margin: 0;
+    }
+    img {
+      height: 40px;
+      width: 100%;
+    }
+    .productGroup {
+      display: flex;
+      .productImage {
+        img {
+          height: 560px;
+          width: 560px;
+          margin-top: 0;
+          padding-top: 0;
+          object-fit: cover;
+        }
+      }
+      .productInfo {
+        height: 560px;
+        // width: 330px;
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .productIntro {
+          width: inherit;
+          padding: 0 20px;
+
+          .pickButton {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 40px;
+            cursor: pointer;
+
+            .likes {
+              height: 35px;
+              line-height: 35px;
+              margin-bottom: 5px;
+              text-align: center;
+              width: 65px;
+              background-color: transparent;
+              border: 1px solid #424242;
+              border-radius: 50px;
+            }
+          }
+          p {
+            font-size: 15px;
+            font-weight: normal;
+
+            border-top: 1px solid #e5e5e5;
+            margin: 5px 0;
+          }
+          h3 {
+            font-size: 15px;
+            font-weight: 700;
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e5e5;
+          }
+          .couponSide {
+            padding-top: 10px;
+            img {
+              height: 20px;
+              width: 45px;
+            }
+          }
+        }
+        .ProductdueDate {
+          width: inherit;
+          margin-left: 30px;
+          .leftTime {
+            display: flex;
+          }
+          p {
+            font-size: 16px;
+            font-weight: normal;
+            span {
+              font-weight: 700;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@import '../../../../../styles/common.scss';
+
+.Review {
+  height: 700px;
+  width: 920px;
+
+  .reviewContainer {
+    width: 900px;
+    height: inherit;
+    padding: 20px 20px;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-top: 10px;
+      span {
+        color: $themeLogoColor;
+      }
+    }
+    p {
+      margin-top: 7px;
+      font-size: 13px;
+      color: #666666;
+    }
+
+    .reviewTemplet {
+      width: 100%;
+      height: 500px;
+      margin-top: 45px;
+      border: 1px solid rgba(194, 194, 194, 0.3);
+      .reviewTop {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 120px 150px 476px 110px;
+        padding: 10 20px;
+        .reviewLabel {
+          padding: 5px;
+          font-size: 12px;
+          text-align: center;
+          color: #010101;
+          background-color: #f9f9f9;
+          border: 1px solid rgba(194, 194, 194, 0.3);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+          border-left: none;
+          border-right: none;
+        }
+      }
+
+      .reviewContents {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 120px 150px 476px 110px;
+        .reviewInput {
+          padding: 10px;
+          font-size: 12px;
+          text-align: left;
+          color: #010101;
+          background-color: white;
+          border-bottom: 1px solid rgba(194, 194, 194, 0.5);
+          border-left: none;
+          border-right: none;
+        }
+        .rateing {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

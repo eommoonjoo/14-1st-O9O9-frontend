@@ -1,0 +1,46 @@
+{
+  "reviewdata": [
+    {
+      "id": 1,
+      "content": "맛있습니다. 아침마다 잘먹고 있어요",
+      "satisfaction": "⭐️⭐️⭐️⭐️⭐️",
+      "username": "jihye",
+      "registDate": "2020.01.11"
+    },
+    {
+      "id": 2,
+      "content": "맛없어요",
+      "satisfaction": "⭐️⭐️⭐️",
+      "username": "jason",
+      "registDate": "2020.02.23"
+    },
+    {
+      "id": 3,
+      "content": "ㅠ_ㅠ벌써 다 먹었어요.",
+      "satisfaction": "⭐️⭐️⭐️⭐️⭐️",
+      "username": "miffy",
+      "registDate": "2020.03.21"
+    },
+    {
+      "id": 4,
+      "content": "선물로 보내드렸습니다^^",
+      "satisfaction": "⭐️⭐️⭐️⭐️⭐️",
+      "username": "tiger",
+      "registDate": "2020.07.11"
+    },
+    {
+      "id": 5,
+      "content": "판매자분이 친절하게 응대해주셨어요 감사합니다.",
+      "satisfaction": "⭐️⭐️⭐️⭐️⭐️",
+      "username": "hop",
+      "registDate": "2020.09.28"
+    },
+    {
+      "id": 6,
+      "content": "늘 먹던거예요!",
+      "satisfaction": "⭐️⭐️⭐️⭐️⭐️",
+      "username": "ipa",
+      "registDate": "2020.11.13"
+    }
+  ]
+}
