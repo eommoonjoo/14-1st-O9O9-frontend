@@ -17,6 +17,7 @@ class QnA extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.openModal && !this.props.openModal) {
+      console.log('+_+!');
       this.fetchQnaList();
     }
   }
@@ -35,7 +36,7 @@ class QnA extends Component {
   render() {
     const { qnadata } = this.state;
     const { productInfo, userCheck } = this.props;
-
+    console.log(qnadata);
     return (
       <>
         <div className='QnA'>

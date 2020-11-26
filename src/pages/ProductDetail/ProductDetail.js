@@ -15,9 +15,17 @@ import './ProductDetail.scss';
 class ProductDetail extends Component {
   constructor() {
     super();
-    this.state = { openModal: false, productInfo: {}, productQuantity: 1 };
+    this.state = {
+      openModal: false,
+      productInfo: {},
+      productQuantity: 1,
+      isCartUpdated: false,
+    };
   }
 
+  handleCartUpdated = () => {
+    this.setState({ isCartUpdated: !this.state.isCartUpdated });
+  };
   modalHandler = () => {
     this.setState({ openModal: true });
   };
@@ -27,7 +35,8 @@ class ProductDetail extends Component {
   };
 
   componentDidMount() {
-    fetch(PRODUCT_DETAIL_API)
+    const prodId = this.props.match.params['id'];
+    fetch(`${PRODUCT_DETAIL_API}/${prodId}`)
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
@@ -55,8 +64,14 @@ class ProductDetail extends Component {
   };
 
   render() {
-    const { productInfo, productQuantity, openModal } = this.state;
     const {
+      productInfo,
+      productQuantity,
+      openModal,
+      isCartUpdated,
+    } = this.state;
+    const {
+      handleCartUpdated,
       handleHeartClick,
       handlePlusQuantity,
       handleMinusQuantity,
@@ -67,7 +82,10 @@ class ProductDetail extends Component {
     return (
       <>
         <NavSide />
-        <NavTop />
+        <NavTop
+          isCartUpdated={isCartUpdated}
+          handleCartUpdated={handleCartUpdated}
+        />
         <div className='ProductDetail'>
           <SelectCategory productInfo={productInfo} />
           <div className='productSide'>
@@ -80,6 +98,7 @@ class ProductDetail extends Component {
               productQuantity={productQuantity}
               handlePlusQuantity={handlePlusQuantity}
               handleMinusQuantity={handleMinusQuantity}
+              handleCartUpdated={handleCartUpdated}
             />
           </div>
           <ProductInfoTab

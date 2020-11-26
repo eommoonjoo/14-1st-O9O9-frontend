@@ -150,9 +150,7 @@ class Modal extends Component {
               <div className='subtitle'>상품명</div>
               <div>{productInfo.title}</div>
               <div className='subtitle'>이름</div>
-              <div>
-                {user.name}({user.name})
-              </div>
+              <div>{user.name}</div>
               <div className='subtitle'>E-mail</div>
               <div>
                 <input

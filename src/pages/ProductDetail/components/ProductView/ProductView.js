@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CountDown from './countDown';
 import { RiHeart2Line } from 'react-icons/ri';
 import { RiHeart2Fill } from 'react-icons/ri';
 import { FiClock } from 'react-icons/fi';
@@ -21,7 +22,7 @@ class ProductView extends Component {
       <div className='ProductView'>
         <div className='productViewContainer'>
           <div className='freeShippingBanner'>
-            <img src='./images/freeDelivery.png' alt='freeDelivery' />
+            <img src='/images/freeDelivery.png' alt='freeDelivery' />
           </div>
           <div className='productGroup'>
             <div className='productImage'>
@@ -51,15 +52,22 @@ class ProductView extends Component {
                   <br />
                   {productInfo && productInfo.brand}
                 </p>
-                <h3>{productInfo && productInfo.title}</h3>
+                <h3>
+                  {productInfo && productInfo.productgroup
+                    ? productInfo && productInfo.productgroup
+                    : productInfo && productInfo.title}
+                </h3>
                 <div className='couponSide'>
-                  <img src='./images/쿠폰.png' alt='coupon' />
+                  <img src='/images/쿠폰.png' alt='coupon' />
                 </div>
               </div>
               <div className='ProductdueDate'>
-                <p>
+                <p className='leftTime'>
                   <FiClock />
-                  &nbsp; 남은시간 <span>12</span>일 <span>06:48:50</span>
+                  &nbsp; 남은시간 &nbsp; <span>12</span>일&nbsp;
+                  <span>
+                    <CountDown />
+                  </span>
                 </p>
                 <p>
                   <FiShoppingCart />
@@ -68,6 +76,7 @@ class ProductView extends Component {
               </div>
             </div>
           </div>
+          <img className='banner' src='/images/carousel-Img1.jpg' alt='' />
         </div>
       </div>
     );

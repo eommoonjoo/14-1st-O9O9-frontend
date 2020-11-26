@@ -71,6 +71,30 @@ class Detail extends Component {
                   productInfo.moreInformation.delivery_period}
               </div>
             </div>
+            <h1 className='sellerTitle'>판매자 정보</h1>
+            <div className='sellerInfo'>
+              <div className='subtitle bold'>상호/대표자</div>
+              <div>
+                {productInfo.sellerInformation &&
+                  productInfo.sellerInformation.representative}
+              </div>
+              <div className='subtitle'>사업자번호</div>
+              <div>
+                {productInfo.sellerInformation &&
+                  productInfo.sellerInformation.business_number}
+              </div>
+              <div className='subtitle lastrow bold'>연락처</div>
+              <div className='lastrow'>
+                0
+                {productInfo.sellerInformation &&
+                  productInfo.sellerInformation.phone_number}
+              </div>
+              <div className='subtitle lastrow'>E-mail</div>
+              <div className='lastrow'>
+                {productInfo.sellerInformation &&
+                  productInfo.sellerInformation.email}
+              </div>
+            </div>
           </div>
         </div>
       </div>

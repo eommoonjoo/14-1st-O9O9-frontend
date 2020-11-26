@@ -11,12 +11,15 @@ class ProductPayment extends Component {
     this.state = {};
   }
 
+  handleCartButtonClick = () => {
+    //여기에 민영님에게 fetch하는부분 추가
+    this.props.handleCartUpdated();
+  };
+
   render() {
     const { productInfo, productQuantity } = this.props;
     const { handlePlusQuantity, handleMinusQuantity } = this.props;
 
-    // console.log(productview.length > 0 ? productview.cartItems : '+_+');
-    // console.log(productview.cartItems ? productview.cartItems[0] : '+_+');
     console.log(productInfo.price);
     return (
       <div className='ProductPayment'>
@@ -75,7 +78,7 @@ class ProductPayment extends Component {
             <p>{(productQuantity * productInfo.price).toLocaleString(2)}원</p>
           </div>
           <div className='orderButtonSide'>
-            <button>장바구니</button>
+            <button onClick={this.handleCartButtonClick}>장바구니</button>
             <button>바로구매</button>
           </div>
         </div>

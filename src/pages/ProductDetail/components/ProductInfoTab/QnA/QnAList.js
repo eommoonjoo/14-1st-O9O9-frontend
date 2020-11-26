@@ -45,9 +45,6 @@ class QnAList extends Component {
     console.log(userCheck);
     return (
       <div className='QnAList'>
-        <button>
-          <FcFullTrash onClick={this.deleteHandler} />
-        </button>
         <div className='qnaContents'>
           <div className='qnaInput fitCenter'>{qnadata.number}</div>
           <div className='qnaInput fitCenter'>
@@ -60,7 +57,11 @@ class QnAList extends Component {
             <Link onClick={this.commentHandler}>{qnadata.title}</Link>
           </div>
           <div className='qnaInput fitCenter'>{qnadata.question_man}</div>
-          <div className='qnaInput fitCenter'>{qnadata.created_at}</div>
+          <div className='qnaInput fitCenter'>
+            {qnadata.created_at.slice(0, 10)}
+            &nbsp;
+            <FcFullTrash onClick={this.deleteHandler} />
+          </div>
         </div>
         {/* 휴지통 아이콘이 내가 로그인한 유저가 쓴 글에만 나타나는 로직 */}
         {/* {userCheck.id == qnadata.number ? (
@@ -96,10 +97,10 @@ class QnAList extends Component {
             <div className='answer'>
               <h3>A&nbsp;</h3>
               <span>
-                {qnadata.content}
+                {/* 빠른 시일내 답변드리겠습니다 :) */}
                 <br />
                 <br />
-                <p>판매자의 답변 | 2020-11-17 오후 11:18:51</p>
+                <p>판매자의 답변 | 빠른 시일내 답변드리겠습니다 :)</p>
               </span>
             </div>
           </div>

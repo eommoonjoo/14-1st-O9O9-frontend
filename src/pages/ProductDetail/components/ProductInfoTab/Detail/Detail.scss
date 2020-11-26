@@ -2,7 +2,11 @@
   // height: 100vh;
   width: 100%;
   padding-bottom: 100px;
-
+  img {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 50px;
+  }
   .questionModal {
     width: 100%;
     // height: 500px;
@@ -77,6 +81,57 @@
             display: flex;
             align-items: center;
           }
+        }
+        .lastrow {
+          border-bottom: 1px solid rgba(232, 235, 245, 0.9);
+          textarea {
+            margin: 5px 0px 35px 0;
+            border: 1px solid gray;
+          }
+          p {
+            color: gray;
+            font-weight: lighter;
+          }
+        }
+        .sellerTitle {
+          width: 100%;
+          margin-top: 0;
+          border: 1px solid goldenrod;
+        }
+      }
+      .sellerInfo {
+        width: 100%;
+        // height: 700px;
+        // display: flex;
+        // flex-direction: column;
+        justify-content: flex-start;
+        display: grid;
+        grid-template-columns: 130px 310px 130px 310px;
+        // margin-top: 10px;
+        padding: 10px;
+
+        .subtitle {
+          border-right: none;
+          border-left: none;
+          border-bottom: none;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          color: black;
+          font-size: 13px;
+          font-weight: 600;
+          background-color: #f6f6f6;
+        }
+        div {
+          border: 1px solid lightgray;
+          font-size: 12px;
+          line-height: 13px;
+          padding: 10px;
+          border-bottom: none;
+          text-align: left;
+        }
+        .bold {
+          border-left: 1px solid rgba(232, 235, 245, 0.9);
         }
         .lastrow {
           border-bottom: 1px solid rgba(232, 235, 245, 0.9);
