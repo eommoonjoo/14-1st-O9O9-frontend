@@ -1,26 +1,57 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { HiSearch } from 'react-icons/hi';
 import { FiShoppingCart } from 'react-icons/fi';
 import { RiHeart3Line } from 'react-icons/ri';
 import { FiUser } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { CATEGORY_MOCK_DATA_API } from '../../config';
+import {MYPAGE_MENUS} from '../navData';
+import {USERINFO_API, CARTLIST_API} from '../../config';
 import './NavTop.scss';
 
 class NavTop extends Component {
   constructor() {
     super();
-    this.state = { activateMyPage: true, myPageMenu: [] };
+    this.state = {
+      activateMyPage: true, 
+      isLogined: true ,
+      userInfo: "",
+      cartList: []
+    };
   }
 
   componentDidMount() {
-    fetch(CATEGORY_MOCK_DATA_API)
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          myPageMenu: res.myPageMenu,
-        });
-      });
+    if(localStorage.getItem('token')){
+      this.getUserInformation();
+      this.getCartInformation();
+      this.setState({ isLogined : true });
+      return;
+    }
+    this.setState({ isLogined : false });
+  }
+
+  componentDidUpdate(prevProps){
+    if(prevProps.isCartUpdated !== this.props.isCartUpdated){
+      this.getCartInformation();
+      this.props.handleCartUpdated();
+    }
+  }
+
+  handleLogout = () => {
+    localStorage.removeItem('token');
+    this.setState({isLogined: false});
+  }
+
+  getUserInformation = async () => {
+    const userdata = await axios({url: USERINFO_API , headers: {authorization : localStorage.getItem('token')}});
+    this.setState({userInfo : userdata.data.message});
+  }
+
+  getCartInformation = async () => {
+    // 원래는 토큰이 들어가야하지만 아직 머지가 되지 않아서 일단 임시로 이렇게!
+    // const cartdata = await axios({url: CARTLIST_API, headers: {authorization : localStorage.getItem('token')}});
+    const cartdata = await axios.get(CARTLIST_API);
+    this.setState({cartList : cartdata.data.product});
   }
 
   toggleMyPageMenu = () => {
@@ -32,7 +63,7 @@ class NavTop extends Component {
   };
 
   render() {
-    const { myPageMenu, activateMyPage } = this.state;
+    const { activateMyPage, isLogined, cartList, userInfo } = this.state;
 
     return (
       <nav className='NavTop'>
@@ -53,6 +84,7 @@ class NavTop extends Component {
             <ul>
               <li>
                 <FiShoppingCart />
+                {isLogined && !!cartList.length && <span className="cartCount">{cartList.length}</span>}
               </li>
               <li>
                 <RiHeart3Line />
@@ -61,29 +93,33 @@ class NavTop extends Component {
                 onMouseLeave={this.toggleMyPageMenu}
                 onMouseEnter={this.outMypage}>
                 <FiUser />
+                <span className={`loginStatus ${isLogined ? 'logined' : 'notLogined'}`}>{isLogined ? 'ON' : 'OFF'}</span>
               </li>
             </ul>
           </div>
-          {!activateMyPage && (
+        </div>
+        {!activateMyPage && (
             <div
               className='wrapMyPage'
               onMouseLeave={this.toggleMyPageMenu}
               onMouseEnter={this.outMypage}>
               <div className='myPageMenu'>
                 <ul>
-                  {myPageMenu &&
-                    myPageMenu.map((el, idx) => (
-                      <li key={idx}>
-                        <Link rel='stylesheet' href='#'>
-                          <span>{el.name}</span>
-                        </Link>
-                      </li>
-                    ))}
+                  {!isLogined ? 
+                  [<li><Link to="/Login"><span className="plaintext">로그인</span></Link></li>, <li><Link to="/SignUp"><span className="plaintext">회원가입</span></Link></li>] 
+                  :
+                  [<li><Link to=""><span className="plaintext"><span className="username">{userInfo}</span>님 안녕하세요</span></Link></li>, <li><Link to=""><span className="plaintext" onClick={this.handleLogout}>로그아웃</span></Link></li>]}
+                  {MYPAGE_MENUS.map((menu) => (
+                    <li key={menu.id}>
+                      <Link to="">
+                        <span className="plaintext">{menu.name}</span>
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
           )}
-        </div>
       </nav>
     );
   }
