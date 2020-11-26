@@ -23,7 +23,6 @@ class Modal extends Component {
   }
 
   componentDidMount() {
-    console.log(localStorage.getItem('token'));
     fetch(QUESTIONINFO_API, {
       method: 'post',
       headers: { authorization: localStorage.getItem('token') },
@@ -33,7 +32,6 @@ class Modal extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         this.setState({
           user: res,
           emailValue: res.email,
@@ -73,9 +71,7 @@ class Modal extends Component {
       }),
     })
       .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-      });
+      .then((res) => {});
 
     this.onClose(e);
   };
@@ -84,8 +80,6 @@ class Modal extends Component {
     const { emailValue, phoneNumberValue, title, content, user } = this.state;
     const { productInfo } = this.props;
     const { changeModalValue, changeModalQTypeValue, enrollQuestion } = this;
-    console.log(productInfo);
-    console.log(user);
     return (
       <div className='Modal'>
         <div className='questionModal'>

@@ -1,16 +1,12 @@
 .RefundInfo {
   .questionModal {
     width: 100%;
-    // height: 500px;
-    // border: 1px solid #262626;
     display: flex;
     background-color: white;
     justify-content: center;
-    // align-items: flex-start;
     border-radius: 10px;
     .modalContainer {
       width: 100%;
-      // height: 700px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -22,7 +18,6 @@
         font-weight: 700;
         padding: 10px 10px;
         text-align: left;
-        // border: 1px solid goldenrod;
         display: flex;
         justify-content: flex-start;
       }

@@ -24,7 +24,7 @@ class NavSide extends Component {
     // this.setState({categories : categories.data.categories});
 
     const categories = await axios.get(CATEGORIES_API);
-    console.log(categories);
+
     this.setState({ categories: categories.data.categories });
   };
 

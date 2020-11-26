@@ -39,7 +39,6 @@ class ProductDetail extends Component {
     fetch(`${PRODUCT_DETAIL_API}/${prodId}`)
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         this.setState({
           productInfo: res.product,
         });

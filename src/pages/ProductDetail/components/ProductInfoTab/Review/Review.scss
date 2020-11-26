@@ -4,15 +4,11 @@
   height: 700px;
   width: 920px;
 
-  // background-color: yellow;
-
   .reviewContainer {
     width: 900px;
-    // border: 1px solid green;
     height: inherit;
     padding: 20px 20px;
     display: flex;
-    // justify-content: flex-start;
     text-align: left;
     flex-direction: column;
 
@@ -42,12 +38,9 @@
         grid-template-columns: 120px 150px 476px 110px;
         padding: 10 20px;
         .reviewLabel {
-          // width: 100px;
-          // border: 1px solid rgba(194, 194, 194, 0.8);
           padding: 5px;
           font-size: 12px;
           text-align: center;
-          // color: themeDarkColor;
           color: #010101;
           background-color: #f9f9f9;
           border: 1px solid rgba(194, 194, 194, 0.3);

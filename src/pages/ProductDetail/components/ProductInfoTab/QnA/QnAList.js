@@ -42,7 +42,6 @@ class QnAList extends Component {
 
   render() {
     const { qnadata, userCheck } = this.props;
-    console.log(userCheck);
     return (
       <div className='QnAList'>
         <div className='qnaContents'>

@@ -36,7 +36,6 @@ class CountDown extends Component {
     return (
       <div className='Countdown'>
         <span>
-          {/* {this.state.hour}:{this.state.minute}:{this.state.seconds} */}
           {realTimeObj.hour}:{realTimeObj.minute}:{realTimeObj.second}
         </span>
       </div>

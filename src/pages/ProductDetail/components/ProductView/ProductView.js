@@ -16,7 +16,6 @@ class ProductView extends Component {
 
   render() {
     const { productInfo } = this.props;
-    console.log(productInfo);
 
     return (
       <div className='ProductView'>

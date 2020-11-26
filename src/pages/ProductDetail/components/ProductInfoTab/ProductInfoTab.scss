@@ -4,17 +4,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // height: 700px;
   width: 100%;
   margin-left: -85px;
-  // margin-right: 400px;
 
   .productInfoTabContainer {
     width: 920px;
     margin: 20px 20px 0 20px;
     @include flexCenter;
     background-color: white;
-    // margin-left: 143px;
 
     > li {
       width: 100%;
@@ -28,7 +25,6 @@
       border: 0.5px solid lightgray;
       border-top: none;
       border-bottom: 1px solid #212423;
-      // padding: 0 10px;
       cursor: pointer;
 
       //li이면서 select인것

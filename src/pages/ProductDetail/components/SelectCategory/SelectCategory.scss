@@ -4,14 +4,12 @@
   width: 100%;
   background-color: white;
   border-bottom: 1px solid lightgray;
-  // background-color: greenyellow;
   .selectCategoryContainer {
     display: flex;
     align-items: center;
     height: 51px;
     line-height: 51px;
     width: 100%;
-    // border: 1px solid goldenrod;
     margin-left: 143px;
     button {
       border-style: none;
@@ -29,7 +27,6 @@
       padding: 0px 5px;
       font-weight: 600;
       border-color: lightgray;
-      // color: #4c7ed9;
       select::nth-child(3) {
         color: #4c7ed9;
       }
