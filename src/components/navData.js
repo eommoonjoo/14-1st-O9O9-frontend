@@ -41,3 +41,33 @@ export const MAINCATEGORIES = [
   }
 ];
 
+export const MYPAGE_MENUS = [
+  {
+    "id": 1,
+    "name": "공지사항"
+  },
+  {
+    "id": 2,
+    "name": "G9 판매안내"
+  },
+  {
+    "id": 3,
+    "name": "이용약관"
+  },
+  {
+    "id": 4,
+    "name": "전자금융거래약관"
+  },
+  {
+    "id": 5,
+    "name": "개인정보처리방침"
+  },
+  {
+    "id": 6,
+    "name": "청소년보호정책"
+  },
+  {
+    "id": 7,
+    "name": "O마켓"
+  }
+]
