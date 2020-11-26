@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import {LOGIN_API} from "../../config";
-import './Login.scss';
 import { LOGIN_CHECK_VALIDATION_API } from '../../config';
+import './Login.scss';
 
 class Login extends Component {
     constructor() {
@@ -43,7 +44,9 @@ class Login extends Component {
         return (
         <div className="Login">
             <div className="logo">
-                <img src='./images/logo.png' alt='이미지' />
+                <Link to="/">
+                    <img src='./images/logo.png' alt='이미지' />
+                </Link>
             </div>  
             <div className="messageBox">
                 <img className="gmarketLogo" src="https://pics.gmarket.co.kr/pc/single/kr/common/image__logo.png" alt="gmarketLogo" />

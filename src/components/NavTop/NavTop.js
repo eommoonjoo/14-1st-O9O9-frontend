@@ -4,7 +4,7 @@ import { HiSearch } from 'react-icons/hi';
 import { FiShoppingCart } from 'react-icons/fi';
 import { RiHeart3Line } from 'react-icons/ri';
 import { FiUser } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import {MYPAGE_MENUS} from '../navData';
 import {USERINFO_API, CARTLIST_API} from '../../config';
 import './NavTop.scss';
@@ -14,7 +14,7 @@ class NavTop extends Component {
     super();
     this.state = {
       activateMyPage: true, 
-      isLogined: true ,
+      isLogined: false,
       userInfo: "",
       cartList: []
     };
@@ -62,6 +62,15 @@ class NavTop extends Component {
     this.setState({ activateMyPage: false });
   };
 
+  goToCart = () => {
+    if(this.state.isLogined){
+      return this.props.history.push("/Cart");
+      
+    } 
+    alert("로그인을 먼저 진행해주세요");
+    this.props.history.push("/Login");
+  }
+
   render() {
     const { activateMyPage, isLogined, cartList, userInfo } = this.state;
 
@@ -83,7 +92,7 @@ class NavTop extends Component {
           <div className='navTopIcons'>
             <ul>
               <li>
-                <FiShoppingCart />
+                <FiShoppingCart onClick={this.goToCart}/>
                 {isLogined && !!cartList.length && <span className="cartCount">{cartList.length}</span>}
               </li>
               <li>
@@ -125,4 +134,4 @@ class NavTop extends Component {
   }
 }
 
-export default NavTop;
+export default withRouter(NavTop);
