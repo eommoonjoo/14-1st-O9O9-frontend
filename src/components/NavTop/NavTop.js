@@ -23,10 +23,11 @@ class NavTop extends Component {
   componentDidMount() {
     if(localStorage.getItem('token')){
       this.getUserInformation();
-      // this.getCartInformation();
+      this.getCartInformation();
       this.setState({ isLogined : true });
+      return;
     }
-    else this.setState({ isLogined : false });
+    this.setState({ isLogined : false });
   }
 
   componentDidUpdate(prevProps){
@@ -108,10 +109,10 @@ class NavTop extends Component {
                   [<li><Link to="/Login"><span className="plaintext">로그인</span></Link></li>, <li><Link to="/SignUp"><span className="plaintext">회원가입</span></Link></li>] 
                   :
                   [<li><Link to=""><span className="plaintext"><span className="username">{userInfo}</span>님 안녕하세요</span></Link></li>, <li><Link to=""><span className="plaintext" onClick={this.handleLogout}>로그아웃</span></Link></li>]}
-                  {MYPAGE_MENUS.map((el) => (
-                    <li key={el.id}>
+                  {MYPAGE_MENUS.map((menu) => (
+                    <li key={menu.id}>
                       <Link to="">
-                        <span className="plaintext">{el.name}</span>
+                        <span className="plaintext">{menu.name}</span>
                       </Link>
                     </li>
                   ))}
