@@ -44,7 +44,6 @@ class Review extends Component {
               <div className='reviewLabel'>게시일</div>
             </div>
 
-            {/* Map돌릴부분 */}
             {reviewdata.map((list, idx) => (
               <div className='reviewContents' key={idx}>
                 <div className='reviewInput rateing'>{list.username}</div>

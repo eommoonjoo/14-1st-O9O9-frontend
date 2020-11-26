@@ -8,7 +8,6 @@ class Detail extends Component {
   }
   render() {
     const { productInfo } = this.props;
-    console.log();
     return (
       <div className='Detail'>
         <img

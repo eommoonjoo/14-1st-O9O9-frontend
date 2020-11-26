@@ -63,30 +63,6 @@ class QnAList extends Component {
             <FcFullTrash onClick={this.deleteHandler} />
           </div>
         </div>
-        {/* 휴지통 아이콘이 내가 로그인한 유저가 쓴 글에만 나타나는 로직 */}
-        {/* {userCheck.id == qnadata.number ? (
-          <button>
-            <FcFullTrash />
-          </button>
-        ) : null} */}
-
-        {/* {this.state.openComment ? (
-          <div className='dropDownContent'>
-            <div className='question'>
-              <h3>Q&nbsp;</h3>
-              <span>{qnadata.title}</span>
-            </div>
-            <div className='answer'>
-              <h3>A&nbsp;</h3>
-              <span>
-                {qnadata.content}
-                <br />
-                <br />
-                <p>판매자의 답변 | 2020-11-17 오후 11:18:51</p>
-              </span>
-            </div>
-          </div>
-        ) : null} */}
 
         {this.state.openComment && (
           <div className='dropDownContent'>

@@ -78,7 +78,7 @@ class ProductDetail extends Component {
       modalHandler,
       closeModal,
     } = this;
-    console.log(productInfo);
+
     return (
       <>
         <NavSide />

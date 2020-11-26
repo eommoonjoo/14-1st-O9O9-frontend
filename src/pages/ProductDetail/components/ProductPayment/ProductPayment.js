@@ -20,7 +20,6 @@ class ProductPayment extends Component {
     const { productInfo, productQuantity } = this.props;
     const { handlePlusQuantity, handleMinusQuantity } = this.props;
 
-    console.log(productInfo.price);
     return (
       <div className='ProductPayment'>
         <div className='productPaymentContainer'>

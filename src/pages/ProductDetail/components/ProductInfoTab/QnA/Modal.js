@@ -43,14 +43,16 @@ class Modal extends Component {
   }
 
   changeModalQTypeValue = (e) => {
+    const { name, id } = e.target;
     this.setState({
-      [e.target.name]: e.target.id,
+      [name]: id,
     });
   };
 
   changeModalValue = (e) => {
+    const { name, value } = e.target;
     this.setState({
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
