@@ -1,0 +1,365 @@
+@import "../../styles/common.scss";
+
+@mixin inputbox {
+  width: 300px;
+  height: 35px;
+  padding-left: 15px;
+  margin: 7px 50px 7px 0;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 0;
+  background-color: white;
+  &::placeholder {
+    color: #9e9e9e;
+  }
+}
+
+@mixin border {
+  border-bottom: 1px solid lightgray;
+}
+
+@mixin pTag {
+  margin: 0 0 5px 15px;
+  color: red;
+  font-size: 13px;
+}
+
+.SignUp {
+  background-color: #f5f5f5;
+  .joinContent {
+    width: 700px;
+    margin: 0 auto;
+
+    .logo {
+      img {
+        width: 180px;
+      }
+      @include flexCenter;
+      padding: 70px 0 40px 0;
+    }
+    .joinText {
+      text-align: center;
+      color: gray;
+      font-size: 12px;
+    }
+    .joinTextBox {
+      @include flexCenter;
+      position: relative;
+      top: -20px;
+      color: gray;
+      img {
+        width: 130px;
+        height: 65px;
+      }
+      .joinText {
+        position: relative;
+        top: 7px;
+      }
+      .login {
+        position: relative;
+        top: 7px;
+        margin-left: 5px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+    }
+    .idAndPw {
+      @include flexCenter;
+      flex-direction: column;
+      .idSection {
+        width: 500px;
+        border: 1px solid #bbbbbb;
+        border-bottom: none;
+        background-color: white;
+        input {
+          width: 270px;
+          height: 45px;
+          margin: 2px 0;
+          padding-left: 15px;
+          margin-right: 70px;
+          font-size: 15px;
+          font-weight: 700;
+          border-radius: 0;
+          background-color: white;
+          outline: none;
+          &::placeholder {
+            color: #9e9e9e;
+          }
+        }
+        button {
+          position: relative;
+          width: 120px;
+          height: 35px;
+          top: -1px;
+          border: none;
+          background-color: #30beff;
+          color: white;
+          font-size: 15px;
+          font-weight: 700;
+          outline: none;
+          cursor: pointer;
+          &::placeholder {
+            color: #9e9e9e;
+          }
+        }
+        p {
+          @include pTag;
+        }
+      }
+      .pwSection {
+        width: 500px;
+        border-left: 1px solid #bbbbbb;
+        border-right: 1px solid #bbbbbb;
+        border-top: 1px solid lightgray;
+        border-bottom: none;
+        box-sizing: border-box;
+        background-color: white;
+        div {
+          display: flex;
+          input {
+            width: 270px;
+            margin: 2px 62px 0 0;
+            font-size: 15px;
+            font-weight: 700;
+            padding-left: 15px;
+            border-radius: 0;
+            outline: none;
+            background-color: white;
+            &::placeholder {
+              color: #9e9e9e;
+            }
+          }
+          .locked {
+            margin: 10px 10px 10px 100px;
+          }
+        }
+        p {
+          @include pTag;
+        }
+      }
+      .pwAgainSection {
+        width: 500px;
+        box-sizing: border-box;
+        border: 1px solid #bbbbbb;
+        border-left: 1px solid #bbbbbb;
+        border-right: 1px solid #bbbbbb;
+        border-top: 1px solid lightgray;
+        background-color: white;
+        div {
+          display: flex;
+          input {
+            width: 270px;
+            margin: 2px 62px 0 0;
+            font-size: 15px;
+            font-weight: 700;
+            padding-left: 15px;
+            border-radius: 0;
+            outline: none;
+            background-color: white;
+            &::placeholder {
+              color: #9e9e9e;
+            }
+          }
+          .locked {
+            margin: 10px 10px 10px 100px;
+          }
+        }
+        p {
+          @include pTag;
+        }
+      }
+
+      .userInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        border: 1px solid #bbbbbb;
+        background-color: white;
+        div {
+          width: 100%;
+          border-bottom: 1px solid lightgray;
+
+          input {
+            margin: 10px 50px 10px 0;
+            outline: none;
+            background-color: white;
+          }
+          .nameInput {
+            @include inputbox;
+          }
+          p {
+            @include pTag;
+          }
+          .phoneNumberInput {
+            @include inputbox;
+          }
+          .emailInput {
+            @include inputbox;
+          }
+          .emailCode {
+            @include inputbox;
+          }
+        }
+        button {
+          position: relative;
+          width: 90px;
+          height: 33px;
+          margin-left: 25px;
+          top: -2px;
+          border: none;
+          background-color: #2fb8fc;
+          color: white;
+          font-size: 13px;
+          outline: none;
+          cursor: pointer;
+          &::placeholder {
+            color: #9e9e9e;
+          }
+        }
+        .textSignUp {
+          width: 500px;
+          padding: 20px;
+          box-sizing: border-box;
+          text-align: left;
+          color: #bbbbbb;
+          background-color: white;
+          border: none;
+          font-size: 14px;
+        }
+      }
+    }
+    .checkBox {
+      width: 500px;
+      margin: 0 auto;
+      .agreement {
+        display: flex;
+        width: 500px;
+        height: 66px;
+        margin: 20px auto 0 auto;
+        padding-left: 15px;
+        background-color: white;
+        border: 1px solid #bbbbbb;
+        box-sizing: border-box;
+        input {
+          width: 18px;
+          height: 18px;
+          position: relative;
+          top: 18px;
+          border: 2px solid #bcbcbc;
+          cursor: pointer;
+        }
+        div {
+          padding-top: 24px;
+          margin-left: 4px;
+          font-size: 15px;
+          font-weight: 700;
+        }
+      }
+      .agreementList {
+        background-color: white;
+        width: 500px;
+        border-left: 1px solid #bcbcbc;
+        border-right: 1px solid #bcbcbc;
+        padding: 20px 20px 35px 20px;
+        font-size: 15px;
+        .checkAll {
+          display: flex;
+          color: #40b8ff;
+          input {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #bcbcbc;
+            cursor: pointer;
+          }
+          div {
+            padding-top: 7px;
+            margin-left: 4px;
+            font-weight: 500;
+          }
+        }
+        .check {
+          display: flex;
+          input {
+            width: 18px;
+            height: 18px;
+            position: relative;
+            top: 18px;
+            border: 2px solid #bcbcbc;
+            cursor: pointer;
+          }
+          div {
+            padding-top: 24px;
+            margin-left: 4px;
+            font-weight: 700;
+          }
+        }
+        .line {
+          width: 450px;
+          top: 36px;
+          margin: 0 auto;
+          border-bottom: 1px solid #bcbcbc;
+          font-weight: 200;
+          position: relative;
+        }
+      }
+      .optionalAgreementList {
+        width: 500px;
+        border-left: 1px solid #bcbcbc;
+        border-right: 1px solid #bcbcbc;
+        border-bottom: 1px solid #bcbcbc;
+        padding: 20px 20px 30px 20px;
+        background-color: white;
+        font-size: 15px;
+        .checkAll {
+          display: flex;
+          color: #40b8ff;
+          input {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #bcbcbc;
+            cursor: pointer;
+          }
+          div {
+            padding-top: 7px;
+            margin-left: 4px;
+            font-weight: 500;
+          }
+        }
+        .check {
+          display: flex;
+          input {
+            width: 18px;
+            height: 18px;
+            position: relative;
+            top: 18px;
+            border: 2px solid #bcbcbc;
+            cursor: pointer;
+          }
+          div {
+            padding-top: 24px;
+            margin-left: 4px;
+            font-weight: 700;
+          }
+        }
+        .marketingInfo {
+          padding: 20px 30px 0 25px;
+          font-size: 15px;
+          color: #bcbcbc;
+        }
+      }
+      button {
+        width: 500px;
+        height: 60px;
+        margin-top: 15px;
+        margin-bottom: 40px;
+        border: none;
+        background-color: #40b8ff;
+        color: white;
+        font-size: 17px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+    }
+  }
+}
