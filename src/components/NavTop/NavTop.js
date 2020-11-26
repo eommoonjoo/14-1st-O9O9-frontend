@@ -29,6 +29,13 @@ class NavTop extends Component {
     else this.setState({ isLogined : false });
   }
 
+  componentDidUpdate(prevProps){
+    if(prevProps.isCartUpdated !== this.props.isCartUpdated){
+      this.getCartInformation();
+      this.props.handleCartUpdated();
+    }
+  }
+
   handleLogout = () => {
     localStorage.removeItem('token');
     this.setState({isLogined: false});

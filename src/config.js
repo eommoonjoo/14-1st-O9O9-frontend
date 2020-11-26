@@ -1,7 +1,7 @@
-//카테고리 목록 목데이터
+//메인 카테고리 목록 목데이터
 export const CATEGORY_MOCK_DATA_API = 'http://localhost:3000/data/categorydata.json';
 
-//카테고리 목록 api 주소
+//메인 카테고리 목록 api 주소
 export const MAINCATEGORY_PRODUCTS_DATA_API = "http://172.30.1.29:8000/products/categories";
 
 //서브카테고리 목록 목데이터
