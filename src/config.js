@@ -61,3 +61,6 @@ export const QUESTIONINFO_API = 'http://10.58.4.236:8000/review/questioninfo';
 // 승제님 qna enroll api
 export const QUESTION_ENROLL_API =
   'http://10.58.4.236:8000/review/questionenroll';
+
+  // 카트 목록 불러오는 api
+  export const CART_API = 'http://10.58.5.206:8000/order/';

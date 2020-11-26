@@ -3,6 +3,7 @@ import { VscTrash } from 'react-icons/vsc';
 import { AiOutlineClose } from 'react-icons/ai';
 import CartList from './components/CartList';
 import './Cart.scss';
+import {CART_API} from '../../config';
 
 class Cart extends Component {
     constructor() {
@@ -14,7 +15,7 @@ class Cart extends Component {
     }
 
     componentDidMount = () => {
-      fetch('http://10.58.5.206:8000/order/', {
+      fetch(CART_API, {
        method: 'GET',
     // headers: {authorization : localStorage.getItem('token')}
     // get은 body를 못 만들어 ...!!
@@ -37,7 +38,7 @@ class Cart extends Component {
         cartItem[idx].count--;
         this.setState({cartItem});
 
-        fetch(`http://10.58.2.26:8000/order/${cartItem[idx].id}`, {
+        fetch(`${CART_API}${cartItem[idx].id}`, {
             method: 'PATCH',
             body: JSON.stringify({
                 count: cartItem[idx].count
@@ -60,7 +61,7 @@ class Cart extends Component {
             cartItem[idx].count++;
             this.setState({cartItem})
         
-            fetch(`http://10.58.2.26:8000/order/${cartItem[idx].id}`, {
+            fetch(`${CART_API}${cartItem[idx].id}`, {
                 method: 'PATCH',
                 body: JSON.stringify({
                     count: cartItem[idx].count
@@ -81,7 +82,7 @@ class Cart extends Component {
         let removeItem = cartItem.filter((e) => el.id !== e.id);
         this.setState({cartItem: removeItem})
 
-        fetch(`http://10.58.2.26:8000/order/cart`, {
+        fetch(`${CART_API}cart`, {
             method: 'POST',
             body: JSON.stringify({
                 ids: [el.id]
@@ -109,7 +110,7 @@ class Cart extends Component {
         })
         let removeItem = cartItem.filter((el) => el.ischecked !== true)
         this.setState({cartItem : removeItem});
-        fetch(`http://10.58.2.26:8000/order/cart`, {
+        fetch(`${CART_API}cart`, {
             method: 'POST',
             body: JSON.stringify({
                 ids: remove
