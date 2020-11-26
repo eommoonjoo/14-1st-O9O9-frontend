@@ -14,7 +14,7 @@ class Cart extends Component {
     }
 
     componentDidMount = () => {
-      fetch('http://10.58.2.26:8000/order/', {
+      fetch('http://10.58.5.206:8000/order/', {
        method: 'GET',
     // headers: {authorization : localStorage.getItem('token')}
     // get은 body를 못 만들어 ...!!

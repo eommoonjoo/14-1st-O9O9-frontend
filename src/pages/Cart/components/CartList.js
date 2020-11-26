@@ -18,33 +18,30 @@ class CartList extends Component {
                 return (
                     <div className='selectionList' key={idx}>
                         <div className='productName'>
-                        <div className='productTitle'>
-                            <input type="checkbox" id="checkBox" idx={el.id} onChange={()=> {this.props.onChecked(el)}} checked={el.ischecked}/>
-                            {/* input 버튼의 check상태: true, false로 관리할 수 있다. */}
-                            <label htmlFor="checkBox" />
-                            <div className='productId'>{el.productName} </div>
+                            <div className='productTitle'>
+                                <input type="checkbox" id="checkBox" idx={el.id} onChange={()=> {this.props.onChecked(el)}} checked={el.ischecked}/>
+                                {/* input 버튼의 check상태: true, false로 관리할 수 있다. */}
+                                <label htmlFor="checkBox" />
+                                <div className='productId'>{el.productName} </div>
+                            </div>
+                            <AiOutlineClose size="20" className='XIcon' onClick={() => {this.props.onDelete(el)}}/>
                         </div>
-                        <AiOutlineClose size="20" className='XIcon' onClick={() => {this.props.onDelete(el)}}/>
-                    </div>
-                    <div className='product'>
-                        <img className='productImage' src={el.url} alt="이미지"/>
-                        <div className='priceList'>
-                            <div className='price'><span>{(el.price * el.count).toLocaleString(2)}</span>
-                            <span className='won'>원</span>
+                        <div className='product'>
+                            <img className='productImage' src={el.url} alt="이미지"/>
+                            <div className='priceList'>
+                                <div className='price'>
+                                    <span>{(el.price * el.count).toLocaleString(2)}</span>
+                                    <span className='won'>원</span>
+                                </div>
+                                <div className='amount'>
+                                    <button className='minus'  onClick={() => this.props.onMinus(el)} >-</button>
+                                    <button className='quentity' disabled >{el.count}</button>
+                                    <button className='plus' onClick={() => this.props.onPlus(el)} >+</button>
+                                    <button className='buy'>즉시구매</button>
+                                </div>
+                            </div>
                         </div>
-                        <div className='amount'>
-                        <table>
-                            <tr>
-                            <td className='minus' onClick={() => this.props.onMinus(el)}>-</td>
-                            <td>{el.count}</td>
-                            <td className='plus' onClick={() => this.props.onPlus(el)}>+</td>
-                            </tr>
-                        </table>
-                        <button className='buy'>즉시구매</button>
                     </div>
-                </div>
-            </div>
-        </div>
             )
           })}
         </>
