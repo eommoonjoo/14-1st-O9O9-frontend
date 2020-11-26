@@ -1,0 +1,48 @@
+@import '../../../../styles/common.scss';
+
+.ProductInfoTab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-left: -85px;
+
+  .productInfoTabContainer {
+    width: 920px;
+    margin: 20px 20px 0 20px;
+    @include flexCenter;
+    background-color: white;
+
+    > li {
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      color: #212423;
+      font-size: 14px;
+      font-weight: 600;
+      background-color: #f6f6f6;
+      text-align: center;
+      border: 0.5px solid lightgray;
+      border-top: none;
+      border-bottom: 1px solid #212423;
+      cursor: pointer;
+
+      //li이면서 select인것
+      &.selected {
+        background-color: #212423;
+        color: white;
+      }
+    }
+  }
+
+  .contents {
+    width: 920px;
+    padding: 10px;
+    margin: 0 20px;
+    font-size: 30px;
+    border: 1px solid lightgray;
+    border-top: none;
+    text-align: center;
+    background-color: white;
+  }
+}
