@@ -34,6 +34,7 @@ export const CATEGORIES_API = 'http://172.30.1.29:8000/products';
 
 export const SUBCATEGORY_PRODUCTS_DATA_API = '';
 
+
 // SignUp Page //
 // 회원가입 유효성 검사 API
 export const CHECK_VALIDATION_API = 'http://10.58.4.236:8000/user/signup';
@@ -64,3 +65,6 @@ export const LOGIN_CHECK_VALIDATION_API = "http://10.58.4.236:8000/user/signin";
 // 승제님 qna enroll api
 export const QUESTION_ENROLL_API =
   'http://10.58.4.236:8000/review/questionenroll';
+
+  // 카트 목록 불러오는 api
+  export const CART_API = 'http://10.58.5.206:8000/order/';
