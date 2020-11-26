@@ -14,20 +14,20 @@ class NavTop extends Component {
     super();
     this.state = {
       activateMyPage: true, 
-      isLogined: true,
+      isLogined: false,
       userInfo: "",
       cartList: []
     };
   }
 
   componentDidMount() {
-    // if(localStorage.getItem('token')){
-    //   this.getUserInformation();
-    //   this.getCartInformation();
-    //   this.setState({ isLogined : true });
-    //   return;
-    // }
-    // this.setState({ isLogined : false });
+    if(localStorage.getItem('token')){
+      this.getUserInformation();
+      this.getCartInformation();
+      this.setState({ isLogined : true });
+      return;
+    }
+    this.setState({ isLogined : false });
   }
 
   componentDidUpdate(prevProps){
