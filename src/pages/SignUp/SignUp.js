@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SignUp.scss';
+import {Link} from 'react-router-dom';
 import { AiFillLock } from 'react-icons/ai';
 import { FaUserLock } from 'react-icons/fa';
 import {AiOutlineUnlock} from 'react-icons/ai';
@@ -7,6 +7,7 @@ import { CHECK_VALIDATION_API } from '../../config';
 import { DUPLICATION_CHECK_API } from '../../config';
 import { POST_EMAIL_API } from '../../config';
 import { CODE_CHECK_API } from '../../config';
+import './SignUp.scss';
 
 
 class SignUp extends Component {
@@ -260,7 +261,9 @@ class SignUp extends Component {
             <div className='SignUp'>
                 <div className='joinContent'>
                     <div className='logo'>
-                        <img src='./images/logo_transparent.png' alt='로고이미지'/>
+                        <Link to='/'>
+                            <img src='./images/logo_transparent.png' alt='로고이미지'/>
+                        </Link>
                     </div>
                     <div className='joinText'>잠깐 O9마켓 회원이신가요?</div>
                     <div className='joinTextBox'>
