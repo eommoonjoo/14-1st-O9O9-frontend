@@ -5,6 +5,7 @@ import {MAINCATEGORIES} from '../navData';
 import {CATEGORIES_API, CATEGORY_MOCK_DATA_API} from '../../config';
 import './NavSide.scss'
 
+
 class NavSide extends Component {
   constructor(){
     super();
@@ -45,7 +46,7 @@ class NavSide extends Component {
         <div className="categories">
           <div className="logoContainer">
             <Link to="/">
-              <img src="./images/logo.png" alt="O9O9 logo"/>
+              <img src="/images/logo.png" alt="O9O9 logo"/>
             </Link>
           </div>
           <div className="categoryTop">
