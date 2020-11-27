@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { REAVIEW_MOCK_DATA_API } from '../../../../../config';
+import { PRODUCT_REVIEW_API } from '../../../../../config';
 import './Review.scss';
 
 const rating = {
@@ -17,15 +17,17 @@ class Review extends Component {
   }
 
   componentDidMount() {
-    fetch(REAVIEW_MOCK_DATA_API)
+    fetch(PRODUCT_REVIEW_API)
       .then((res) => res.json())
       .then((res) => {
-        this.setState({ reviewdata: res.reviewdata });
+        console.log(res);
+        this.setState({ reviewdata: res.reviews });
       });
   }
 
   render() {
     const { reviewdata } = this.state;
+    console.log(reviewdata);
     return (
       <div className='Review'>
         <div className='reviewContainer'>
@@ -51,9 +53,10 @@ class Review extends Component {
                   {rating[list.satisfaction]}
                 </div>
                 <div className='reviewInput'>{list.content}</div>
-                <div className='reviewInput rateing'>{list.registDate}</div>
+                <div className='reviewInput rateing'>
+                  {list.created_at.slice(0, 10)}
+                </div>
               </div>
-              //satisfaction은 숫자로 받으면
             ))}
           </div>
         </div>
