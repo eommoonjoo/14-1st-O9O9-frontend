@@ -11,7 +11,7 @@ class Detail extends Component {
     return (
       <div className='Detail'>
         <img
-          src={productInfo && productInfo.detailproductImage}
+          src={productInfo && productInfo.detailproduct_image}
           alt='detail_Image'
         />
 
@@ -21,77 +21,77 @@ class Detail extends Component {
             <div className='modalTemplate'>
               <div className='subtitle'>상품번호</div>
               <div className='radioGroup'>
-                {productInfo.moreInformation &&
-                  productInfo.moreInformation.business_classification}
+                {productInfo.more_information &&
+                  productInfo.more_information.business_classification}
               </div>
               <div className='subtitle'>면세여부</div>
               <div>
-                {productInfo.moreInformation &&
-                  productInfo.moreInformation.tax_status}
+                {productInfo.more_information &&
+                  productInfo.more_information.tax_status}
               </div>
               <div className='subtitle'>영수증발행</div>
               <div>
-                {productInfo.moreInformation &&
-                  productInfo.moreInformation.receipt}
+                {productInfo.more_information &&
+                  productInfo.more_information.receipt}
               </div>
               <div className='subtitle'>사업자구분</div>
               <div>
-                {productInfo.moreInformation &&
-                  productInfo.moreInformation.origin}
+                {productInfo.more_information &&
+                  productInfo.more_information.origin}
               </div>
               <div className='subtitle'>생산자/수입자</div>
               <div>
-                {productInfo.moreInformation &&
-                  productInfo.moreInformation.producer_importer}
+                {productInfo.more_information &&
+                  productInfo.more_information.producer_importer}
               </div>
               <div className='subtitle lastrow'>원산지</div>
               <div>
-                {productInfo.moreInformation &&
-                  productInfo.moreInformation.origin}
+                {productInfo.more_information &&
+                  productInfo.more_information.origin}
               </div>
               <div className='subtitle lastrow'>제조연월일</div>
               <div>
-                {productInfo.moreInformation &&
-                  productInfo.moreInformation.manufacturing_date}
+                {productInfo.more_information &&
+                  productInfo.more_information.manufacturing_date}
               </div>
               <div className='subtitle lastrow'>유통기한</div>
               <div>
-                {productInfo.moreInformation &&
-                  productInfo.moreInformation.shelf_life}
+                {productInfo.more_information &&
+                  productInfo.more_information.shelf_life}
               </div>
               <div className='subtitle lastrow'>보관방법 또는 취급방법</div>
               <div>
-                {productInfo.moreInformation &&
-                  productInfo.moreInformation.origin}
+                {productInfo.more_information &&
+                  productInfo.more_information.origin}
               </div>
               <div className='subtitle lastrow'>주문후 예상 배송기간</div>
               <div className='lastrow'>
-                {productInfo.moreInformation &&
-                  productInfo.moreInformation.delivery_period}
+                {productInfo.more_information &&
+                  productInfo.more_information.delivery_period}
               </div>
             </div>
             <h1 className='sellerTitle'>판매자 정보</h1>
             <div className='sellerInfo'>
               <div className='subtitle bold'>상호/대표자</div>
               <div>
-                {productInfo.sellerInformation &&
-                  productInfo.sellerInformation.representative}
+                {productInfo.seller_information &&
+                  productInfo.seller_information.representative}
               </div>
               <div className='subtitle'>사업자번호</div>
               <div>
-                {productInfo.sellerInformation &&
-                  productInfo.sellerInformation.business_number}
+                {productInfo.seller_information &&
+                  productInfo.seller_information.business_number}
               </div>
               <div className='subtitle lastrow bold'>연락처</div>
               <div className='lastrow'>
                 0
-                {productInfo.sellerInformation &&
-                  productInfo.sellerInformation.phone_number}
+                {productInfo.seller_information &&
+                  productInfo.seller_information.phone_number}
               </div>
               <div className='subtitle lastrow'>E-mail</div>
               <div className='lastrow'>
-                {productInfo.sellerInformation &&
-                  productInfo.sellerInformation.email}
+                {productInfo.seller_information &&
+                  productInfo.seller_information.email}
               </div>
             </div>
           </div>

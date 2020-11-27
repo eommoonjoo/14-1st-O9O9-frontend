@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link, withRouter } from 'react-router-dom';
 import { MAINCATEGORIES } from '../navData';
-import { CATEGORIES_API, CATEGORY_MOCK_DATA_API } from '../../config';
+import {
+  MAINCATEGORY_PRODUCTS_DATA_API,
+  CATEGORY_MOCK_DATA_API,
+} from '../../config';
 import './NavSide.scss';
 
 class NavSide extends Component {
@@ -23,8 +26,8 @@ class NavSide extends Component {
     // const categories = await axios.get(CATEGORY_MOCK_DATA_API);
     // this.setState({categories : categories.data.categories});
 
-    const categories = await axios.get(CATEGORIES_API);
-
+    const categories = await axios.get(MAINCATEGORY_PRODUCTS_DATA_API);
+    console.log(categories);
     this.setState({ categories: categories.data.categories });
   };
 

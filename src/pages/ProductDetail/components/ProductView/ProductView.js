@@ -15,7 +15,7 @@ class ProductView extends Component {
   }
 
   render() {
-    const { productInfo } = this.props;
+    const { productInfo, likes } = this.props;
 
     return (
       <div className='ProductView'>
@@ -25,7 +25,7 @@ class ProductView extends Component {
           </div>
           <div className='productGroup'>
             <div className='productImage'>
-              <img src={productInfo && productInfo.imageUrl} alt='감귤' />
+              <img src={productInfo && productInfo.image_url} alt='감귤' />
             </div>
             <div className='productInfo'>
               <div className='productIntro'>
@@ -33,18 +33,13 @@ class ProductView extends Component {
                   className='pickButton'
                   onClick={() => this.props.handleHeartClick()}>
                   <p className='likes'>
-                    {/* {productInfo.productview &&
-                    !productInfo.productview.heart ? (
+                    {!likes ? (
                       <RiHeart2Line style={{ fill: 'red' }} />
                     ) : (
                       <RiHeart2Fill style={{ fill: 'red' }} />
-                    )} */}
+                    )}
                     &nbsp;
-                    <span>
-                      {/* {productInfo.productview
-                        ? productInfo.productview.likesCount
-                        : ''} */}
-                    </span>
+                    <span>{productInfo ? productInfo.watch_list : ''}</span>
                   </p>
                 </div>
                 <p>
@@ -70,7 +65,12 @@ class ProductView extends Component {
                 </p>
                 <p>
                   <FiShoppingCart />
-                  &nbsp; <span>231</span>개 구매 (99,768개 구매 가능)
+                  &nbsp;{' '}
+                  <span>
+                    {productInfo &&
+                      Number(productInfo.buy_count).toLocaleString(2)}
+                  </span>
+                  개 구매 (99,768개 구매 가능)
                 </p>
               </div>
             </div>

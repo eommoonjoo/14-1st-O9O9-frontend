@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { PRODUCT_DETAIL_API } from '../../config';
+import axios from 'axios';
+import { PRODUCT_DETAIL_API, CARTLIST_API } from '../../config';
 import NavSide from '../../components/NavSide/NavSide';
 import NavTop from '../../components/NavTop/NavTop';
 import Footer from '../../components/Footer/Footer';
@@ -19,13 +20,19 @@ class ProductDetail extends Component {
       openModal: false,
       productInfo: {},
       productQuantity: 1,
-      isCartUpdated: false,
+      cartList: [],
+      likes: false,
     };
   }
 
-  handleCartUpdated = () => {
-    this.setState({ isCartUpdated: !this.state.isCartUpdated });
+  handleCartAddClick = async () => {
+    const cartdata = await axios({
+      url: CARTLIST_API,
+      headers: { authorization: localStorage.getItem('token') },
+    });
+    this.setState({ cartList: cartdata.data.product });
   };
+
   modalHandler = () => {
     this.setState({ openModal: true });
   };
@@ -55,11 +62,10 @@ class ProductDetail extends Component {
     this.setState({ productQuantity: productQuantity - 1 });
   };
   handleHeartClick = () => {
-    const { productInfo } = this.state;
-    if (productInfo.productview.heart) productInfo.productview.likesCount--;
-    else productInfo.productview.likesCount++;
-    productInfo.productview.heart = !productInfo.productview.heart;
-    this.setState({ productInfo });
+    const { productInfo, likes } = this.state;
+    if (likes) productInfo.watch_list--;
+    else productInfo.watch_list++;
+    this.setState({ productInfo, likes: !likes });
   };
 
   render() {
@@ -67,10 +73,11 @@ class ProductDetail extends Component {
       productInfo,
       productQuantity,
       openModal,
-      isCartUpdated,
+      cartList,
+      likes,
     } = this.state;
     const {
-      handleCartUpdated,
+      handleCartAddClick,
       handleHeartClick,
       handlePlusQuantity,
       handleMinusQuantity,
@@ -78,26 +85,26 @@ class ProductDetail extends Component {
       closeModal,
     } = this;
 
+    console.log(productInfo);
     return (
       <>
         <NavSide />
-        <NavTop
-          isCartUpdated={isCartUpdated}
-          handleCartUpdated={handleCartUpdated}
-        />
+        <NavTop cartList={cartList} />
         <div className='ProductDetail'>
           <SelectCategory productInfo={productInfo} />
           <div className='productSide'>
             <ProductView
               productInfo={productInfo}
               handleHeartClick={handleHeartClick}
+              likes={likes}
             />
             <ProductPayment
               productInfo={productInfo}
               productQuantity={productQuantity}
               handlePlusQuantity={handlePlusQuantity}
               handleMinusQuantity={handleMinusQuantity}
-              handleCartUpdated={handleCartUpdated}
+              handleCartAddClick={handleCartAddClick}
+              productId={this.props.match.params['id']}
             />
           </div>
           <ProductInfoTab
